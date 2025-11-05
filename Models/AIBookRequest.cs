@@ -9,7 +9,10 @@ namespace EBookDashboard.Models
 
         [JsonProperty("book_id")]
         public string BookId { get; set; }
-
+        [JsonProperty("title")]
+        public string Title { get; set; }
+        [JsonProperty("chapterno")]
+        public string ChapterNo { get; set; }
         [JsonProperty("chapter")]
         public int Chapter { get; set; }   // 👈 Should be INT (not string)
 

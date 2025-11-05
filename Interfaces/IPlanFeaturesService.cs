@@ -7,5 +7,10 @@ namespace EBookDashboard.Interfaces
     {
         Task<IEnumerable<PlanFeatures>> GetAllFeaturesAsync();
         Task AddFeatureAsync(PlanFeatures feature);
+        Task<int> SaveAuthorPlanFeaturesAsync(int authorId, int userId, string userEmail, List<int> featureIds);
+        Task<IEnumerable<AuthorPlanFeatures>> GetAuthorPlanFeaturesAsync(int authorId);
+        Task<IEnumerable<AuthorBills>> GetAuthorBillsAsync(int authorId);
+        Task<AuthorBills?> GetAuthorBillWithFeaturesAsync(int billId);
+       
     }
 }

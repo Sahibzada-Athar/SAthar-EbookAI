@@ -17,309 +17,369 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EBookDashboard
 build_property.RootNamespace = EBookDashboard
-build_property.ProjectDir = C:\Users\Hp\EbookAI\
+build_property.ProjectDir = D:\Yit Solutions 2025\eBookProjectGit25\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Hp\EbookAI
+build_property.MSBuildProjectDirectory = D:\Yit Solutions 2025\eBookProjectGit25
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Hp/EbookAI/Views/Account/ForgotPassword.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Account/ForgotPasswordConfirmation.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Account/Login.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Account/Login1.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Account/Login1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbjEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Account/Registration.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Account/Registration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Account/ResetPassword.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Account/ResetPasswordConfirmation.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/Analytics.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/Analytics.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQW5hbHl0aWNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/AuthorManagement.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/AuthorManagement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXV0aG9yTWFuYWdlbWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/BookOwnership.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/BookOwnership.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va093bmVyc2hpcC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/ContentManagement.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/ContentManagement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ29udGVudE1hbmFnZW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/Dashboard.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/DashboardNew.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/DashboardNew.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkTmV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/Index.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/Roles.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/PlanFeatures.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGxhbkZlYXR1cmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/Roles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUm9sZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/Settings.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/Settings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2V0dGluZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/Subscriptions.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/Subscriptions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3Vic2NyaXB0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/UserPlanInfo.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/UserPlanInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclBsYW5JbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Admin/Users.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Admin/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Analytics.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Analytics.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEFuYWx5dGljcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Books.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Books.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEJvb2tzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Copyright.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Copyright.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXENvcHlyaWdodC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Dashboard.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Editor.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Editor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEVkaXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Marketing.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Marketing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXE1hcmtldGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Orders.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Orders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXE9yZGVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Publishing.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Publishing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXFB1Ymxpc2hpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Royalties.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Royalties.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXFJveWFsdGllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/Settings.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/Settings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXFNldHRpbmdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Author/WriteNew.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Author/WriteNew.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXFdyaXRlTmV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Books/Create.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/BookProcessing/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1Byb2Nlc3NpbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Books/AIGenerateBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQUlHZW5lcmF0ZUJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Books/AIGenerateBook1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQUlHZW5lcmF0ZUJvb2sxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Books/AIGenerateBookFormat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQUlHZW5lcmF0ZUJvb2tGb3JtYXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Books/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Books/Edit.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Books/CreateBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQ3JlYXRlQm9vay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Books/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Books/Index.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Books/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/AdvancedEditing.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/AdvancedEditing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEFkdmFuY2VkRWRpdGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/AudioBook.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/AudioBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEF1ZGlvQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Billing.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Billing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEJpbGxpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Copyright.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Copyright.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXENvcHlyaWdodC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/CoverDesign.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/CoverDesign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXENvdmVyRGVzaWduLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/EBook.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/EBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEVCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/EditingFormatting.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/EditingFormatting.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEVkaXRpbmdGb3JtYXR0aW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/EnhancedDashboard.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/EnhancedDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEVuaGFuY2VkRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/FeaturesSelection.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/FeaturesSelection.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEZlYXR1cmVzU2VsZWN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Home.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEhvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Index.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/LivePreview.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/LivePreview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXExpdmVQcmV2aWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Marketing.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Marketing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE1hcmtldGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/OrderAuthorCopy.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/OrderAuthorCopy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE9yZGVyQXV0aG9yQ29weS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/PlanConfirmation.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/PlanConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFBsYW5Db25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/PlanSuggestion.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/PlanSuggestion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFBsYW5TdWdnZXN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Profile.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Proofreading.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Proofreading.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFByb29mcmVhZGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Publishing.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Publishing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFB1Ymxpc2hpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Royalties.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Royalties.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFJveWFsdGllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/Summary.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/Summary.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFN1bW1hcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Dashboard/WelcomeBack.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/WelcomeBack.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFdlbGNvbWVCYWNrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Editor/Dashboard.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Dashboard/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Editor/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yXERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Features/Index.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Features/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVhdHVyZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Home/Index.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Features/InvoiceFeatures.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVhdHVyZXNcSW52b2ljZUZlYXR1cmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Home/Privacy.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Payments/Checkout.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/Cancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ2FuY2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ2hlY2tvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Plans/Index.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/CheckoutPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ2hlY2tvdXRQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/FeaturesInvoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcRmVhdHVyZXNJbnZvaWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/InvoiceFeatures.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcSW52b2ljZUZlYXR1cmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcU3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Payments/_FeatureLocks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcX0ZlYXR1cmVMb2Nrcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Plans/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Reader/Dashboard.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Reader/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVhZGVyXERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Reader/Library.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Reader/Library.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVhZGVyXExpYnJhcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Reader/Plans.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Reader/Plans.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVhZGVyXFBsYW5zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Reader/Settings.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Reader/Settings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVhZGVyXFNldHRpbmdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Shared/Error.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Shared/_AdminLayout.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Shared/_AuthorLayout.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Shared/_AuthorLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BdXRob3JMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Shared/_DashboardLayout.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Shared/_DashboardLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Shared/_EditorLayout.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Shared/_EditorLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0b3JMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/_ViewImports.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/_ViewStart.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/EbookAI/Views/Shared/_Layout.cshtml]
+[D:/Yit Solutions 2025/eBookProjectGit25/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-st6on5wloh

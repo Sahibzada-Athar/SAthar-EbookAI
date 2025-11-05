@@ -9,10 +9,10 @@ namespace EBookDashboard.Controllers
     [Authorize(Roles = "Reader")] // Only Readers can access
     public class ReaderController : Controller
     {
-        private readonly IPlanService _planService;
+        private readonly IPlansService _planService;
         private readonly ApplicationDbContext _context;
 
-        public ReaderController(IPlanService planService, ApplicationDbContext context)
+        public ReaderController(IPlansService planService, ApplicationDbContext context)
         {
             _planService = planService;
             _context = context;

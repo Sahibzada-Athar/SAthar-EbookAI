@@ -8,8 +8,8 @@ namespace EBookDashboard.Models
     public class AuthorPlanFeatures
     {
         [Key]
-        [Column("Id")]
-        public int Id { get; set; }
+        [Column("AuthorFeaturesId")]
+        public int AuthorFeaturesId { get; set; }
 
         [Column("AuthorId")]
         public int AuthorId { get; set; }
@@ -26,6 +26,8 @@ namespace EBookDashboard.Models
 
         [Column("PlanId")]
         public int? PlanId { get; set; }
+        [Column("BillId")]
+        public int? BillId { get; set; }
 
         [Column("FeatureName")]
         [StringLength(45)]
@@ -45,19 +47,8 @@ namespace EBookDashboard.Models
         [Column("TotalAmount", TypeName = "decimal(10,2)")]
         public decimal TotalAmount { get; set; } = 0.00m;
 
-        [Column("PaymentReference")]
-        [StringLength(255)]
-        public string? PaymentReference { get; set; }
-
         [Column("CreatedAt")]
         public DateTime CreatedAt { get; set; }
-
-        [Column("CancelledAt")]
-        public DateTime? CancelledAt { get; set; }
-
-        [Column("CancellationReason")]
-        [StringLength(500)]
-        public string? CancellationReason { get; set; }
 
         [Column("Status")]
         [StringLength(12)]
@@ -69,5 +60,8 @@ namespace EBookDashboard.Models
         // ✅ Navigation Property (Many-to-One)
         [ForeignKey("FeatureId")]
         public PlanFeatures? PlanFeature { get; set; }
+
+        [ForeignKey("BillId")] // Add this navigation property
+        public AuthorBills? AuthorBill { get; set; }
     }
 }

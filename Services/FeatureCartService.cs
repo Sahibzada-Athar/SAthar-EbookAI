@@ -16,7 +16,7 @@ namespace EBookDashboard.Services
         public async Task<IEnumerable<PlanFeatures>> GetAllFeaturesAsync()
         {
             return await _context.PlanFeatures
-                .Where(f => f.IsActive == true)
+                .Where(f => f.IsActive == 1)
                 .OrderBy(f => f.FeatureName)
                 .ToListAsync();
         }
@@ -181,7 +181,7 @@ namespace EBookDashboard.Services
                     PlanId = planId,
                     StartDate = DateTime.UtcNow,
                     EndDate = DateTime.UtcNow.AddDays(plan.PlanDays),
-                    IsActive = true,
+                    IsActive = 1,
                     TrialUsed = true, // Mark trial as used since they're selecting a paid plan
                     CreatedAt = DateTime.UtcNow
                 };
@@ -244,7 +244,7 @@ namespace EBookDashboard.Services
             int.TryParse(userId, out userIdInt);
             
             var activePlan = await _context.AuthorPlans
-                .Where(ap => ap.AuthorId == userIdInt && ap.IsActive && ap.EndDate > DateTime.UtcNow)
+                .Where(ap => ap.AuthorId == userIdInt && ap.IsActive==1 && ap.EndDate > DateTime.UtcNow)
                 .FirstOrDefaultAsync();
 
             return activePlan != null;

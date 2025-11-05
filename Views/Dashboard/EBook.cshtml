@@ -20,18 +20,24 @@
 
         :root {
             --primary: #4a6cf7;
+            --primary-light: #6a86f8;
+            --primary-dark: #3a5bd9;
             --secondary: #6c757d;
-            --success: #198754;
+            --success: #28a745;
             --danger: #dc3545;
             --warning: #ffc107;
-            --info: #0dcaf0;
+            --info: #17a2b8;
             --light: #f8f9fa;
             --dark: #212529;
-            --content-bg: #f5f7f9;
+            --content-bg: #ffffff;
             --card-bg: #ffffff;
             --text-color: #333333;
+            --text-secondary: #6c757d;
             --border-color: #e0e0e0;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
         }
 
         body {
@@ -43,159 +49,115 @@
         }
 
             body.dark-mode {
-                --content-bg: #121826;
-                --card-bg: #1a243a;
-                --text-color: #e0e0e0;
-                --border-color: #2a2a2a;
-                --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                --content-bg: #0f172a;
+                --card-bg: #1e293b;
+                --text-color: #e2e8f0;
+                --text-secondary: #94a3b8;
+                --border-color: #334155;
+                --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.4);
             }
 
         /* Main Content Styles */
         .main-content {
-            padding: 20px;
+            padding: 40px;
             min-height: 100vh;
             position: relative;
-            width: 93%;
-            max-width: none;
-            /* margin-left: 115px; */
+            width: 100%;
+            top: -15px;
+            max-width: 1760px;
+            /* background: none; */
+            margin-left: 100px;
         }
 
         .top-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
             border-bottom: 1px solid var(--border-color);
         }
 
         .header-left h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--text-color);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .header-right {
             display: flex;
-            gap: 15px;
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
+            gap: 20px;
             align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2);
-        }
-
-            .dropdown-btn:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
-            }
-
-            .dropdown-btn:active {
-                transform: translateY(0);
-                box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
-            }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--card-bg);
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 6px;
-            overflow: hidden;
-            margin-top: 5px;
-            border: 1px solid var(--border-color);
-        }
-
-            .dropdown-content a {
-                color: var(--text-color);
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-                transition: background-color 0.3s;
-            }
-
-                .dropdown-content a:hover {
-                    background-color: var(--content-bg);
-                }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
 
         /* Button Styles */
         button {
-            padding: 10px 20px;
+            padding: 14px 28px;
             border: none;
-            border-radius: 6px;
+            border-radius: var(--radius);
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 1rem;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
-            box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2);
+            box-shadow: var(--shadow);
         }
 
             .btn-primary:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-hover);
             }
 
             .btn-primary:active {
                 transform: translateY(0);
-                box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
+                box-shadow: var(--shadow);
             }
 
         .btn-secondary {
             background: var(--secondary);
             color: white;
-            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+            box-shadow: var(--shadow);
         }
 
             .btn-secondary:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-hover);
             }
 
             .btn-secondary:active {
                 transform: translateY(0);
-                box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+                box-shadow: var(--shadow);
             }
 
         .theme-toggle {
             background: var(--dark);
             color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
         }
+
+            .theme-toggle:hover {
+                transform: rotate(15deg);
+            }
 
         /* Fixed Screen Styles - No more layout shifting */
         .screen {
@@ -217,76 +179,106 @@
         .navigation-tabs {
             display: flex;
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 30px;
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-bottom: 40px;
             box-shadow: var(--shadow);
             overflow-x: auto;
+            border: 1px solid var(--border-color);
+            gap: 10px;
         }
 
         .nav-tab {
-            padding: 12px 20px;
-            border-radius: 6px;
+            padding: 16px 24px;
+            border-radius: var(--radius);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
             white-space: nowrap;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-weight: 500;
+            gap: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
         }
 
-            .nav-tab.active {
-                background: var(--primary);
-                color: white;
+            .nav-tab::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(135deg, var(--primary), var(--primary-light));
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
             }
+
+            .nav-tab.active {
+                color: var(--primary);
+                background-color: rgba(74, 108, 247, 0.1);
+            }
+
+                .nav-tab.active::before {
+                    transform: scaleX(1);
+                }
 
             .nav-tab:hover:not(.active) {
                 background: var(--content-bg);
+                color: var(--text-color);
+            }
+
+            .nav-tab .tab-icon {
+                font-size: 1.2rem;
             }
 
         /* Upload Screen Styles */
         .upload-section {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 40px;
+            border-radius: var(--radius);
+            padding: 50px;
             box-shadow: var(--shadow);
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
         }
 
         .upload-area {
             border: 2px dashed var(--border-color);
-            border-radius: 8px;
-            padding: 40px;
-            margin: 20px 0;
-            transition: all 0.3s;
+            border-radius: var(--radius);
+            padding: 80px 50px;
+            margin: 30px 0;
+            transition: var(--transition);
             cursor: pointer;
         }
 
             .upload-area:hover {
                 border-color: var(--primary);
                 background-color: var(--content-bg);
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-hover);
             }
 
         .upload-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
         }
 
         .upload-text {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
             .upload-text h3 {
-                font-size: 1.5rem;
-                margin-bottom: 10px;
+                font-size: 2rem;
+                margin-bottom: 15px;
                 color: var(--text-color);
             }
 
             .upload-text p {
-                color: var(--secondary);
+                color: var(--text-secondary);
+                font-size: 1.1rem;
             }
 
         .file-input {
@@ -294,95 +286,124 @@
         }
 
         .upload-btn {
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .features-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .feature-card {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 25px;
+            border-radius: var(--radius);
+            padding: 35px 30px;
             box-shadow: var(--shadow);
             text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
         }
 
+            .feature-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: linear-gradient(135deg, var(--primary), var(--primary-light));
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-8px);
+                box-shadow: var(--shadow-hover);
+            }
+
+                .feature-card:hover::before {
+                    transform: scaleX(1);
+                }
+
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .feature-card h3 {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             color: var(--text-color);
+            font-size: 1.5rem;
         }
 
         .feature-card p {
-            color: var(--secondary);
-            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
         }
 
         /* Title Page Styles */
         .title-page-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
         .book-editor, .book-preview {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 25px;
+            border-radius: var(--radius);
+            padding: 40px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
 
         .editor-section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
             .editor-section h3 {
-                margin-bottom: 15px;
+                margin-bottom: 25px;
                 color: var(--text-color);
                 border-bottom: 1px solid var(--border-color);
-                padding-bottom: 10px;
+                padding-bottom: 15px;
+                font-size: 1.6rem;
             }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
             .form-group label {
                 display: block;
-                margin-bottom: 5px;
-                font-weight: 500;
+                margin-bottom: 10px;
+                font-weight: 600;
                 color: var(--text-color);
+                font-size: 1.05rem;
             }
 
             .form-group input, .form-group textarea, .form-group select {
                 width: 100%;
-                padding: 10px;
+                padding: 14px 18px;
                 border: 1px solid var(--border-color);
-                border-radius: 6px;
-                font-size: 1rem;
+                border-radius: var(--radius);
+                font-size: 1.05rem;
                 background-color: var(--card-bg);
                 color: var(--text-color);
-                transition: border-color 0.3s;
+                transition: var(--transition);
             }
 
                 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
                     outline: none;
                     border-color: var(--primary);
-                    box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+                    box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
                 }
 
             .form-group textarea {
-                min-height: 100px;
+                min-height: 150px;
                 resize: vertical;
             }
 
@@ -390,153 +411,192 @@
             text-align: center;
         }
 
-        .book-cover {
-            margin-bottom: 30px;
+        .book-cover1 {
+            margin-bottom: 40px;
         }
 
-        .book-cover-placeholder {
-            width: 200px;
-            height: 300px;
+        .book-cover1-placeholder {
+            width: 250px;
+            height: 350px;
             background: var(--content-bg);
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 8px;
+            border-radius: var(--radius);
             border: 2px dashed var(--border-color);
+            transition: var(--transition);
         }
 
-            .book-cover-placeholder i {
-                font-size: 3rem;
-                color: var(--secondary);
+            .book-cover1-placeholder:hover {
+                border-color: var(--primary);
+            }
+
+            .book-cover1-placeholder i {
+                font-size: 3.5rem;
+                color: var(--text-secondary);
             }
 
         .book-title-preview {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
             .book-title-preview h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
                 color: var(--text-color);
-                margin-bottom: 10px;
+                margin-bottom: 15px;
             }
 
             .book-title-preview p {
-                font-size: 1.2rem;
-                color: var(--secondary);
+                font-size: 1.4rem;
+                color: var(--text-secondary);
                 font-style: italic;
             }
 
         .book-author-preview {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
             .book-author-preview h3 {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
                 color: var(--text-color);
             }
 
         .publisher-info {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
         }
 
         .premium-section {
             background: linear-gradient(135deg, #1e2a4a 0%, #4a6cf7 100%);
             color: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: var(--radius);
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
         }
 
             .premium-section h4 {
-                margin-bottom: 15px;
-                font-size: 1.2rem;
+                margin-bottom: 20px;
+                font-size: 1.5rem;
             }
 
         .premium-buttons {
             display: flex;
-            gap: 10px;
+            gap: 20px;
             justify-content: center;
         }
 
         /* Chapters Styles */
         .chapters-container {
             display: grid;
-            grid-template-columns: 50% 50%;
-            gap: 30px;
+            grid-template-columns: 45% 55%;
+            gap: 40px;
         }
 
         .chapters-list, .chapter-editor {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 25px;
+            border-radius: var(--radius);
+            padding: 40px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
 
         .chapters-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
 
             .chapters-header h3 {
                 color: var(--text-color);
+                font-size: 1.6rem;
             }
 
         .chapters-search {
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             width: 100%;
         }
 
             .chapters-search input {
                 flex-grow: 1;
-                padding: 10px;
+                padding: 14px 18px;
                 border: 1px solid var(--border-color);
-                border-radius: 6px 0 0 6px;
+                border-radius: var(--radius) 0 0 var(--radius);
                 border-right: none;
                 background-color: var(--card-bg);
                 color: var(--text-color);
+                transition: var(--transition);
+                font-size: 1.05rem;
             }
 
+                .chapters-search input:focus {
+                    outline: none;
+                    border-color: var(--primary);
+                }
+
             .chapters-search button {
-                border-radius: 0 6px 6px 0;
+                border-radius: 0 var(--radius) var(--radius) 0;
             }
 
         .chapters-items {
-            max-height: 500px;
+            max-height: 600px;
             overflow-y: auto;
         }
 
         .chapter-item {
-            padding: 15px;
+            padding: 22px;
             border-bottom: 1px solid var(--border-color);
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: var(--transition);
+            border-radius: var(--radius);
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
         }
+
+            .chapter-item::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 4px;
+                background: linear-gradient(135deg, var(--primary), var(--primary-light));
+                transform: scaleY(0);
+                transition: transform 0.3s ease;
+            }
 
             .chapter-item:hover {
                 background-color: var(--content-bg);
+                transform: translateX(5px);
             }
 
             .chapter-item.active {
                 background-color: var(--content-bg);
-                border-left: 4px solid var(--primary);
+                box-shadow: var(--shadow);
             }
+
+                .chapter-item.active::before {
+                    transform: scaleY(1);
+                }
 
         .chapter-title {
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: var(--text-color);
+            font-size: 1.2rem;
         }
 
         .chapter-preview {
-            font-size: 0.9rem;
-            color: var(--secondary);
+            font-size: 1rem;
+            color: var(--text-secondary);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -544,45 +604,49 @@
 
         .editor-actions {
             display: flex;
-            gap: 10px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .word-count {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: var(--content-bg);
-            border-radius: 8px;
+            margin-top: 25px;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: var(--radius);
             text-align: center;
+            color: white;
+            box-shadow: var(--shadow);
         }
 
             .word-count h4 {
-                margin-bottom: 10px;
-                color: var(--text-color);
+                margin-bottom: 15px;
+                color: white;
+                font-size: 1.2rem;
             }
 
         .count-value {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 700;
-            color: var(--primary);
+            color: white;
         }
 
         /* Toast Notification */
         .toast {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 30px;
+            right: 30px;
             background: var(--card-bg);
-            padding: 15px 25px;
-            border-radius: 8px;
+            padding: 18px 30px;
+            border-radius: var(--radius);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transform: translateX(150%);
             transition: transform 0.3s;
             z-index: 1000;
             color: var(--text-color);
+            border-left: 4px solid var(--success);
         }
 
             .toast.show {
@@ -590,15 +654,15 @@
             }
 
             .toast.success {
-                border-left: 4px solid var(--success);
+                border-left-color: var(--success);
             }
 
             .toast.error {
-                border-left: 4px solid var(--danger);
+                border-left-color: var(--danger);
             }
 
         .toast-icon {
-            font-size: 24px;
+            font-size: 26px;
         }
 
         .toast.success .toast-icon {
@@ -612,8 +676,8 @@
         /* Loading Spinner */
         .spinner {
             display: inline-block;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: #fff;
@@ -626,18 +690,115 @@
             }
         }
 
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+            .dropdown-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-hover);
+            }
+
+            .dropdown-btn:active {
+                transform: translateY(0);
+                box-shadow: var(--shadow);
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--card-bg);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-top: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+            .dropdown-content a {
+                color: var(--text-color);
+                padding: 14px 18px;
+                text-decoration: none;
+                display: block;
+                transition: background-color 0.3s;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: var(--content-bg);
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Dropdown sections in ebook details */
+        .dropdown-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: var(--content-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .dropdown-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .dropdown-section-header h3, .dropdown-section-header h4 {
+                color: var(--text-color);
+                margin: 0;
+            }
+
         /* Responsive Styles */
-        @@media (max-width: 1200px) {
-            .title-page-container, .chapters-container {
-                grid-template-columns: 1fr;
+        @@media (max-width: 1888px) {
+            .main-content {
+                padding: 35px;
             }
         }
 
-        @@media (max-width: 992px) {
+        @@media (max-width: 1600px) {
+            .main-content {
+                padding: 30px;
+            }
+        }
+
+        @@media (max-width: 1400px) {
+            .title-page-container, .chapters-container {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 25px;
+            }
+        }
+
+        @@media (max-width: 1200px) {
             .top-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 20px;
+                gap: 25px;
             }
 
             .header-right {
@@ -645,13 +806,17 @@
                 justify-content: space-between;
                 flex-wrap: wrap;
             }
+
+            .features-section {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
         }
 
-        @@media (max-width: 768px) {
+        @@media (max-width: 992px) {
             .top-header {
                 flex-direction: column;
                 text-align: center;
-                gap: 20px;
+                gap: 25px;
             }
 
             .header-right {
@@ -668,36 +833,32 @@
             }
 
             .upload-section {
-                padding: 20px;
+                padding: 35px;
             }
 
             .upload-area {
-                padding: 20px;
+                padding: 60px 30px;
             }
 
             .book-editor, .book-preview, .chapters-list, .chapter-editor {
-                padding: 20px;
+                padding: 35px;
             }
 
-            .upload-icon, .book-cover-placeholder i {
-                font-size: 2rem;
+            .upload-icon, .book-cover1-placeholder i {
+                font-size: 3.5rem;
             }
 
             .header-left h1 {
-                font-size: 1.5rem;
-            }
-
-            .header-left p {
-                font-size: 1rem;
+                font-size: 2.2rem;
             }
 
             .chapters-container {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 30px;
             }
 
             .chapter-editor .form-group textarea {
-                min-height: 200px;
+                min-height: 250px;
             }
 
             .editor-actions {
@@ -715,29 +876,48 @@
             .dropdown-content {
                 position: static;
                 width: 100%;
-                margin-top: 10px;
+                margin-top: 15px;
+            }
+
+            .dropdown-section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
             }
         }
 
-        @@media (max-width: 576px) {
+        @@media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 40px;
+                min-height: 100vh;
+                position: relative;
+                width: 100%;
+                max-width: 1980px;
+                margin-left: 0;
+                background: none;
+            }
+
             .book-editor, .book-preview, .chapters-list, .chapter-editor {
-                padding: 15px;
+                padding: 25px;
             }
 
             .upload-section {
-                padding: 15px;
+                padding: 25px;
             }
 
             .header-right {
                 flex-direction: column;
                 width: 100%;
-                gap: 10px;
+                gap: 15px;
             }
 
             .theme-toggle {
-                background-color: var(--dark);
-                border-radius: 8px;
                 width: 100%;
+                border-radius: var(--radius);
             }
 
             .header-right button, .header-right .dropdown {
@@ -746,7 +926,7 @@
             }
 
             .title-page-container, .chapters-container {
-                gap: 15px;
+                gap: 25px;
             }
 
             .chapters-items {
@@ -755,51 +935,46 @@
                 overflow-y: auto;
             }
 
-            button#themeToggle {
-                border-radius: 50%;
-                width: 54px;
-            }
-
             .upload-area {
-                padding: 15px;
+                padding: 40px 20px;
             }
 
             .upload-text h3 {
-                font-size: 1.2rem;
+                font-size: 1.7rem;
             }
 
             .upload-text p {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
-            .book-cover-placeholder {
-                width: 150px;
-                height: 225px;
+            .book-cover1-placeholder {
+                width: 200px;
+                height: 300px;
             }
 
             .book-title-preview h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             .book-author-preview h3 {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
 
             .form-group input, .form-group textarea, .form-group select {
-                padding: 8px;
-                font-size: 0.9rem;
+                padding: 12px 15px;
+                font-size: 1rem;
             }
 
             .chapter-title {
-                font-size: 0.95rem;
+                font-size: 1.1rem;
             }
 
             .chapter-preview {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
 
             .count-value {
-                font-size: 1.5rem;
+                font-size: 2.5rem;
             }
 
             .chapters-header {
@@ -816,13 +991,13 @@
             }
 
                 .chapters-search input {
-                    border-radius: 6px;
+                    border-radius: var(--radius);
                     border-right: 1px solid var(--border-color);
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
                 }
 
                 .chapters-search button {
-                    border-radius: 6px;
+                    border-radius: var(--radius);
                 }
 
             .navigation-tabs {
@@ -839,14 +1014,22 @@
             }
         }
 
-        @@media (max-width: 400px) {
-            .header-right button {
-                padding: 8px 12px;
-                font-size: 0.8rem;
+        @@media (max-width: 576px) {
+
+            .main-content {
+                padding: 40px;
+                min-height: 100vh;
+                position: relative;
+                width: 100%;
+                max-width: 1980px;
+                margin-left: 0;
+                background: none;
             }
 
-            .theme-toggle {
-                width: 100%;
+
+            .header-right button {
+                padding: 12px 18px;
+                font-size: 0.95rem;
             }
 
             .premium-buttons button {
@@ -857,38 +1040,23 @@
                 width: 100%;
             }
 
-            .book-cover-placeholder {
-                width: 120px;
-                height: 180px;
+            .book-cover1-placeholder {
+                width: 180px;
+                height: 270px;
             }
 
             .feature-card {
-                padding: 15px;
+                padding: 25px 20px;
             }
 
             .feature-icon {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
         }
 
         .header-left p {
-            font-size: 1.2rem;
-            color: var(--secondary);
-        }
-        
-        /* Dropdown sections in ebook details */
-        .dropdown-section {
-            margin: 20px 0;
-            padding: 15px;
-            background: var(--content-bg);
-            border-radius: 8px;
-        }
-        
-        .dropdown-section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
         }
     </style>
 </head>
@@ -909,13 +1077,13 @@
         <!-- Navigation Tabs -->
         <div class="navigation-tabs">
             <div class="nav-tab active" data-screen="upload-screen">
-                <i class="fas fa-upload"></i> Upload Manuscript
+                <i class="fas fa-upload tab-icon"></i> Upload Manuscript
             </div>
             <div class="nav-tab" data-screen="title-page-screen">
-                <i class="fas fa-font"></i> Ebook Details
+                <i class="fas fa-font tab-icon"></i> Ebook Details
             </div>
             <div class="nav-tab" data-screen="chapters-screen">
-                <i class="fas fa-list"></i> Chapters
+                <i class="fas fa-list tab-icon"></i> Chapters
             </div>
         </div>
 
@@ -996,7 +1164,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <!-- Book Options Dropdown Section -->
                     <div class="dropdown-section">
                         <div class="dropdown-section-header">
@@ -1013,7 +1181,7 @@
                         </div>
                         <p>Use these options to manage your ebook publishing and distribution.</p>
                     </div>
-                    
+
                     <div class="editor-section">
                         <h3>Publication Details</h3>
                         <div class="form-group">
@@ -1040,8 +1208,8 @@
                 </div>
                 <div class="book-preview">
                     <div class="preview-section">
-                        <div class="book-cover">
-                            <div class="book-cover-placeholder">
+                        <div class="book-cover1">
+                            <div class="book-cover1-placeholder">
                                 <i class="fas fa-book"></i>
                             </div>
                             <button class="btn-secondary" id="uploadCoverBtn"><i class="fas fa-upload"></i> Upload Cover Image</button>
@@ -1076,7 +1244,7 @@
                         <h3>Table of Contents</h3>
                         <button class="btn-primary" id="addChapterBtn"><i class="fas fa-plus"></i> Add Chapter</button>
                     </div>
-                    
+
                     <!-- Chapter Options Dropdown Section -->
                     <div class="dropdown-section">
                         <div class="dropdown-section-header">
@@ -1093,7 +1261,7 @@
                         </div>
                         <p>Use these options to manage your chapters and content.</p>
                     </div>
-                    
+
                     <div class="chapters-search">
                         <input type="text" placeholder="Search chapters..." id="searchChapters">
                         <button class="btn-secondary" id="searchBtn"><i class="fas fa-search"></i></button>
@@ -1450,7 +1618,7 @@ We'll cover:
                     if (file.type.startsWith('image/')) {
                         const reader = new FileReader();
                         reader.onload = (e) => {
-                            const bookCover = document.querySelector('.book-cover-placeholder');
+                            const bookCover = document.querySelector('.book-cover1-placeholder');
                             bookCover.innerHTML = `<img src="${e.target.result}" alt="Book Cover" style="width:100%;height:100%;object-fit:cover;border-radius:6px;">`;
                             showToast('Cover image uploaded successfully!', 'success');
                         };
@@ -1472,14 +1640,14 @@ We'll cover:
                 previewSubtitle.textContent = bookSubtitle.value || 'Ebook Subtitle';
                 previewAuthor.textContent = bookAuthor.value || 'Author Name';
                 previewPublisher.textContent = publisherName.value || 'Publisher Name';
-                
+
                 // Format date for preview
                 if (publicationDate.value) {
                     const date = new Date(publicationDate.value);
-                    previewDate.textContent = date.toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
+                    previewDate.textContent = date.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
                     });
                 } else {
                     previewDate.textContent = 'Publication Date';
@@ -1567,6 +1735,7 @@ We'll cover:
             if (chapterItems.length > 0) {
                 chapterItems[0].classList.add('active');
                 loadChapter(1);
+
             }
         });
 
@@ -1575,13 +1744,13 @@ We'll cover:
             previewSubtitle.textContent = bookSubtitle.value;
             previewAuthor.textContent = bookAuthor.value;
             previewPublisher.textContent = publisherName.value;
-            
+
             if (publicationDate.value) {
                 const date = new Date(publicationDate.value);
-                previewDate.textContent = date.toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
+                previewDate.textContent = date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
                 });
             } else {
                 previewDate.textContent = 'Publication Date';

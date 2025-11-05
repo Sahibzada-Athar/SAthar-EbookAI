@@ -1,0 +1,1992 @@
+﻿@model EBookDashboard.Models.ViewModels.AIGenerateBookViewModel
+
+@{
+    ViewData["Title"] = "AI Book Generator";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<style>
+    /* Dribbble-inspired UI with modern aesthetics */
+    :root {
+        --primary: #7c3aed;
+        --primary-light: #8b5cf6;
+        --primary-dark: #6d28d9;
+        --secondary: #06b6d4;
+        --accent: #f59e0b;
+        --surface: #ffffff;
+        --background: #f8fafc;
+        --card-bg: #ffffff;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --text-muted: #94a3b8;
+        --border: #e2e8f0;
+        --border-light: #f1f5f9;
+        --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --radius: 16px;
+        --radius-sm: 12px;
+        --radius-lg: 20px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+        --gradient-accent: linear-gradient(135deg, var(--accent), #ec4899);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: var(--background);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    .main-container {
+        max-width: 1555px;
+        /* margin: 0 auto; */
+        padding: 40px 0px;
+        min-height: 100vh;
+    }
+
+    /* Header with animated gradient */
+    .header {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+    }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.1;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+    @@keyframes float {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0px);
+        }
+
+        50% {
+            transform: translateX(-50%) translateY(-20px);
+        }
+    }
+
+    .header h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        display: inline-block;
+    }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+    .header p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* Main layout grid */
+    .layout-grid {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 40px;
+        align-items: start;
+    }
+
+    /* Generator Card */
+    .generator-card {
+        background: var(--card-bg);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        transition: var(--transition);
+        position: relative;
+    }
+
+        .generator-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .generator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+    .card-header {
+        padding: 32px 32px 0;
+        border-bottom: none;
+    }
+
+    .card-body {
+        padding: 32px;
+    }
+
+    /* Form Elements */
+    .form-group {
+        margin-bottom: 24px;
+        position: relative;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--text-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 16px 20px;
+        border: 2px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-size: 1rem;
+        transition: var(--transition);
+        background: var(--surface);
+        font-weight: 500;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
+            transform: translateY(-2px);
+        }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px 28px;
+        border: none;
+        border-radius: var(--radius-sm);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+        }
+
+    .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+            transform: translateY(-3px);
+        }
+
+    .btn-secondary {
+        background: var(--surface);
+        color: var(--text-primary);
+        border: 2px solid var(--border);
+    }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-success {
+        background: var(--gradient-accent);
+        color: white;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+        .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            transform: translateY(-3px);
+        }
+
+    .btn-group {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .btn-group-center {
+        justify-content: center;
+    }
+
+    /* Dropdown */
+    .dropdown-container {
+        position: relative;
+        margin-bottom: 24px;
+    }
+
+        .dropdown-container select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 50px;
+            cursor: pointer;
+        }
+
+    /* Loading Animation */
+    .loading-spinner {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 3px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+    }
+
+    @@keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Results Section */
+    .book-result {
+        margin-top: 40px;
+    }
+
+    .book-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-align: center;
+        color: var(--text-primary);
+        position: relative;
+    }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+    .chapter-count {
+        text-align: center;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+        font-size: 1.1rem;
+    }
+
+    /* Chat-style Streaming Messages */
+    .chat-container {
+        max-height: 600px;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    .message {
+        display: flex;
+        margin-bottom: 24px;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @@keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .message-ai {
+        justify-content: flex-start;
+    }
+
+    .message-user {
+        justify-content: flex-end;
+    }
+
+    .message-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin: 0 12px;
+        flex-shrink: 0;
+    }
+
+    .message-ai .message-avatar {
+        background: var(--gradient-primary);
+        color: white;
+    }
+
+    .message-user .message-avatar {
+        background: var(--gradient-accent);
+        color: white;
+    }
+
+    .message-content {
+        max-width: 70%;
+        padding: 16px 20px;
+        border-radius: var(--radius);
+        position: relative;
+    }
+
+    .message-ai .message-content {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-top-left-radius: 4px;
+    }
+
+    .message-user .message-content {
+        background: var(--gradient-primary);
+        color: white;
+        border-top-right-radius: 4px;
+    }
+
+    .streaming-content {
+        min-height: 20px;
+    }
+
+    .typing-indicator {
+        display: flex;
+        gap: 4px;
+        padding: 8px 0;
+    }
+
+    .typing-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--text-muted);
+        animation: typing 1.4s infinite ease-in-out;
+    }
+
+        .typing-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+    @@keyframes typing {
+        0%, 80%, 100% {
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+
+        40% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Chapter Accordion */
+    .chapter-accordion {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        margin-top: 24px;
+    }
+
+    .chapter-item {
+        border-bottom: 1px solid var(--border-light);
+        transition: var(--transition);
+    }
+
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-item:hover {
+            background: var(--background);
+        }
+
+    .chapter-header {
+        margin: 0;
+    }
+
+    .chapter-button {
+        width: 100%;
+        padding: 20px 24px;
+        background: var(--surface);
+        border: none;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+        color: var(--text-primary);
+    }
+
+        .chapter-button:hover {
+            background: var(--background);
+            color: var(--primary);
+        }
+
+        .chapter-button::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: var(--transition);
+            color: var(--text-muted);
+        }
+
+        .chapter-button.collapsed::after {
+            content: '+';
+        }
+
+        .chapter-button:not(.collapsed)::after {
+            content: '−';
+            color: var(--primary);
+        }
+
+    .chapter-body {
+        padding: 0 24px 24px;
+        background: var(--surface);
+        line-height: 1.7;
+        color: var(--text-secondary);
+        border-top: 1px solid var(--border-light);
+        margin-top: 0;
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Alerts & Notifications */
+    .alert {
+        padding: 20px 24px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    .alert-success {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        color: #065f46;
+    }
+
+    .alert-warning {
+        background: rgba(245, 158, 11, 0.1);
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        color: #92400e;
+    }
+
+    .alert-danger {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        color: #991b1b;
+    }
+
+    /* Notification System */
+    .notification {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        padding: 16px 20px;
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        max-width: 400px;
+        transform: translateX(120%);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background: var(--surface);
+        border-left: 4px solid var(--primary);
+    }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+    .notification-success {
+        border-left-color: #10b981;
+    }
+
+    .notification-error {
+        border-left-color: #ef4444;
+    }
+
+    .notification-warning {
+        border-left-color: #f59e0b;
+    }
+
+    /* Features Sidebar */
+    .features-sidebar {
+        background: var(--card-bg);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: 32px;
+        border: 1px solid var(--border);
+        position: sticky;
+        top: 40px;
+    }
+
+    .sidebar-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+        text-align: center;
+    }
+
+    .feature-list {
+        list-style: none;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding: 16px;
+        border-radius: var(--radius-sm);
+        transition: var(--transition);
+    }
+
+        .feature-item:hover {
+            background: var(--background);
+            transform: translateX(8px);
+        }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        background: var(--gradient-primary);
+        color: white;
+    }
+
+    .feature-content h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: var(--text-primary);
+    }
+
+    .feature-content p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    /* Responsive Design */
+    @@media (max-width: 1024px) {
+        .layout-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .features-sidebar {
+            position: static;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .main-container {
+            padding: 24px 16px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .btn-group {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .message-content {
+            max-width: 85%;
+        }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--border-light);
+        border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 3px;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+</style>
+<style>
+   /*  /* Fixed Container with proper scrolling */
+    .chapter-content-container {
+        height: 500px; /* Fixed height for 20 rows */
+        width: 100%;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        background-color: #f8f9fa;
+        overflow: hidden; /* Hide outer overflow */
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chapter-content-scrollable {
+        flex: 1;
+        overflow: auto; /* Enable scrolling */
+        padding: 1rem;
+        box-sizing: border-box;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.4;
+        min-width: 100%; /* Ensure it takes full width */
+        min-height: 100%; /* Ensure it takes full height */
+    }
+
+        /* Force content to be scrollable */
+        .chapter-content-scrollable pre {
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            white-space: pre-wrap; /* Wrap long lines */
+            word-wrap: break-word;
+            word-break: break-word;
+            min-width: fit-content; /* Allow horizontal scrolling */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+    /* Always show scrollbars */
+    .chapter-content-scrollable {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #c1c1c1 #f1f1f1; /* Firefox */
+    }
+
+        /* Custom scrollbar for Webkit browsers */
+        .chapter-content-scrollable::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        .chapter-content-scrollable::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 6px;
+        }
+
+        .chapter-content-scrollable::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 6px;
+            border: 2px solid #f1f1f1;
+        }
+
+            .chapter-content-scrollable::-webkit-scrollbar-thumb:hover {
+                background: #a8a8a8;
+            }
+</style>
+@* CSS for small buttons *@
+<style>
+    .custom-small-btn {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+    }
+</style>
+<div class="main-container">
+    <div class="header">
+        <h2>AI Book Generator</h2>
+        <p>Transform your ideas into beautifully crafted books with artificial intelligence</p>
+    </div>
+    <div class="premium-buttons">
+        <button class="btn btn-primary custom-small-btn" onclick="showPricingPlans()">
+            <i class="fas fa-crown"></i> View All Plans
+        </button>
+        @* <button class="btn btn-secondary custom-small-btn" onclick="showFeatureLocks()">
+            <i class="fas fa-info-circle"></i> Feature Details
+        </button> *@
+        <button class="btn btn-secondary custom-small-btn" onclick="showPlanFeatures()">
+            <i class="fas fa-info-circle"></i> Feature Details
+        </button>
+        
+    </div>
+    <div class="layout-grid">
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Generator Card -->
+            <div class="generator-card">
+                <div class="card-body">
+                    <!-- Dropdown for previously saved responses -->
+                    <div class="dropdown-container">
+                        <select id="savedResponsesDropdown" class="form-control" onchange="loadSelectedResponse(this.value)">
+                            <option value="">📚 Load a previously generated book...</option>
+                        </select>                         
+                     
+                        <div id="debugInfo" class="mt-2 small"></div>
+                    </div>
+                    <input type="hidden" id="userId" value="@ViewBag.UserId" />
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="UserId">User ID</label>
+                            <input type="text" id="UserId" class="form-control" value="@ViewBag.UserId">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="BookId">Book ID</label>
+                            <input type="text" id="BookId" class="form-control" value="456">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="Chapter">Number of Chapters</label>
+                            <input type="number" id="Chapter" class="form-control" value="5" min="1" max="50">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="UserInput">Chapter Topic</label>
+                            <input type="text" id="UserInput" class="form-control" value="The future of artificial intelligence" placeholder="What would you like to write about?">
+                        </div>
+                    </div>
+                    <div class="premium-buttons">
+                        <button class="btn btn-primary custom-small-btn" onclick="generateBook()">
+                            ⚙️ Generate
+                        </button>
+                        <button id="showBookBtn" class="btn btn-secondary custom-small-btn" onclick="showSelectedBook()">
+                            📖 Show
+                        </button>
+                        <button class="btn btn-success custom-small-btn" onclick="saveBook()">
+                            💾 Save
+                        </button>
+                        <button class="btn btn-outline-primary custom-small-btn" type="button"
+                                onclick="changeChapter('${chapterId}', '${chapterNumber}')">
+                            🔁 Change
+                        </button>
+                        <button class="btn btn-outline-success custom-small-btn" type="button"
+                                onclick="finalizeChapter('${chapterId}', '${chapterNumber}')">
+                            ✅ Finalize
+                        </button>
+                                                
+                    </div>
+                    <input type="hidden" id="APIRawResponse">
+                </div>
+            </div>
+
+            <!-- Chat-style Results -->
+            <div id="bookResult" class="book-result">
+                <div class="chat-container" id="chatContainer">
+                    <!-- Messages will be dynamically inserted here -->
+                    <div class="message message-ai">
+                        <div class="message-avatar">AI</div>
+                        <div class="message-content">
+                            <div class="streaming-content">
+                                Hello! I'm ready to help you create an amazing book. Just enter your topic above and click "Generate Book" to get started.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Sidebar -->
+        <div class="features-sidebar">
+            <h3 class="sidebar-title">✨ Features</h3>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h4>AI-Powered Writing</h4>
+                        <p>Generate complete books with advanced language models</p>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-content">
+                        <h4>Customizable</h4>
+                        <p>Choose chapter count and writing style</p>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <div class="feature-content">
+                        <h4>Save & Export</h4>
+                        <p>Download your books in multiple formats</p>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-content">
+                        <h4>Real-time Streaming</h4>
+                        <p>Watch your book being written live</p>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">📚</div>
+                    <div class="feature-content">
+                        <h4>Library</h4>
+                        <p>Access all your previously generated books</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Notification Container -->
+<div id="notificationContainer"></div>
+
+<script>
+    // -----> Execution Step 2 (exeutes just after controller action method) <-------------
+    // Global variables
+    const userId = '@ViewBag.UserId';
+    console.log("🔍 Logged-in User ID from ViewBag:", userId);
+     // ===================== PAGE INITIALIZATION =====================
+    // ----------------> Execution Step 3 <-------------------------
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("🚀 DOM Content Loaded - Starting initialization");
+
+        // Load books immediately
+        loadSavedBooksDropdown();
+
+        // Show debug info after delay
+        setTimeout(debugBooks, 1000);
+
+        // Add enter key support
+        const userInput = document.getElementById('UserInput');
+        if (userInput) {
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    generateBook();
+                }
+            });
+        }
+
+        console.log("✅ Page initialization complete");
+    });
+
+    //=========================================================================
+    //======= MAIN FUNCTION TO LOAD BOOKS IN DROPDOWN            ==============
+    //======  Step 2: LOAD SAVED BOOKS IN DROPDOWN               ==============
+    //=========================================================================
+    //---------------------> Execution Step 4 <--------------------
+    async function loadSavedBooksDropdown() {
+        console.log("🔄 loadSavedBooksDropdown() called");
+
+        const userId = document.getElementById("userId").value;
+        console.log("🔍 User ID from hidden field:", userId);
+
+        if (!userId || userId === "0") {
+            console.error("❌ No valid user ID found");
+            return;
+        }
+
+        try {
+            console.log("🔍 Calling API: /Books/GetSavedResponses?userId=" + userId);
+
+            const response = await fetch(`/Books/GetSavedResponses?userId=${encodeURIComponent(userId)}`);
+            console.log("🔍 Response status:", response.status);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const books = await response.json();
+            console.log("📚 Books data received:", books);
+
+            const dropdown = document.getElementById("savedResponsesDropdown");
+            if (!dropdown) {
+                console.error("❌ Dropdown element not found!");
+                return;
+            }
+
+            // Clear and populate dropdown
+            dropdown.innerHTML = '<option value="">📚 Load a previously generated book...</option>';
+
+            if (Array.isArray(books) && books.length > 0) {
+                books.forEach(book => {
+                    const option = document.createElement("option");
+                    option.value = book.bookId;
+                    option.textContent = `${book.bookTitle} (${book.createdDate || 'No date'})`;
+                    dropdown.appendChild(option);
+                });
+                console.log(`✅ SUCCESS: Loaded ${books.length} books into dropdown`);
+            } else {
+                const option = document.createElement("option");
+                option.value = "";
+                option.textContent = "No saved books found - Generate one first!";
+                option.disabled = true;
+                dropdown.appendChild(option);
+                console.log("❌ No books found for this user");
+            }
+        } catch (error) {
+            console.error("❌ Error in loadSavedBooksDropdown:", error);
+        }
+    }
+    
+     //===================== LOAD SELECTED BOOK DETAILS =====================
+     async function loadSelectedResponse(bookId) {
+        if (!bookId) return;
+           console.log("Loading selected book:", bookId);
+         try {
+             const userId = document.getElementById("userId").value;
+             const response = await fetch(`/Books/GetBookDetails?userId=${userId}&bookId=${bookId}`);
+
+             if (!response.ok) {
+                 throw new Error("Failed to load book details");
+             }
+
+             const book = await response.json();
+             console.log("Book details loaded:", book);
+             showBookContent(book);
+
+         } catch (error) {
+             console.error("Error loading book details:", error);
+             showNotification("Error loading book details: " + error.message, "error");
+         }
+     }
+     //=======================================
+     // Plans from Plans => PlansController
+     //=======================================
+        function showPricingPlans() {
+                console.log("✅ Step 1: showPricingPlans called");
+            fetch('/Plans/GetPlans')
+                .then(response => response.json())
+                .then(plans => {
+                    let html = `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">`;
+
+                    plans.forEach(availablePlan => {
+                        html += `
+                            <div style="border: 2px solid #e0e0e0; border-radius: 15px; padding: 25px; text-align: center;">
+                                <h4 style="color: #4a6cf7; margin-bottom: 15px;">${availablePlan.planName}</h4>
+                                <div style="font-size: 2rem; font-weight: bold; margin-bottom: 15px;">
+                                    $${availablePlan.planRate}<span style="font-size: 1rem; color: #666;"> / ${availablePlan.planDays} days</span>
+                                </div>
+                                <p><strong>Max eBooks:</strong> ${availablePlan.maxEBooks}</p>
+                                <p>${availablePlan.planDescription ?? ""}</p>
+                                <button class="btn btn-primary" onclick="selectPlan(${availablePlan.planId})">
+                                    Select ${availablePlan.planName}
+                                </button>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+
+                    Swal.fire({
+                        title: 'Choose Your Plan',
+                        html: html,
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        width: '900px'
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching plans:", error);
+                    Swal.fire("Error", "Could not load plans.", "error");
+                });
+        }
+           // =================== Call Checkout.cshtml after confirmation of Plan ===================
+         function selectPlan(planId) {
+                     Swal.fire({
+                         title: 'Confirm Plan Selection',
+                         text: 'Do you want to continue to checkout?',
+                         icon: 'question',
+                         showCancelButton: true,
+                         confirmButtonText: 'Yes, Continue'
+                     }).then((result) => {
+                         if (result.isConfirmed) {
+                             window.location.href = `/Payments/Checkout?planId=${planId}`;
+                         }
+                     });
+         }
+ 
+    //=======================================
+    // Plan Features Selection => PlansController
+    //=======================================
+    function showPlanFeatures() {
+       // console.log("✅ Step 1: showPlanFeatures called");
+        fetch('/Plans/GetPlanFeatures')
+          // console.log("✅ Step 2: Plans/GetPlanFeatures called");
+            .then(response => response.json())
+            .then(features => {
+                let html = `
+                    <div class="features-container" style="max-height: 500px; overflow-y: auto; padding: 10px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin: 10px 0;">
+                `;
+
+                features.forEach(feature => {
+                    html += `
+                        <div style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; text-align: left; background: #f9f9f9;">
+                            <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
+                                <input type="checkbox"
+                                       id="feature_${feature.featureId}"
+                                       value="${feature.featureId}"
+                                       class="feature-checkbox"
+                                       style="margin-top: 3px;">
+                                <div style="flex: 1;">
+                                    <h5 style="color: #4a6cf7; margin: 0 0 5px 0;">${feature.featureName}</h5>
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #28a745;">
+                                        $${feature.featureRate}
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin: 0; color: #666; font-size: 0.9rem;">${feature.description || "No description available"}</p>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <div>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="selectAllFeatures()">
+                                        Select All
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="deselectAllFeatures()" style="margin-left: 10px;">
+                                        Deselect All
+                                    </button>
+                                </div>
+                                <strong>Selected: <span id="selectedCount">0</span> features</strong>
+                            </div>
+                            <div id="selectedFeaturesList" style="font-size: 0.9rem; color: #666;"></div>
+                        </div>
+                    </div>
+                `;
+
+                Swal.fire({
+                    title: 'Select Features',
+                    html: html,
+                    showConfirmButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Confirm Selection',
+                    cancelButtonText: 'Cancel',
+                    width: '1000px',
+                    didOpen: () => {
+                        // Add event listeners to checkboxes
+                        const checkboxes = document.querySelectorAll('.feature-checkbox');
+                        checkboxes.forEach(checkbox => {
+                            checkbox.addEventListener('change', updateSelectedFeatures);
+                        });
+                        updateSelectedFeatures(); // Initial update
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        confirmFeatureSelection();
+                    }
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching plan features:", error);
+                Swal.fire("Error", "Could not load features.", "error");
+            });
+    }
+
+    // Update selected features count and list
+    function updateSelectedFeatures() {
+         // console.log("✅ Step 3: updateSelectedFeatures() called");
+        const selectedCheckboxes = document.querySelectorAll('.feature-checkbox:checked');
+        const selectedCount = selectedCheckboxes.length;
+
+        document.getElementById('selectedCount').textContent = selectedCount;
+
+        const selectedFeaturesList = document.getElementById('selectedFeaturesList');
+        if (selectedCount === 0) {
+            selectedFeaturesList.innerHTML = '<em>No features selected</em>';
+        } else {
+            const featureNames = Array.from(selectedCheckboxes).map(checkbox => {
+                const featureDiv = checkbox.closest('div[style*="border: 1px solid #ddd"]');
+                const featureName = featureDiv.querySelector('h5').textContent;
+                return featureName;
+            });
+            selectedFeaturesList.innerHTML = '<strong>Selected:</strong> ' + featureNames.join(', ');
+        }
+    }
+
+    // Select all features
+    function selectAllFeatures() {
+        const checkboxes = document.querySelectorAll('.feature-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = true;
+        });
+        updateSelectedFeatures();
+    }
+
+    // Deselect all features
+    function deselectAllFeatures() {
+        const checkboxes = document.querySelectorAll('.feature-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        updateSelectedFeatures();
+    }
+
+    // Handle confirmed selection
+    function confirmFeatureSelection() {
+       //   console.log("✅ Step 4: confirmFeatureSelection() called");
+        const selectedCheckboxes = document.querySelectorAll('.feature-checkbox:checked');
+        const selectedFeatureIds = Array.from(selectedCheckboxes).map(checkbox => checkbox.value);
+
+        if (selectedFeatureIds.length === 0) {
+            Swal.fire("Info", "Please select at least one feature.", "info");
+            return;
+        }
+
+        console.log("Selected feature IDs:", selectedFeatureIds);
+             // Store the selection for later use
+        localStorage.setItem('selectedFeatures', JSON.stringify(selectedFeatureIds));
+
+        // Call selectPlanFeatures with the selected feature IDs
+        selectPlanFeatures(selectedFeatureIds);
+    }
+    // =================== Call Checkout.cshtml after confirmation of Plan Features ===================
+    async function selectPlanFeatures(selectedFeatureIds) {
+           console.log("🔍 STEP 1:selectPlanFeatures called with:", selectedFeatureIds);
+
+     const result = await Swal.fire({
+         title: 'Confirm Plan Selection',
+         html: `You have selected <strong>${selectedFeatureIds.length}</strong> features.<br>
+                Do you want to continue to checkout?`,
+         icon: 'question',
+         showCancelButton: true,
+         confirmButtonText: 'Yes, Continue to Checkout',
+         cancelButtonText: 'Cancel'
+     });
+      console.log("🔍 STEP 2: SweetAlert result:", result);
+     if (result.isConfirmed) {
+          console.log("🔍 STEP 3: User confirmed, starting feature save...");
+         try {
+              console.log("🔍 STEP 4: Calling saveAuthorFeatures...");
+             
+             const saveResult = await saveAuthorFeatures(selectedFeatureIds);
+              console.log("🔍 STEP 5: saveAuthorFeatures returned:", saveResult);
+
+              if (saveResult  && saveResult.success) {
+                   console.log("🔍 STEP 6: Save successful, closing SweetAlert...");
+                 Swal.close();
+
+                   // Pass both feature IDs and bill ID to checkout
+                  //const featureIdsString = selectedFeatureIds.join(',');
+                  //window.location.href = `/Payments/Checkout?featureIds=${featureIdsString}&billId=${saveResult.billId}&saved=true`;
+
+                 if (saveResult.billId) {
+                     console.log("✅ STEP 7: Redirecting with billId:", saveResult.billId);
+                     
+                     window.location.href = `/Payments/CheckoutPayment?billId=${saveResult.billId}`;
+                 } else {
+                     console.log("⚠️ STEP 7: No billId received, using featureIds");
+                     const featureIdsString = selectedFeatureIds.join(',');
+                     window.location.href = `/Payments/CheckoutPayment?featureIds=${featureIdsString}&saved=true`;
+                 }
+             } else {
+                  console.error("❌ STEP 6:Save failed:", saveResult.message);
+                   const errorMessage = saveResult?.message || "Unknown error occurred";
+                 Swal.fire('Error', `Failed to save features: ${saveResult.message}`, 'error');
+             }
+         } catch (error) {
+               console.error("❌ STEP 4-5: Exception caught:", error);
+             Swal.fire('Error', `Failed to save features: ${error.message}`, 'error');
+         }
+       }
+    }
+    //============= Helper function ==============
+        // Helper function to get current user ID
+    function getCurrentUserId() {
+        console.log("🔍 Getting current user ID...");
+
+        // Try different methods to get user ID
+
+        // 1. Check if there's a UserId element
+        const userIdElement = document.getElementById('UserId');
+        if (userIdElement && userIdElement.value) {
+            console.log("✅ User ID from UserId element:", userIdElement.value);
+            return parseInt(userIdElement.value);
+        }
+
+        // 2. Check if there's a userId element (lowercase)
+        const userIdElement2 = document.getElementById('userId');
+        if (userIdElement2 && userIdElement2.value) {
+            console.log("✅ User ID from userId element:", userIdElement2.value);
+            return parseInt(userIdElement2.value);
+        }
+
+        // 3. Check ViewBag (if available in your Razor view)
+        if (typeof userId !== 'undefined' && userId) {
+            console.log("✅ User ID from ViewBag:", userId);
+            return parseInt(userId);
+        }
+
+        // 4. Check localStorage
+        const storedUserId = localStorage.getItem('UserId') || localStorage.getItem('userId');
+        if (storedUserId) {
+            console.log("✅ User ID from localStorage:", storedUserId);
+            return parseInt(storedUserId);
+        }
+
+        // 5. Check sessionStorage
+        const sessionUserId = sessionStorage.getItem('UserId') || sessionStorage.getItem('userId');
+        if (sessionUserId) {
+            console.log("✅ User ID from sessionStorage:", sessionUserId);
+            return parseInt(sessionUserId);
+        }
+
+        console.error("❌ Could not find user ID");
+        return 1; // Fallback - adjust as needed
+    }
+
+    // Also update your getCurrentAuthorId function to be consistent
+    function getCurrentAuthorId() {
+        console.log("🔍 Getting current author ID...");
+
+        // Try different methods to get author ID
+
+        // 1. Check if there's an AuthorId element
+        const authorIdElement = document.getElementById('AuthorId');
+        if (authorIdElement && authorIdElement.value) {
+            console.log("✅ Author ID from AuthorId element:", authorIdElement.value);
+            return parseInt(authorIdElement.value);
+        }
+
+        // 2. Check if there's an authorId element (lowercase)
+        const authorIdElement2 = document.getElementById('authorId');
+        if (authorIdElement2 && authorIdElement2.value) {
+            console.log("✅ Author ID from authorId element:", authorIdElement2.value);
+            return parseInt(authorIdElement2.value);
+        }
+
+        // 3. For many systems, AuthorId is the same as UserId
+        console.log("⚠️ No AuthorId found, using UserId instead");
+        return getCurrentUserId();
+    }
+
+    // Function to save features using the new API endpoint
+    async function saveAuthorFeatures(featureIds) {
+         console.log("✅ Step 6: Continue to saveAuthorFeatures called");
+        try {
+            const authorId = getCurrentAuthorId(); // Your existing function
+             const userId = getCurrentUserId();
+
+            const response = await fetch('/api/AuthorPlanFeatures/save-features', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    authorId: userId,
+                    userId: userId,
+                    featureIds: featureIds
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+             // Debug: Check what's returned
+         console.log("Save features response:", result);
+
+         if (result.success && result.billId) {
+             console.log("✅ Bill created successfully with ID:", result.billId);
+             return result; // This contains billId
+         } else {
+             throw new Error(result.message || "Failed to save features");
+         }
+        } catch (error) {
+            console.error('Error saving features:', error);
+            return { success: false, message: error.message };
+        }
+    }
+
+    // Helper function to get current author ID
+    function getCurrentAuthorId() {
+        // Your existing implementation
+         const authorIdElement = document.getElementById('UserId');
+         
+        if (authorIdElement) {
+            return parseInt(authorIdElement.value);
+        }
+
+         const storedAuthorId = localStorage.getItem('UserId');
+        if (storedAuthorId) {
+            return parseInt(storedAuthorId);
+        }
+
+        if (typeof currentAuthorId !== 'undefined') {
+            return currentAuthorId;
+        }
+
+        return 1; // Fallback
+    }
+
+     //===========================
+     //  Plan Features in Table
+     //===========================
+        function showFeatureLocks()
+        {
+              console.log("✅ Step 1: showFeatureLocks ");
+              fetch('/Payments/LoadFeatureLocks')
+                   .then(response => response.text())
+                   .then(html => {
+                        Swal.fire({
+                                 title: 'Feature Access Control',
+                                 html: html, // Razor view content
+                                 showConfirmButton: false,
+                                 showCloseButton: true,
+                                 width: '600px'
+                        });
+                   }).catch(error => {
+                             console.error('Error loading feature locks:', error);
+                             Swal.fire('Error', 'Failed to load feature list.', 'error');
+                  });
+        }
+        
+        //=====================================================
+        //========= Generate Book Chapter =====================
+        //=====================================================
+          async function generateBook() {
+            console.log("🟢 Step 1: generateBook() function started");
+            // --- Step 2: Collect input values from the page ---
+            const requestData = {
+                UserId: document.getElementById('UserId').value,
+                BookId: document.getElementById('BookId').value,
+                Chapter: parseInt(document.getElementById('Chapter').value),
+                UserInput: document.getElementById('UserInput').value
+            };
+             console.log("📋 Step 2: Collected input data:", requestData);
+            // Add user message
+            addMessage(`I want to create a book about: "${requestData.UserInput}" with ${requestData.Chapter} chapters.`, true);
+
+            //--- Step 3: Show typing indicator replaced --- Show loading spinner on page ---
+            showTypingIndicator();
+            console.log("⏳ Step 3: Displayed loading spinner");
+
+            // Simulate AI thinking
+            setTimeout(async () => {
+                hideTypingIndicator();
+
+                // Add AI response with streaming
+                const aiMessageElement = addMessage('');
+                const thinkingText = `Great! I'll create a book about "${requestData.UserInput}" with ${requestData.Chapter} chapters. Let me start generating the content...`;
+
+                // --- Step 4: Send data to backend controller ---
+                 console.log("🚀 Step 4: Sending POST request to /Books/AIGenerateBook");
+                 simulateStreaming(thinkingText, aiMessageElement, async () => {
+                    // After streaming completes, make the actual API call
+                    try {
+                        const response = await fetch('/Books/AIGenerateBook', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(requestData)
+                        });
+                         console.log("📨 Step 5: Received response:", response);
+                          // --- Step 5a: Handle success ---
+                        if (response.ok) {
+                            const bookData = await response.json();
+
+                            console.log("✅ Step 6: Response converted to JSON:", bookData);
+                            document.getElementById('APIRawResponse').value = JSON.stringify(bookData);
+
+                            // Show book generation complete message
+                            const completeMessage = addMessage('');
+                            const completeText = `✅ Book generated successfully! "${bookData.data?.title || 'Untitled Book'}" is ready with ${bookData.data?.chapters?.length || 0} chapters.`;
+
+                            simulateStreaming(completeText, completeMessage, () => {
+                                // Display the actual book content
+                                displayBook(bookData);
+                                console.log("✅ Step 7: Load Saved Response Drop-Down", bookData);
+                                loadSavedBooksDropdown(); // Refresh dropdown after generating new book
+                                showNotification('Book generated successfully!', 'success');
+                            });
+                        } else {
+                            const errorText = await response.text();
+                            console.error("❌ Step 8: Server returned error:", errorText);
+                            throw new Error(errorText || 'Failed to generate book');
+                        }
+                    } catch (error) {
+                          // --- Step 9: Handle network or unexpected errors ---
+                        console.error("🔥 Step 9: Exception occurred:", error);
+
+                        hideTypingIndicator();
+                        const errorMessage = addMessage(`❌ Sorry, I encountered an error: ${error.message}`);
+                        showNotification('Failed to generate book', 'error');
+                    }
+                });
+            }, 1000);
+        }
+        //================================================
+        //========= Display the Book =====================
+        //================================================
+          function displayBook(bookData) {
+                console.log("📖 Rendering book", bookData);
+                const chapters = bookData.data?.chapters || bookData.Chapters || bookData.chapters || [];
+                const bookTitle = bookData.data?.title || bookData.title || "Untitled Book";
+
+                let html = `
+                    <div class="card shadow-sm border-0 mb-3">
+                        <div class="card-body text-center bg-light rounded">
+                            <h3 class="fw-bold mb-1">${bookTitle}</h3>
+                            <p class="text-muted mb-0">Total Chapters: ${chapters.length}</p>
+                        </div>
+                    </div>`;
+
+                // optional debug block (comment out in production)
+                html += `
+                 <div class="card mt-2 mb-3">
+                    <div class="card-header bg-warning text-dark"><strong>Debug</strong></div>
+                    <div class="card-body"><pre class="mb-0">${JSON.stringify(bookData, null, 2)}</pre></div>
+                </div>`;
+
+                if (chapters.length === 0) {
+                    html += `<div class="alert alert-warning">No chapters available.</div>`;
+                    document.getElementById('bookResult').innerHTML = html;
+                    return;
+                }
+
+                html += `<div class="accordion" id="bookAccordion">`;
+
+                chapters.forEach((ch, index) => {
+                    const chapterId = `chapter${index}`;
+                    const chapterNumber = ch.chapterNumber ?? ch.ChapterNumber ?? (index + 1);
+                    const title = ch.title ?? ch.Title ?? `Chapter ${chapterNumber}`;
+                    // prefer content paths in order
+                    const content = ch.content ?? ch.Content ?? ch.data ?? ch.Data?.content ?? '';
+                    const status = ch.status ?? ch.Status ?? '';
+
+                    const finalized = isFinalized(status);
+                    const headerBadge = finalized ? `<span class="badge bg-success ms-2">✅ Finalized</span>` : ``;
+
+                    html += `
+                    <div class="accordion-item mb-2" id="accordionItem-${chapterId}">
+                        <h2 class="accordion-header d-flex align-items-center" id="heading${chapterId}">
+                            <button class="accordion-button ${index === 0 ? '' : 'collapsed'} flex-grow-1"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse${chapterId}"
+                                    aria-expanded="${index === 0}"
+                                    aria-controls="collapse${chapterId}">
+                                <div>
+                                    <div class="d-flex align-items-center">
+                                        <strong class="me-2">${title}</strong>
+                                        ${headerBadge}
+                                    </div>
+                                    <small class="text-muted">Chapter #: ${chapterNumber}</small>
+                                </div>
+                            </button>
+                        </h2>
+
+                        <div id="collapse${chapterId}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}"
+                             aria-labelledby="heading${chapterId}" data-bs-parent="#bookAccordion">
+                            <div class="accordion-body">
+                                <div id="chapterContent-${chapterId}">
+                                    <p>${content}</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label class="form-label small mb-1">Change (instructions or replacement):</label>
+                                    <div class="input-group input-group-sm mb-2">
+                                        <input type="text" id="changeInput-${chapterId}" class="form-control form-control-sm"
+                                            placeholder="e.g. replace 'apple' with 'pear'">
+                                        <button class="btn btn-outline-primary btn-sm" type="button"
+                                            id="changeBtn-${chapterId}"
+                                            onclick="changeChapter('${chapterId}', '${chapterNumber}')"
+                                            ${finalized ? 'disabled' : ''}>
+                                            Change
+                                        </button>
+                                        <button class="btn btn-outline-success btn-sm ms-2" type="button"
+                                            id="finalizeBtn-${chapterId}"
+                                            onclick="finalizeChapter('${chapterId}', '${chapterNumber}')"
+                                            ${finalized ? 'disabled' : ''}>
+                                            Finalize
+                                        </button>
+                                    </div>
+                                    <div id="changeStatus-${chapterId}" class="small text-muted"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                });
+
+                html += `</div>`;
+
+                document.getElementById('bookResult').innerHTML = html;
+            }
+        // ===================== UI Helper Function to DISPLAY BOOK CONTENT =====================
+        function showBookContent(book) {
+            const chatContainer = document.getElementById("chatContainer");
+
+            // Clear existing content
+            chatContainer.innerHTML = '';
+
+            // Add book title message
+            const titleMessage = addMessage(`📖 **${book.title || "Untitled Book"}**`);
+
+            // Add chapters if available
+            if (book.chapters && book.chapters.length > 0) {
+                setTimeout(() => {
+                    const chaptersMessage = addMessage(`Here are the chapters of your book:`);
+
+                    // Add each chapter with accordion
+                    book.chapters.forEach((chapter, index) => {
+                        setTimeout(() => {
+                            const chapterDiv = document.createElement('div');
+                            chapterDiv.className = 'chapter-accordion';
+                            chapterDiv.innerHTML = `
+                                <div class="chapter-item">
+                                    <h3 class="chapter-header">
+                                        <button class="chapter-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#chapterCollapse${index}">
+                                            Chapter ${chapter.number || index + 1}: ${chapter.name || chapter.title || "Untitled"}
+                                        </button>
+                                    </h3>
+                                    <div id="chapterCollapse${index}" class="collapse">
+                                        <div class="chapter-body">
+                                            ${chapter.content || "No content available"}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            // Create a new message for each chapter
+                            const chapterMessage = document.createElement('div');
+                            chapterMessage.className = 'message message-ai';
+                            chapterMessage.innerHTML = `
+                                <div class="message-avatar">📚</div>
+                                <div class="message-content">
+                                    <div class="streaming-content">
+                                        ${chapterDiv.outerHTML}
+                                    </div>
+                                </div>
+                            `;
+
+                            chatContainer.appendChild(chapterMessage);
+
+                            // Scroll to bottom
+                            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                        }, index * 300);
+                    });
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    addMessage("No chapters found in this book.");
+                }, 500);
+            }
+        }
+    // ===================== REAL-TIME STREAMING SIMULATION =====================
+    function simulateStreaming(text, targetElement, callback) {
+        const words = text.split(' ');
+        let currentWord = 0;
+        targetElement.innerHTML = '';
+
+        const interval = setInterval(() => {
+            if (currentWord < words.length) {
+                targetElement.innerHTML += (currentWord === 0 ? '' : ' ') + words[currentWord];
+                currentWord++;
+
+                // Scroll to bottom of chat
+                const chatContainer = document.getElementById('chatContainer');
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            } else {
+                clearInterval(interval);
+                if (callback) callback();
+            }
+        }, 50);
+    }
+
+    function addMessage(content, isUser = false) {
+        const chatContainer = document.getElementById('chatContainer');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'message-user' : 'message-ai'}`;
+
+        messageDiv.innerHTML = `
+            <div class="message-avatar">${isUser ? 'You' : 'AI'}</div>
+            <div class="message-content">
+                <div class="streaming-content">${content}</div>
+            </div>
+        `;
+
+        chatContainer.appendChild(messageDiv);
+
+        // Scroll to bottom
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        return messageDiv.querySelector('.streaming-content');
+    }
+
+    function showTypingIndicator() {
+        const chatContainer = document.getElementById('chatContainer');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message message-ai';
+        messageDiv.id = 'typing-indicator';
+
+        messageDiv.innerHTML = `
+            <div class="message-avatar">AI</div>
+            <div class="message-content">
+                <div class="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+        `;
+
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function hideTypingIndicator() {
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) {
+            indicator.remove();
+        }
+    }
+
+    // ===================== NOTIFICATION SYSTEM =====================
+    function showNotification(message, type = 'success') {
+        const container = document.getElementById('notificationContainer');
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+
+        let icon = '✓';
+        if (type === 'error') icon = '⚠';
+        if (type === 'warning') icon = '⚠';
+
+        notification.innerHTML = `
+            <span style="font-size: 1.2rem;">${icon}</span>
+            <span>${message}</span>
+        `;
+
+        container.appendChild(notification);
+
+        // Trigger animation
+        setTimeout(() => notification.classList.add('show'), 10);
+
+        // Remove after delay
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 400);
+        }, 4000);
+    }
+    // ===================== DISPLAY BOOK IN CHAT =====================
+    function displayBookInChat(bookData) {
+        const chapters = bookData.data?.chapters || [];
+        const bookTitle = bookData.data?.title || "Untitled Book";
+
+        // Add book title message
+        const titleMessage = addMessage(`📖 **${bookTitle}**\n\nHere are the chapters I've created:`);
+
+        // Add each chapter
+        chapters.forEach((chapter, index) => {
+            setTimeout(() => {
+                const chapterMessage = addMessage(`**Chapter ${index + 1}: ${chapter.title}**\n\n${chapter.content.substring(0, 200)}...`);
+            }, index * 500);
+        });
+
+        // Add completion message
+        setTimeout(() => {
+            addMessage(`🎉 Your book "${bookTitle}" is complete! You can now save it or generate another one.`);
+        }, chapters.length * 500 + 500);
+    }
+    //======================================================
+    // ========= On Save Button SAVE the BOOK ==============
+    //======================================================
+    async function saveBook() {
+        const rawResponse = document.getElementById('APIRawResponse').value;
+        if (!rawResponse) {
+            showNotification('Please generate a book first!', 'warning');
+            return;
+        }
+
+        const body = {
+            userId: document.getElementById('UserId').value,
+            bookId: document.getElementById('BookId').value,
+            apiRaw: rawResponse
+        };
+
+        try {
+            const res = await fetch('/Books/SaveBookFromAPI', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+
+            if (res.ok) {
+                showNotification('✅ Book saved successfully!', 'success');
+                loadSavedBooksDropdown(); // Refresh dropdown after saving
+                addMessage('💾 Your book has been saved to your library!', false);
+            } else {
+                throw new Error('Failed to save book');
+            }
+        } catch (err) {
+            showNotification('Error saving book: ' + err.message, 'error');
+        }
+    }
+
+    // ===================== EDIT CONTENT =====================
+    async function changeChapter(chapterId, chapterNumber) {
+        console.log("✅ Step 1: Change the Chapter ", chapterId);
+        const statusEl = document.getElementById(`changeStatus-${chapterId}`);
+        const changeBtn = document.getElementById(`changeBtn-${chapterId}`);
+        const finalizeBtn = document.getElementById(`finalizeBtn-${chapterId}`);
+
+        try {
+            statusEl.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending change...`;
+            changeBtn.disabled = true;
+            finalizeBtn.disabled = true;
+
+            const changes = document.getElementById(`changeInput-${chapterId}`).value;
+            if (!changes || changes.trim().length === 0) {
+                statusEl.innerHTML = `<span class="text-danger">Please provide change instructions.</span>`;
+                changeBtn.disabled = false;
+                finalizeBtn.disabled = false;
+                return;
+            }
+
+            const payload = {
+                user_id: document.getElementById('UserId').value || '',
+                book_id: document.getElementById('BookId').value || '',
+                chapter: String(chapterNumber),
+                changes: changes
+            };
+
+            const res = await fetch('/Books/EditChapter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) {
+                const text = await res.text();
+                statusEl.innerHTML = `<span class="text-danger">Error: ${res.status} - ${text}</span>`;
+                changeBtn.disabled = false;
+                finalizeBtn.disabled = false;
+                return;
+            }
+
+            const json = await res.json();
+            console.log("🔁 Edit response:", json);
+
+            let newContent = json?.data?.content ?? json?.content ?? null;
+            if (!newContent) {
+                if (typeof json === 'string') newContent = json;
+                else newContent = JSON.stringify(json);
+            }
+
+            const contentEl = document.getElementById(`chapterContent-${chapterId}`);
+            contentEl.innerHTML = `<p>${newContent}</p>`;
+
+            statusEl.innerHTML = `<span class="text-success">Change applied successfully.</span>`;
+            changeBtn.disabled = false;
+            finalizeBtn.disabled = false;
+
+            loadSavedBooksDropdown(); // Refresh dropdown
+        } catch (err) {
+            console.error("changeChapter error:", err);
+            statusEl.innerHTML = `<span class="text-danger">Request failed: ${err.message}</span>`;
+            document.getElementById(`changeBtn-${chapterId}`).disabled = false;
+            document.getElementById(`finalizeBtn-${chapterId}`).disabled = false;
+        }
+    }
+    // ===================== FINALIZE CONTENT =====================
+    async function finalizeChapter(chapterId, chapterNumber) {
+        const statusEl = document.getElementById(`changeStatus-${chapterId}`);
+        const changeBtn = document.getElementById(`changeBtn-${chapterId}`);
+        const finalizeBtn = document.getElementById(`finalizeBtn-${chapterId}`);
+
+        try {
+            statusEl.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Finalizing...`;
+            changeBtn.disabled = true;
+            finalizeBtn.disabled = true;
+
+            const payload = {
+                user_id: document.getElementById('UserId').value || '',
+                book_id: document.getElementById('BookId').value || '',
+                chapter: String(chapterNumber),
+                approve: true
+            };
+
+            const res = await fetch('/Books/FinalizeChapter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const text = await res.text();
+            console.log("Finalize API returned:", text);
+
+            if (!res.ok) {
+                statusEl.innerHTML = `<span class="text-danger">Error: ${res.status}</span>`;
+                changeBtn.disabled = false;
+                finalizeBtn.disabled = false;
+                return;
+            }
+
+            // Update UI for finalized chapter
+            const headerBtn = document.querySelector(`#accordionItem-${chapterId} .accordion-button`);
+            if (headerBtn && !headerBtn.querySelector('.badge')) {
+                const span = document.createElement('span');
+                span.className = 'badge bg-success ms-2';
+                span.textContent = '✅ Finalized';
+                const strong = headerBtn.querySelector('strong');
+                if (strong) strong.insertAdjacentElement('afterend', span);
+                else headerBtn.appendChild(span);
+            }
+
+            document.getElementById(`changeInput-${chapterId}`).disabled = true;
+            changeBtn.disabled = true;
+            finalizeBtn.disabled = true;
+
+            const item = document.getElementById(`accordionItem-${chapterId}`);
+            if (item) {
+                item.classList.add('border', 'border-success');
+                item.style.backgroundColor = '#ecf9ee';
+            }
+
+            statusEl.innerHTML = `<span class="text-success">Chapter finalized successfully.</span>`;
+            loadSavedBooksDropdown(); // Refresh dropdown
+        } catch (err) {
+            console.error("finalizeChapter error:", err);
+            statusEl.innerHTML = `<span class="text-danger">Finalize failed: ${err.message}</span>`;
+            if (changeBtn) changeBtn.disabled = false;
+            if (finalizeBtn) finalizeBtn.disabled = false;
+        }
+    }
+    // Upgrade for specific feature
+    async  function upgradeForFeature(feature) {
+        Swal.fire({
+            title: 'Upgrade Required',
+            text: `To access ${feature}, you need to upgrade your plan. Would you like to see upgrade options?`,
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#4a6cf7',
+            confirmButtonText: 'Show Plans',
+            cancelButtonText: 'Maybe Later'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                showPricingPlans();
+            }
+        });
+   }
+    // Add any missing function that might be called but not defined
+     function isFinalized(status) {
+         return status === 'finalized' || status === 'approved' || status === 'completed';
+     }
+
+     function debugBooks() {
+         // Add your debug logic here if needed
+         console.log("🔍 Debug books function called");
+     }
+    
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

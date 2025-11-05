@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\EbookAI\\EBookDashboard.csproj": {}
+    "D:\\Yit Solutions 2025\\eBookProjectGit25\\EBookDashboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\EbookAI\\EBookDashboard.csproj": {
+    "D:\\Yit Solutions 2025\\eBookProjectGit25\\EBookDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\EbookAI\\EBookDashboard.csproj",
+        "projectUniqueName": "D:\\Yit Solutions 2025\\eBookProjectGit25\\EBookDashboard.csproj",
         "projectName": "EBookDashboard",
-        "projectPath": "C:\\Users\\Hp\\EbookAI\\EBookDashboard.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\EbookAI\\obj\\",
+        "projectPath": "D:\\Yit Solutions 2025\\eBookProjectGit25\\EBookDashboard.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Yit Solutions 2025\\eBookProjectGit25\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -72,6 +72,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Portable.BouncyCastle": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
             "Stripe.net": {
               "target": "Package",
               "version": "[49.0.0, )"
@@ -100,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

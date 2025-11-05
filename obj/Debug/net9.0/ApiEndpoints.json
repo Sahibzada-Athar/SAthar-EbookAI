@@ -16,6 +16,70 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EBookDashboard.Controllers.AuthorPlanFeaturesController",
+    "Method": "GetAuthorBills",
+    "RelativePath": "api/AuthorPlanFeatures/author-bills/{authorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EBookDashboard.Controllers.AuthorPlanFeaturesController",
+    "Method": "GetAuthorFeatures",
+    "RelativePath": "api/AuthorPlanFeatures/author-features/{authorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EBookDashboard.Controllers.AuthorPlanFeaturesController",
+    "Method": "GetBillDetails",
+    "RelativePath": "api/AuthorPlanFeatures/bill-details/{billId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "billId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EBookDashboard.Controllers.AuthorPlanFeaturesController",
+    "Method": "SaveAuthorPlanFeatures",
+    "RelativePath": "api/AuthorPlanFeatures/save-features",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EBookDashboard.Models.SaveFeaturesRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EBookDashboard.Controllers.AuthorPlansController",
     "Method": "GetAllPlans",
     "RelativePath": "api/AuthorPlans/all-plans",

@@ -22,7 +22,7 @@ namespace EBookDashboard.Models
         public bool AllowFullDashboard { get; set; }
         public bool AllowAnalytics { get; set; }
         public bool AllowPublishing { get; set; }
-        public bool IsActive { get; set; }
+        public int IsActive { get; set; } = 1;
 
         public DateTime CreateddAt { get; set; } = DateTime.UtcNow;
         public int MaxPages { get; set; }

@@ -10,6 +10,9 @@ namespace EBookDashboard.Controllers
     {
         private readonly ICheckoutService _checkoutService;
         private readonly IConfiguration _config;
+        private readonly IAuthorBillsService _authorBillsService;
+        private readonly IPlansService _plansService;
+        private readonly IAuthorPlansService _authorPlansService;
 
         public CheckoutController(ICheckoutService checkoutService, IConfiguration config)
         {

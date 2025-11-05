@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EBookDashboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd8c7166f2599484fcce0bcffca9a1780e7582da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a778b21d365ad90aa8ef3706ebc8e0f39b988d93")]
 [assembly: System.Reflection.AssemblyProductAttribute("EBookDashboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EBookDashboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

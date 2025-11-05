@@ -3,7 +3,15 @@
     ViewData["Title"] = "Select Features - eBook Publisher";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
-
+@* CSS for small buttons *@
+<style>
+    .custom-small-btn {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+    }
+</style>
 <div class="features-header">
     <h1>Select Your Features</h1>
     <p>Choose the features you want to include in your plan</p>
@@ -60,9 +68,22 @@
     <div id="suggestedPlanContent">
         <!-- Suggested plan will be displayed here -->
     </div>
-    <div style="margin-top: 20px; display: flex; gap: 10px;">
+   @*  <div style="margin-top: 20px; display: flex; gap: 10px;">
         <button class="btn btn-primary" id="confirmPlanBtn">Confirm Plan</button>
+        <button class="btn btn-success" id="checkoutBtn">Checkout</button>
         <button class="btn btn-secondary" id="viewAllPlansBtn">View All Plans</button>
+    </div> *@
+    <div class="premium-buttons">
+        <button class="btn btn-primary custom-small-btn" id="confirmPlanBtn">
+            <i class="fas fa-crown"></i> Confirm Plan
+        </button>
+        <button class="btn btn-success custom-small-btn" id="checkoutBtn">
+            <i class="fas fa-crown"></i> Checkout
+        </button>
+
+        <button class="btn btn-secondary custom-small-btn" id="viewAllPlansBtn">
+            <i class="fas fa-info-circle"></i> View All Plans
+        </button>
     </div>
 </div>
 
@@ -217,12 +238,33 @@
                     window.location.href = '/Dashboard/PlanSuggestion';
                 });
             }
+
+            // Checkout button
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', function() {
+                    const suggestedPlanId = this.getAttribute('data-plan-id');
+
+                    if (!suggestedPlanId) {
+                        Swal.fire({
+                            title: 'Cart Incomplete',
+                            text: 'Please add at least one feature to get a recommended plan before checkout.',
+                            icon: 'info'
+                        });
+                        return;
+                    }
+
+                    // Navigate to Payments/Checkout with the suggested plan
+                    window.location.href = `/Payments/Checkout?planId=${parseInt(suggestedPlanId)}`;
+                });
+            }
         });
         
         function showSuggestedPlan(plan) {
             const planSuggestionSection = document.getElementById('planSuggestionSection');
             const suggestedPlanContent = document.getElementById('suggestedPlanContent');
             const confirmPlanBtn = document.getElementById('confirmPlanBtn');
+            const checkoutBtn = document.getElementById('checkoutBtn');
             
             if (planSuggestionSection && suggestedPlanContent && confirmPlanBtn) {
                 suggestedPlanContent.innerHTML = `
@@ -236,6 +278,7 @@
                 `;
                 
                 confirmPlanBtn.setAttribute('data-plan-id', plan.id);
+                if (checkoutBtn) checkoutBtn.setAttribute('data-plan-id', plan.id);
                 planSuggestionSection.style.display = 'block';
             }
         }

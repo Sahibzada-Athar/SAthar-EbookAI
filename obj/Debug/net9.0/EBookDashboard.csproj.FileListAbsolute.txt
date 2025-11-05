@@ -1946,3 +1946,1008 @@ C:\Users\Hp\EbookAI\obj\Debug\net9.0\refint\EBookDashboard.dll
 C:\Users\Hp\EbookAI\obj\Debug\net9.0\EBookDashboard.pdb
 C:\Users\Hp\EbookAI\obj\Debug\net9.0\EBookDashboard.genruntimeconfig.cache
 C:\Users\Hp\EbookAI\obj\Debug\net9.0\ref\EBookDashboard.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\appsettings.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.staticwebassets.runtime.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.staticwebassets.endpoints.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.exe
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.deps.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.runtimeconfig.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.pdb
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Humanizer.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.Framework.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Elfie.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Features.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.DiaSymReader.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.DotNet.Scaffolding.Shared.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.NET.StringTools.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\dotnet-aspnet-codegenerator-design.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\MySqlConnector.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.Common.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.Configuration.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.DependencyResolver.Core.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.Frameworks.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.LibraryModel.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.Packaging.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.ProjectModel.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.Protocol.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\NuGet.Versioning.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\BouncyCastle.Crypto.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\Stripe.net.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.CodeDom.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Convention.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Hosting.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Runtime.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Composition.TypedParts.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Reflection.MetadataLoadContext.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\af\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ar\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\az\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\bg\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\da\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\el\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fa\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\he\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\hr\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\hu\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\hy\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\id\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\is\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ku\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\lv\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\mt\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\nb\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\nl\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ro\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\sk\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\sl\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\sr\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\sv\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\uk\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\vi\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.csproj.AssemblyReference.cache
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.AssemblyInfoInputs.cache
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.AssemblyInfo.cs
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.RazorAssemblyInfo.cache
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.RazorAssemblyInfo.cs
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.sourcelink.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\scopedcss\bundle\EBookDashboard.styles.css
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\scopedcss\projectbundle\EBookDashboard.bundle.scp.css
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\bvxzb4xx0d-9ck0epnc8x.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\zdxbyz1xr5-b9sayid5wm.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\vbvl8qrowd-61n19gt1b8.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\wlgztwaj9k-oyy4olokyc.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\fcvo3v2xmw-omfmo06c1o.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\fi9qlhs0bp-vebm8taad6.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\gzpqaphm3f-xb5ppit23p.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\4sc28kmnv4-xtxxf3hu2r.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\hmd08q1g6x-t1cqhe9u97.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\40v6urj4oq-c2jlpeoesf.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\49ggtwioj1-sejl45xvog.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\mw3rl7k5p2-aexeepp0ev.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\mvfthvexji-xvp3kq03qx.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\ycedramo89-ausgxo2sd3.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\dppqvmgp5k-22vffe00uq.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\xoacu2fvrr-cosvhxvwiu.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\h1p03euc6b-qesaa3a1fm.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\u170d8pui7-fvhpjtyr6v.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\ac57oxwv9l-tmc1g35s3z.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\rvvd59xoge-fsbi9cje9m.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\405bhdgayp-rxsg74s51o.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\lwsz905n1g-ee0r1s7dh0.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\u5s1uz3bys-q9ht133ko3.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\fu0vatvb8c-jd9uben2k1.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\epnweyvl4x-gye83jo8yx.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\3dzm2a998b-r4e9w2rdcm.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\hmaj90bh5n-wl58j5mj3v.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\w7wssyhcbl-c2oey78nd0.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\jdtt1xjqqc-d4r6k3f320.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\qgfl2x7z0h-j5mq2jizvt.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\0s1j7oxokb-keugtjm085.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\7kkm3kody2-nvvlpmu67g.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\ckchbyprks-zub09dkrxp.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\9fpftvglv9-pj5nd1wqec.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\7y9wa6z1um-43atpzeawx.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\z0u6p9za2x-v0zj4ognzu.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\oijw4kfbid-ynyaa8k90p.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\s0mpzs2v92-hrwsygsryq.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\df40zbtzn6-c63t5i9ira.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\qaxi25hybc-ft3s53vfgj.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\zvpe525xp9-4094rpi4f9.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\t56f481qff-6pdc2jztkx.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\54adeilw6o-hd3gran6i8.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\umd0r9hp4a-iovd86k7lj.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\7lqq8c1h3g-ltid2c489k.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\m2nj35ongy-kbrnm935zg.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\h3l1un4nw4-8vyfqsqgz1.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\jmzgy7jny4-y7v9cxd14o.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\2skmnzolby-u9q1upor1n.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\nklnit8z8u-h1s4sie4z3.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\gugoqa0pdu-4d85u1mtcx.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\h25fblotay-0j3bgjxly4.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\ezxnhj2ry4-03hjc8e09r.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\9k0scnkl1i-48y08845bh.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\simoe6whgz-356vix0kms.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\oiykxbk7e3-83jwlth58m.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\e9gk7aezys-mrlpezrjn3.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\5l9e1ln1kw-worgj0nhwm.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\npjpnzzmmy-gk0pw8i4co.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\du4yul9mnb-x0q3zqp4vz.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\4si4czv10t-d6nrnj6jjx.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\na70ee7vaw-m9qm4tazc0.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\dsr19o6l2v-ttgo8qnofa.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\og16skxtzb-jjsuc0puko.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\kh8gcdwthf-9vr69e8ynj.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\l67fphysds-87fc7y1x7t.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\rpqhtcvnlw-mlv21k5csn.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\1kyb189foe-ilvgmag77x.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\compressed\41ynma1255-ilvgmag77x.gz
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDas.EC6C44DB.Up2Date
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\refint\EBookDashboard.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.pdb
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.genruntimeconfig.cache
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\ref\EBookDashboard.dll
+C:\Users\Hp\Videos\eBookProjectGit25\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\appsettings.Development.json
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\appsettings.json
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.staticwebassets.runtime.json
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.staticwebassets.endpoints.json
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.exe
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.deps.json
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.runtimeconfig.json
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.pdb
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Humanizer.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.Framework.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Features.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.DiaSymReader.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.NET.StringTools.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\dotnet-aspnet-codegenerator-design.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\MySqlConnector.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.Common.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.Configuration.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.DependencyResolver.Core.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.Frameworks.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.LibraryModel.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.Packaging.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.ProjectModel.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.Protocol.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\NuGet.Versioning.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\BouncyCastle.Crypto.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\Stripe.net.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.CodeDom.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Reflection.MetadataLoadContext.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\System.Text.Json.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\af\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ar\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\az\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\bg\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\da\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\el\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fa\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\he\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\hr\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\hu\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\hy\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\id\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\is\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ku\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\lv\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\mt\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\nb\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\nl\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ro\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\sk\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\sl\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\sr\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\sv\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\uk\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\vi\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.csproj.AssemblyReference.cache
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.GeneratedMSBuildEditorConfig.editorconfig
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.AssemblyInfoInputs.cache
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.AssemblyInfo.cs
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.csproj.CoreCompileInputs.cache
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.MvcApplicationPartsAssemblyInfo.cache
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.RazorAssemblyInfo.cache
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.RazorAssemblyInfo.cs
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.sourcelink.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\scopedcss\bundle\EBookDashboard.styles.css
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\scopedcss\projectbundle\EBookDashboard.bundle.scp.css
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\7dvy6yz57u-u7sphtijci.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\bvxzb4xx0d-9ck0epnc8x.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\zdxbyz1xr5-b9sayid5wm.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\vbvl8qrowd-61n19gt1b8.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\wlgztwaj9k-oyy4olokyc.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\fcvo3v2xmw-omfmo06c1o.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\fi9qlhs0bp-vebm8taad6.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\gzpqaphm3f-xb5ppit23p.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\4sc28kmnv4-xtxxf3hu2r.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\hmd08q1g6x-t1cqhe9u97.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\40v6urj4oq-c2jlpeoesf.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\49ggtwioj1-sejl45xvog.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\mw3rl7k5p2-aexeepp0ev.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\mvfthvexji-xvp3kq03qx.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\ycedramo89-ausgxo2sd3.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\dppqvmgp5k-22vffe00uq.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\xoacu2fvrr-cosvhxvwiu.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\h1p03euc6b-qesaa3a1fm.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\u170d8pui7-fvhpjtyr6v.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\ac57oxwv9l-tmc1g35s3z.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\rvvd59xoge-fsbi9cje9m.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\405bhdgayp-rxsg74s51o.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\lwsz905n1g-ee0r1s7dh0.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\u5s1uz3bys-q9ht133ko3.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\fu0vatvb8c-jd9uben2k1.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\epnweyvl4x-gye83jo8yx.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\3dzm2a998b-r4e9w2rdcm.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\hmaj90bh5n-wl58j5mj3v.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\w7wssyhcbl-c2oey78nd0.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\jdtt1xjqqc-d4r6k3f320.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\qgfl2x7z0h-j5mq2jizvt.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\0s1j7oxokb-keugtjm085.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\7kkm3kody2-nvvlpmu67g.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\ckchbyprks-zub09dkrxp.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\9fpftvglv9-pj5nd1wqec.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\7y9wa6z1um-43atpzeawx.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\z0u6p9za2x-v0zj4ognzu.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\oijw4kfbid-ynyaa8k90p.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\s0mpzs2v92-hrwsygsryq.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\df40zbtzn6-c63t5i9ira.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\qaxi25hybc-ft3s53vfgj.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\zvpe525xp9-4094rpi4f9.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\t56f481qff-6pdc2jztkx.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\54adeilw6o-hd3gran6i8.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\umd0r9hp4a-iovd86k7lj.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\7lqq8c1h3g-ltid2c489k.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\m2nj35ongy-kbrnm935zg.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\h3l1un4nw4-8vyfqsqgz1.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\jmzgy7jny4-y7v9cxd14o.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\2skmnzolby-u9q1upor1n.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\nklnit8z8u-h1s4sie4z3.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\gugoqa0pdu-4d85u1mtcx.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\h25fblotay-0j3bgjxly4.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\ezxnhj2ry4-03hjc8e09r.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\9k0scnkl1i-48y08845bh.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\simoe6whgz-356vix0kms.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\oiykxbk7e3-83jwlth58m.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\e9gk7aezys-mrlpezrjn3.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\5l9e1ln1kw-worgj0nhwm.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\npjpnzzmmy-gk0pw8i4co.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\du4yul9mnb-x0q3zqp4vz.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\4si4czv10t-d6nrnj6jjx.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\na70ee7vaw-m9qm4tazc0.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\dsr19o6l2v-ttgo8qnofa.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\og16skxtzb-jjsuc0puko.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\kh8gcdwthf-9vr69e8ynj.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\l67fphysds-87fc7y1x7t.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\rpqhtcvnlw-mlv21k5csn.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\1kyb189foe-ilvgmag77x.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\compressed\41ynma1255-ilvgmag77x.gz
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.development.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDas.EC6C44DB.Up2Date
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.dll
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\refint\EBookDashboard.dll
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.pdb
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.genruntimeconfig.cache
+D:\Yit Solutions\eBookProjectGit25\obj\Debug\net9.0\ref\EBookDashboard.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\appsettings.Development.json
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\appsettings.json
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.staticwebassets.runtime.json
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.staticwebassets.endpoints.json
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.exe
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.deps.json
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.runtimeconfig.json
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\EBookDashboard.pdb
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Humanizer.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.Framework.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Features.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.DiaSymReader.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.NET.StringTools.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\dotnet-aspnet-codegenerator-design.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\MySqlConnector.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.Common.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.Configuration.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.DependencyResolver.Core.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.Frameworks.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.LibraryModel.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.Packaging.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.ProjectModel.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.Protocol.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\NuGet.Versioning.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\BouncyCastle.Crypto.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\Stripe.net.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.CodeDom.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Reflection.MetadataLoadContext.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\af\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ar\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\az\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\bg\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\da\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\el\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fa\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\he\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\hr\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\hu\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\hy\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\id\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\is\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ku\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\lv\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\mt\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\nb\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\nl\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ro\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\sk\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\sl\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\sr\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\sv\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\uk\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\vi\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.csproj.AssemblyReference.cache
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.GeneratedMSBuildEditorConfig.editorconfig
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.AssemblyInfoInputs.cache
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.AssemblyInfo.cs
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.csproj.CoreCompileInputs.cache
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.MvcApplicationPartsAssemblyInfo.cache
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.RazorAssemblyInfo.cache
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.RazorAssemblyInfo.cs
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.sourcelink.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\scopedcss\bundle\EBookDashboard.styles.css
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\scopedcss\projectbundle\EBookDashboard.bundle.scp.css
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\7dvy6yz57u-u7sphtijci.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\bvxzb4xx0d-9ck0epnc8x.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\zdxbyz1xr5-b9sayid5wm.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\vbvl8qrowd-61n19gt1b8.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\wlgztwaj9k-oyy4olokyc.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\fcvo3v2xmw-omfmo06c1o.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\fi9qlhs0bp-vebm8taad6.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\gzpqaphm3f-xb5ppit23p.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\4sc28kmnv4-xtxxf3hu2r.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\hmd08q1g6x-t1cqhe9u97.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\40v6urj4oq-c2jlpeoesf.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\49ggtwioj1-sejl45xvog.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\mw3rl7k5p2-aexeepp0ev.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\mvfthvexji-xvp3kq03qx.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\ycedramo89-ausgxo2sd3.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\dppqvmgp5k-22vffe00uq.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\xoacu2fvrr-cosvhxvwiu.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\h1p03euc6b-qesaa3a1fm.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\u170d8pui7-fvhpjtyr6v.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\ac57oxwv9l-tmc1g35s3z.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\rvvd59xoge-fsbi9cje9m.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\405bhdgayp-rxsg74s51o.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\lwsz905n1g-ee0r1s7dh0.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\u5s1uz3bys-q9ht133ko3.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\fu0vatvb8c-jd9uben2k1.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\epnweyvl4x-gye83jo8yx.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\3dzm2a998b-r4e9w2rdcm.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\hmaj90bh5n-wl58j5mj3v.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\w7wssyhcbl-c2oey78nd0.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\jdtt1xjqqc-d4r6k3f320.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\qgfl2x7z0h-j5mq2jizvt.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\0s1j7oxokb-keugtjm085.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\7kkm3kody2-nvvlpmu67g.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\ckchbyprks-zub09dkrxp.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\9fpftvglv9-pj5nd1wqec.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\7y9wa6z1um-43atpzeawx.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\z0u6p9za2x-v0zj4ognzu.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\oijw4kfbid-ynyaa8k90p.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\s0mpzs2v92-hrwsygsryq.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\df40zbtzn6-c63t5i9ira.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\qaxi25hybc-ft3s53vfgj.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\zvpe525xp9-4094rpi4f9.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\t56f481qff-6pdc2jztkx.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\54adeilw6o-hd3gran6i8.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\umd0r9hp4a-iovd86k7lj.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\7lqq8c1h3g-ltid2c489k.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\m2nj35ongy-kbrnm935zg.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\h3l1un4nw4-8vyfqsqgz1.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\jmzgy7jny4-y7v9cxd14o.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\2skmnzolby-u9q1upor1n.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\nklnit8z8u-h1s4sie4z3.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\gugoqa0pdu-4d85u1mtcx.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\h25fblotay-0j3bgjxly4.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\ezxnhj2ry4-03hjc8e09r.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\9k0scnkl1i-48y08845bh.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\simoe6whgz-356vix0kms.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\oiykxbk7e3-83jwlth58m.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\e9gk7aezys-mrlpezrjn3.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\5l9e1ln1kw-worgj0nhwm.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\npjpnzzmmy-gk0pw8i4co.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\du4yul9mnb-x0q3zqp4vz.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\4si4czv10t-d6nrnj6jjx.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\na70ee7vaw-m9qm4tazc0.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\dsr19o6l2v-ttgo8qnofa.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\og16skxtzb-jjsuc0puko.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\kh8gcdwthf-9vr69e8ynj.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\l67fphysds-87fc7y1x7t.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\rpqhtcvnlw-mlv21k5csn.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\1kyb189foe-ilvgmag77x.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\compressed\41ynma1255-ilvgmag77x.gz
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.development.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDas.EC6C44DB.Up2Date
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.dll
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\refint\EBookDashboard.dll
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.pdb
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\EBookDashboard.genruntimeconfig.cache
+D:\Yit Solutions 2025\eBookProjectGit25\obj\Debug\net9.0\ref\EBookDashboard.dll

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿using EBookDashboard.Interfaces;
+﻿﻿﻿using EBookDashboard.Interfaces;
 using EBookDashboard.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -43,6 +43,7 @@ namespace EBookDashboard.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string UserEmail, string Password, bool RememberMe)
         {
+            int? userId = 0;
             // check against Users table in MySQL
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.UserEmail == UserEmail && u.Password == Password);
@@ -50,10 +51,11 @@ namespace EBookDashboard.Controllers
             if (user != null)
             {
                 HttpContext.Session.SetInt32("UserId", user.UserId);
-                // ✅ Login success → redirect to main layout (Dashboard, Home, etc.)
+                userId = user.UserId;
+               // ✅ Login success → redirect to main layout (Dashboard, Home, etc.)
 
                 // ✅ fetch role name from Roles table
-                var role = await _context.Roles
+               var role = await _context.Roles
                     .Where(r => r.RoleId == user.RoleId)
                     .Select(r => r.RoleName)
                     .FirstOrDefaultAsync();
@@ -82,22 +84,14 @@ namespace EBookDashboard.Controllers
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
 
-                // ✅ redirect based on role
-                if (role == "Admin")
-                    return RedirectToAction("Dashboard", "Admin");
-                else if (role == "Author")
-                    return RedirectToAction("Dashboard", "Author"); // Redirect Authors to Author Dashboard
-                else if (role == "Editor")
-                    return RedirectToAction("Dashboard", "Editor");
-                else if (role == "Reader")
-                    return RedirectToAction("Index", "Dashboard"); // Redirect Readers to Reader Dashboard
-
-                return RedirectToAction("Index", "Dashboard"); // Default redirect to Dashboard
+				// ✅ redirect to AI Writer after successful login
+				return RedirectToAction("AIGenerateBook", "Books");
             }
             else
             {
                 // ❌ Login failed → show error message
                 ViewBag.Error = "Invalid username or password. Please try again.";
+                ViewBag.UserId = userId; // ✅ send to Razor view
                 return View();
             }
         }

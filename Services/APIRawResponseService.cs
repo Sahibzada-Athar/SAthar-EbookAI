@@ -19,6 +19,8 @@ namespace EBookDashboard.Services
             var rawResponse = new APIRawResponse
             {
                 Endpoint = endpoint,
+                ChapterNumber = request.ChapterNo,
+                Title = request.Title,
                 RequestData = JsonConvert.SerializeObject(request),
                 ResponseData = responseData,
                 UserId = int.TryParse(request.UserId, out int uid) ? uid : (int?)null,

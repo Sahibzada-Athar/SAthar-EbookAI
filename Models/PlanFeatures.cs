@@ -35,7 +35,7 @@ namespace EBookDashboard.Models
         public string? Status { get; set; }
 
         [Column("isActive")]
-        public bool? IsActive { get; set; }
+        public int IsActive { get; set; } = 1;
 
         // ✅ Navigation Property (One-to-Many)
        // public ICollection<AuthorPlanFeatures.AuthorPlanFeatures>? AuthorPlanFeatures { get; set; }

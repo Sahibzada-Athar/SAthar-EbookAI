@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - eBook Publisher</title>
+    <title>@ViewData["Title"] eBook Ai</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -2799,7 +2799,7 @@
         <!-- Sidebar -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h2><i class="fas fa-book"></i> eBook Publisher</h2>
+                <h2><i class="fas fa-book"></i> eBook Ai</h2>
             </div>
 
             <!-- User Profile Section -->
@@ -2829,23 +2829,76 @@
                     <div class="book-id" id="currentBookId">ID: ...</div>
                 </div>
             </div>
-
             <ul class="sidebar-menu">
-                <li><a href="/Dashboard" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")"><i class="fas fa-home"></i> Dashboard</a></li>
-                @* <li><a href="/Dashboard/EnhancedDashboard" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "EnhancedDashboard" ? "active" : "")"><i class="fas fa-rocket"></i> Enhanced Dashboard</a></li> *@
-                <li><a href="/Dashboard/Profile" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Profile" ? "active" : "")"><i class="fas fa-user"></i> Profile</a></li>
-                <li><a href="/Dashboard/EBook" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "EBook" ? "active" : "")"><i class="fas fa-book-open"></i> EBook </a></li>
-                <li><a href="/Dashboard/CoverDesign" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "CoverDesign" ? "active" : "")"><i class="fas fa-palette"></i> Cover Design</a></li>
-                <li><a href="/Dashboard/AudioBook" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "AudioBook" ? "active" : "")"><i class="fas fa-microphone"></i> Audio Book</a></li>
-                <li><a href="/Dashboard/EditingFormatting" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "EditingFormatting" ? "active" : "")"><i class="fas fa-edit"></i> Editing & Formatting</a></li>
-                <li><a href="/Dashboard/AdvancedEditing" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "AdvancedEditing" ? "active" : "")"><i class="fas fa-tools"></i> Advanced Editing</a></li>
-                <li><a href="/Dashboard/Proofreading" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Proofreading" ? "active" : "")"><i class="fas fa-spell-check"></i> Proofreading</a></li>
-                <li><a href="/Dashboard/Publishing" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Publishing" ? "active" : "")"><i class="fas fa-upload"></i> Publishing</a></li>
-                <li><a href="/Dashboard/Marketing" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Marketing" ? "active" : "")"><i class="fas fa-bullhorn"></i> Marketing</a></li>
-                <li><a href="/Dashboard/Royalties" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Royalties" ? "active" : "")"><i class="fas fa-chart-line"></i> Royalties</a></li>
-                <li><a href="/Dashboard/OrderAuthorCopy" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "OrderAuthorCopy" ? "active" : "")"><i class="fas fa-shopping-cart"></i> Order Author Copy</a></li>
-                <li><a href="/Dashboard/Copyright" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Copyright" ? "active" : "")"><i class="fas fa-copyright"></i> Copyright</a></li>
+                <!-- ✅ Active Pages -->
+                <li>
+                    <a href="/Dashboard" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Dashboard/Profile" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Profile" ? "active" : "")">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Books/AIGenerateBook" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "AIGenerateBook" ? "active" : "")">
+                        <i class="fas fa-edit"></i> Ai Writer
+                    </a>
+                </li>
+
+                <!-- 🔒 Locked Pages -->
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-book-open"></i> EBook Hub <i class="fas fa-lock lock-icon"></i></a></li>
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-palette"></i> Cover Design <i class="fas fa-lock lock-icon"></i></a></li>
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-microphone"></i> Audio Book <i class="fas fa-lock lock-icon"></i></a></li>
+                @* <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-tools"></i> Advanced Editing <i class="fas fa-lock lock-icon"></i></a></li> *@
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-spell-check"></i> Proofreading <i class="fas fa-lock lock-icon"></i></a></li>
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-upload"></i> Publishing <i class="fas fa-lock lock-icon"></i></a></li>
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-bullhorn"></i> Marketing <i class="fas fa-lock lock-icon"></i></a></li>
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-chart-line"></i> Royalties <i class="fas fa-lock lock-icon"></i></a></li>
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-shopping-cart"></i> Order Author Copy <i class="fas fa-lock lock-icon"></i></a></li>
+                <li><a href="javascript:void(0);" class="locked-feature"><i class="fas fa-copyright"></i> Copyright <i class="fas fa-lock lock-icon"></i></a></li>
             </ul>
+
+            <!-- ✅ SweetAlert Script -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const lockedLinks = document.querySelectorAll(".locked-feature");
+
+                    lockedLinks.forEach(link => {
+                        link.addEventListener("click", function () {
+                            Swal.fire({
+                                title: "Upgrade Required 🚀",
+                                html: "<b>This feature is available only for premium users.</b><br><br>Please upgrade your plan to access it.",
+                                icon: "info",
+                                confirmButtonText: "Upgrade Now",
+                                confirmButtonColor: "#007bff",
+                                showCancelButton: true,
+                                cancelButtonText: "Maybe Later",
+                                cancelButtonColor: "#6c757d",
+                                backdrop: `rgba(0,0,0,0.4)`
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = "/Dashboard/UpgradePlan";
+                                }
+                            });
+                        });
+                    });
+                });
+            </script>
+
+            <!-- 💄 Just small inline styling for lock spacing -->
+            <style>
+                .lock-icon {
+                    margin-left: 8px; /* thoda gap text ke baad */
+                    color: #999; /* halka grey look for lock */
+                    font-size: 0.9em; /* thoda chhota lock */
+                }
+            </style>
+
 
             <div class="sidebar-footer">
                 <a href="/Account/Logout" class="logout-btn">
@@ -3082,7 +3135,21 @@
             }
 
             // Load cart from localStorage
-            function loadCart() {
+            async function loadCart() {
+                try {
+                    // Load server-side temp cart for authenticated users
+                    const res = await fetch('/Features/CartPreview');
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.success) {
+                            items = (data.items || []).map(i => ({ id: i.id, name: i.name, type: i.type || 'Feature', price: i.price || 0, quantity: 1 }));
+                            updateCartUI();
+                            return;
+                        }
+                    }
+                } catch (e) {}
+
+                // Fallback to client cart storage
                 const savedCart = localStorage.getItem('cartItems');
                 if (savedCart) {
                     items = JSON.parse(savedCart);
@@ -3213,7 +3280,7 @@
             }
 
             // Checkout
-            function checkout() {
+            async function checkout() {
                 if (items.length === 0) {
                     Swal.fire({
                         title: 'Empty Cart',
@@ -3224,20 +3291,20 @@
                     return;
                 }
 
-                Swal.fire({
-                    title: 'Checkout',
-                    text: 'Proceeding to checkout...',
-                    icon: 'success',
-                    timer: 2000,
-                    timerProgressBar: true,
-                    showConfirmButton: false
-                }).then(() => {
-                    // Clear cart after successful checkout
-                    items = [];
-                    saveCart();
-                    updateCartUI();
-                    closeCart();
-                });
+                try {
+                    // Ask server for suggested plan and redirect
+                    const res = await fetch('/Features/CartPreview');
+                    const data = await res.json();
+                    if (data && data.count > 0) {
+                        // Reuse suggested plan logic from features page by hitting AddToCart first or SuggestPlan separately if added later
+                        // For now, if cart not empty, go to Plans suggestion page
+                        window.location.href = '/Dashboard/PlanSuggestion';
+                    } else {
+                        Swal.fire({ title: 'Cart Error', text: 'Unable to proceed. Please try again.', icon: 'error' });
+                    }
+                } catch (err) {
+                    Swal.fire({ title: 'Checkout Failed', text: 'Please try again later.', icon: 'error' });
+                }
             }
 
             // Public API

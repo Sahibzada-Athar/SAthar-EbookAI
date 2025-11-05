@@ -24,9 +24,9 @@ namespace EBookDashboard.Models
 
         [Required]
         
-        public string CoverImagePath { get; set; } = null!; // FK to AspNetUsers
+        public string? CoverImagePath { get; set; } = null!; // FK to AspNetUsers
 
-        public string ManuscriptPath { get; set; } = null!; // FK to AspNetUsers
+        public string? ManuscriptPath { get; set; } = null!; // FK to AspNetUsers
 
         public string Genre {  get; set; } = string.Empty;
         [StringLength(500)]

@@ -6,28 +6,29 @@ namespace EBookDashboard.Controllers
 {
     public class PlansController : Controller
     {
-        private readonly IPlanService _planService;
+        private readonly IPlansService _plansService;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ApplicationDbContext _context;
-        public PlansController(IPlanService planService, IHttpClientFactory httpClientFactory, ApplicationDbContext context)
+        public PlansController(IPlansService planService, IHttpClientFactory httpClientFactory, ApplicationDbContext context)
         {
-            _planService = planService;
+            _plansService = planService;
             _httpClientFactory = httpClientFactory;
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            var plans = await _planService.GetActivePlansAsync();
+            var plans = await _plansService.GetActivePlansAsync();
             return View(plans);
         }
 
         [HttpPost]
         public async Task<IActionResult> BuyPlan(int planId)
         {
-            var plan = (await _planService.GetActivePlansAsync()).FirstOrDefault(p => p.PlanId == planId);
+            var plan = (await _plansService.GetAllActivePlansAsync()).FirstOrDefault(p => p.PlanId == planId);
             if (plan == null) return NotFound();
 
+            
             // 🔗 Call WebPaymentAPI
             var client = _httpClientFactory.CreateClient();
             client.BaseAddress = new Uri("https://localhost:5001/"); // your WebPaymentAPI base URL
@@ -49,25 +50,68 @@ namespace EBookDashboard.Controllers
 
             return Redirect(sessionUrl);
         }
-        //-------- added on 09-10-2025
+        //=======================================================
+        //-------- added on 09-10-2025 Filter only active plans
+        //=======================================================
         [HttpGet]
         public IActionResult GetPlans()
         {
-            var plans = _context.Plans
-                .Select(p => new
-                {
-                    p.PlanId,
-                    p.PlanName,
-                    p.PlanRate,
-                    p.Currency,
-                    p.PlanDays,
-                    p.MaxEBooks,
-                    p.PlanDescription
-                }).ToList();
+            try
+            {
+                var plans = _context.Plans
+                     .Where(p => p.IsActive == 1) // Only active plans
+                     .Select(p => new
+                     {
 
-            return Json(plans);
+                         p.PlanId,
+                         p.PlanName,
+                         p.PlanRate,
+                         p.Currency,
+                         p.PlanDays,
+                         p.MaxEBooks,
+                         p.PlanDescription
+                     }).ToList();
+
+                return Json(plans);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                //_logger.LogError(ex, "Error retrieving plan features");
+                return StatusCode(500, new { error = "Internal server error", ex });
+            }
         }
+        //=======================================================
+        //-------- added on 01-11-2025 Filter only active plan features
+        //=======================================================
+        [HttpGet]
+        public IActionResult GetPlanFeatures()
+        {
+            try
+            {
+                var plans = _context.PlanFeatures
+                    .Where(p => p.IsActive == 1) // Only active plans
+                    .Select(p => new
+                    {
+                        p.FeatureId,
+                        p.PlanId,
+                        p.FeatureName,
+                        p.FeatureRate,
+                        p.Currency,
+                        p.Description
+                    })
+                    .OrderBy(p => p.FeatureId) // Optional: order the results
+                    .ToList();
 
+                return Json(plans);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                //_logger.LogError(ex, "Error retrieving plan features");
+                return StatusCode(500, new { error = "Internal server error",ex });
+            }
+        }
     }
 
 }

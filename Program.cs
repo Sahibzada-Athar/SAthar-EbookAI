@@ -37,7 +37,7 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 // Add BookService
 builder.Services.AddScoped<IBookService, BookService>();
 // Add PlanService
-builder.Services.AddScoped<IPlanService, PlanService>();
+builder.Services.AddScoped<IPlansService, PlansService>();
 // Add FeatureCartService
 builder.Services.AddScoped<IFeatureCartService, FeatureCartService>();
 // Add CheckoutService
@@ -46,6 +46,11 @@ builder.Services.AddScoped<ICheckoutService, CheckoutService>();
 builder.Services.AddScoped<IPlanFeaturesService, PlanFeaturesService>();
 //
 builder.Services.AddScoped<IAPIRawResponseService, APIRawResponseService>();
+// Add this to your services
+builder.Services.AddScoped<BookProcessingService>();
+builder.Services.AddScoped<IAuthorPlansService, AuthorPlansService>();
+builder.Services.AddScoped<IAuthorBillsService, AuthorBillsService>();
+builder.Services.AddScoped<IAuthorPlansService, AuthorPlansService>();
 
 // Add session services
 builder.Services.AddDistributedMemoryCache();
@@ -76,13 +81,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseSession(); // ✅ enable session middleware
+app.UseSession(); // ✅ must be after UseRouting and before UseEndpoints
 
 
 // ✅ Authentication + Authorization
 app.UseAuthentication();
 app.UseAuthorization();
-
+//app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}/{id?}");

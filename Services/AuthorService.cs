@@ -73,7 +73,7 @@ namespace EBookDashboard.Services
 
             plan.CancelledAt = DateTime.UtcNow;
             plan.CancellationReason = reason;
-            plan.IsActive = false;
+            plan.IsActive = 0;
 
             _context.AuthorPlans.Update(plan);
             return await _context.SaveChangesAsync() > 0;

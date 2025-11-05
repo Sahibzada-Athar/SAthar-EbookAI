@@ -2103,6 +2103,19 @@
           }
         }
       },
+      "Portable.BouncyCastle/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Stripe.net/49.0.0": {
         "type": "package",
         "dependencies": {
@@ -5979,6 +5992,21 @@
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
+    "Portable.BouncyCastle/1.9.0": {
+      "sha512": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
+      "type": "package",
+      "path": "portable.bouncycastle/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/BouncyCastle.Crypto.dll",
+        "lib/net40/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "portable.bouncycastle.1.9.0.nupkg.sha512",
+        "portable.bouncycastle.nuspec"
+      ]
+    },
     "Stripe.net/49.0.0": {
       "sha512": "cETS35+ebUI9Jy/XapirLp11P7fd5ibzM8uckhVBl09K0vKCPyoJ8MNMZpK7+bg3zPzmyxd5aCg1L/aWejB5zQ==",
       "type": "package",
@@ -6734,28 +6762,29 @@
       "Microsoft.Extensions.Identity.Core >= 9.0.9",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 9.0.0",
       "Pomelo.EntityFrameworkCore.MySql >= 9.0.0",
+      "Portable.BouncyCastle >= 1.9.0",
       "Stripe.net >= 49.0.0",
       "System.IdentityModel.Tokens.Jwt >= 8.14.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hp\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hp\\EbookAI\\EBookDashboard.csproj",
+      "projectUniqueName": "D:\\Yit Solutions 2025\\eBookProjectGit25\\EBookDashboard.csproj",
       "projectName": "EBookDashboard",
-      "projectPath": "C:\\Users\\Hp\\EbookAI\\EBookDashboard.csproj",
-      "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hp\\EbookAI\\obj\\",
+      "projectPath": "D:\\Yit Solutions 2025\\eBookProjectGit25\\EBookDashboard.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Yit Solutions 2025\\eBookProjectGit25\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6810,6 +6839,10 @@
             "target": "Package",
             "version": "[9.0.0, )"
           },
+          "Portable.BouncyCastle": {
+            "target": "Package",
+            "version": "[1.9.0, )"
+          },
           "Stripe.net": {
             "target": "Package",
             "version": "[49.0.0, )"
@@ -6838,7 +6871,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
