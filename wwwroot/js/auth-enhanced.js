@@ -239,7 +239,7 @@ async function handleLoginSubmission(e) {
             body: formData
         });
         
-        if (response.ok && (response.url.includes('Dashboard') || response.redirected)) {
+        if (response.ok && (response.url.includes('AIGenerateBook') || response.url.includes('Dashboard') || response.redirected)) {
             showToast('Login successful! Redirecting...', 'success');
             
             // Reset login attempts on success
@@ -248,7 +248,7 @@ async function handleLoginSubmission(e) {
             localStorage.removeItem('loginLockout');
             
             setTimeout(() => {
-                window.location.href = '/Dashboard';
+                window.location.href = '/Books/AIGenerateBook';
             }, 1000);
         } else {
             // Handle failed login

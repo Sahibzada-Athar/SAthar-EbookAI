@@ -3,41 +3,40 @@ using System.Net;
 using System.Net.Mail;
 namespace EBookDashboard.Services
 {
-   public class EmailService : IEmailService
+    public class EmailService : IEmailService
     {
-        private readonly IConfiguration _config;
+        // Configuration to read email settings from appsettings.json
+        private readonly IConfiguration _configuration;
 
         public EmailService(IConfiguration config)
         {
-            _config = config;
+            _configuration = config;
         }
 
         public async Task SendEmailAsync(string toEmail, string subject, string body)
         {
-            var smtpServer = _config["EmailSettings:SmtpServer"];
-            var port = int.Parse(_config["EmailSettings:Port"]);
-            var senderEmail = _config["EmailSettings:SenderEmail"];
-            var senderName = _config["EmailSettings:SenderName"];
-            var username = _config["EmailSettings:Username"];
-            var password = _config["EmailSettings:Password"];
-            var enableSsl = bool.Parse(_config["EmailSettings:EnableSsl"]);
+            var smtpServer = _configuration["Email:SmtpServer"];
+            var port = int.Parse(_configuration["Email:Port"]);
+            var username = _configuration["Email:Username"];
+            var password = _configuration["Email:Password"];
+            var fromEmail = _configuration["Email:FromEmail"];
 
-            using var client = new SmtpClient(smtpServer, port)
+            using (var client = new SmtpClient(smtpServer, port))
             {
-                Credentials = new NetworkCredential(username, password),
-                EnableSsl = enableSsl
-            };
+                client.EnableSsl = true;
+                client.Credentials = new NetworkCredential(username, password);
 
-            var mail = new MailMessage
-            {
-                From = new MailAddress(senderEmail, senderName),
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            };
-            mail.To.Add(toEmail);
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress(fromEmail),
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(toEmail);
 
-           // await client.SendMailAsync(mail);
+                await client.SendMailAsync(mailMessage);
+            }
         }
     }
 

@@ -16,8 +16,8 @@ namespace EBookDashboard.Services
         // ----- Features -----
         public async Task<IEnumerable<PlanFeatures>> GetAllFeaturesAsync()
         {
+            // Return all features (active and inactive) for complete admin oversight
             return await _context.PlanFeatures
-                .Where(f => f.IsActive == 1)
                 .OrderBy(f => f.FeatureId)
                 .ToListAsync();
         }
