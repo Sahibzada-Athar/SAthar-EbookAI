@@ -6,6 +6,18 @@ ALTER TABLE `Features` ADD COLUMN IF NOT EXISTS `CreatedAt` datetime(6) NOT NULL
 ALTER TABLE `Plans` ADD COLUMN IF NOT EXISTS `CreateddAt` datetime(6) NOT NULL DEFAULT '2025-01-01 00:00:00';
 
 -- Create missing tables
+CREATE TABLE IF NOT EXISTS `UserPreferences` (
+    `PreferenceId` int NOT NULL AUTO_INCREMENT,
+    `UserId` int NOT NULL,
+    `Key` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Value` varchar(500) CHARACTER SET utf8mb4 NULL,
+    `CreatedAt` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `UpdatedAt` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    PRIMARY KEY (`PreferenceId`),
+    INDEX `IX_UserPreferences_UserId_Key` (`UserId`, `Key`),
+    CONSTRAINT `FK_UserPreferences_Users_UserId` FOREIGN KEY (`UserId`) REFERENCES `Users` (`UserId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
 CREATE TABLE IF NOT EXISTS `TemporaryFeatures` (
     `Id` int NOT NULL AUTO_INCREMENT,
     `SessionId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,

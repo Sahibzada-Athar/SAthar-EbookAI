@@ -1,4 +1,4 @@
-﻿CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` (
+﻿﻿CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` (
     `MigrationId` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
     `ProductVersion` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
     CONSTRAINT `PK___EFMigrationsHistory` PRIMARY KEY (`MigrationId`)
@@ -411,6 +411,19 @@ UPDATE `Plans` SET `CreateddAt` = TIMESTAMP '2025-01-01 00:00:00'
 WHERE `PlanId` = 4;
 SELECT ROW_COUNT();
 
+
+CREATE TABLE `UserPreferences` (
+    `PreferenceId` int NOT NULL AUTO_INCREMENT,
+    `UserId` int NOT NULL,
+    `Key` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Value` varchar(500) CHARACTER SET utf8mb4 NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_UserPreferences` PRIMARY KEY (`PreferenceId`),
+    CONSTRAINT `FK_UserPreferences_Users_UserId` FOREIGN KEY (`UserId`) REFERENCES `Users` (`UserId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE INDEX `IX_UserPreferences_UserId_Key` ON `UserPreferences` (`UserId`, `Key`);
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
 VALUES ('20251015183409_FixDateTimeSeedData', '9.0.9');
