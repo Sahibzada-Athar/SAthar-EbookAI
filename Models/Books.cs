@@ -17,9 +17,12 @@ namespace EBookDashboard.Models
         [MaxLength(250)]
         public string Title { get; set; } = string.Empty;
 
-        public string? Subtitle { get; set; }
+        public string? Subtitle { get; set; } = string.Empty;
         public string AuthorCode { get; set; } = string.Empty;
         public int LanguageId { get; set; }
+        public string Dedication { get; set; } = string.Empty;
+        public string Ghostwriting { get; set; } = string.Empty;
+        public string Epigraph { get; set; } = string.Empty;
 
 
         [Required]
@@ -30,11 +33,11 @@ namespace EBookDashboard.Models
 
         public string Genre {  get; set; } = string.Empty;
         [StringLength(500)]
-        public string? Description { get; set; }
+        public string? Description { get; set; } = string.Empty;
         public int WordCount { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; } = new DateTime(1980, 1, 1);
         public string Status { get; set; } = string.Empty;
 
         public ICollection<Chapters> Chapters { get; set; } = new List<Chapters>();

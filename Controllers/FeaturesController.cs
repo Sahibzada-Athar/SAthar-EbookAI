@@ -164,7 +164,7 @@ namespace EBookDashboard.Controllers
             var tempFeatures = await _featureCartService.GetTempFeaturesAsync(sessionId, userId);
             var total = await _featureCartService.CalculateTotalTempPriceAsync(sessionId, userId);
 
-            var cartItems = tempFeatures.Select(tf => new CartItemViewModel
+            var cartItems = tempFeatures.Select(tf => new TempCartItemDto
             {
                 Id = tf.FeatureId ?? 0,
                 Name = tf.FeatureName ?? "",
@@ -189,7 +189,7 @@ namespace EBookDashboard.Controllers
         public Dictionary<string, int> PlanMap { get; set; } = new Dictionary<string, int>();
     }
 
-    public class CartItemViewModel
+    public class TempCartItemDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = "";

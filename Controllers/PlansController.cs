@@ -46,7 +46,7 @@ namespace EBookDashboard.Controllers
                 return BadRequest("Unable to create payment session");
 
             var result = await response.Content.ReadFromJsonAsync<dynamic>();
-            string sessionUrl = result?.sessionUrl;
+            string? sessionUrl = result?.sessionUrl;
 
             return Redirect(sessionUrl);
         }

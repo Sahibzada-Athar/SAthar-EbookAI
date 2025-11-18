@@ -3,6 +3,7 @@ using EBookDashboard.Models;
 using EBookDashboard.Models.ViewModels;
 using EBookDashboard.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Recommendations;
@@ -12,18 +13,22 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Org.BouncyCastle.Asn1.Cmp;
 using Org.BouncyCastle.Asn1.Ocsp;
+using PuppeteerSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Xml.Linq;  
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EBookDashboard.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     //[Route("[controller]/[action]")]
     public class BooksController : Controller
     {
@@ -43,13 +48,10 @@ namespace EBookDashboard.Controllers
             _configuration = configuration;
             _logger = logger;
         }
-        //=====================================
-        //       At the time of Page Load
-        //=====================================
+      
         // ✅ 1️⃣ — GET: Show the Razor view page
-        [AllowAnonymous]
         [HttpGet]
-        public IActionResult AIGenerateBook()
+        public IActionResult AIGenerateBook(int? bookId = null)
         {
             int? userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null)
@@ -58,6 +60,7 @@ namespace EBookDashboard.Controllers
                 return RedirectToAction("Login", "Account");
             }
             ViewBag.UserId = userId; // ✅ send to Razor view
+            ViewBag.SelectedBookId = bookId;
             //==== Using 2 tables in Razor View ==========
             var model = new AIGenerateBookViewModel
             {
@@ -66,134 +69,8 @@ namespace EBookDashboard.Controllers
             };
             return View(model); // this will look for Views/Books/AIGenerateBook.cshtml
         }
-        //=====================================
-        //   When user clicks "Generate Book" button
-        //=====================================
-        // ✅ 2️⃣ — POST: Call external API and return book data as JSON
-        // Generate Book via API
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("Books/AIGenerateBook")]
-        public async Task<IActionResult> AIGenerateBook([FromBody] AIBookRequest model)
-        {
-            if (model == null)
-            {
-                return BadRequest("Invalid request data");
-            }
 
-            // ✅ Load from appsettings.json
-            //var apiUrl = _configuration["ExternalApi:generate_chapter"];
-            string apiUrl = "http://162.229.248.26:8001/api/generate_chapter";
-            string apiKey = "X-API-Key";
-            string password = "AK-proj-c8r15p0EYc1B0SKi5_hP58HEyL6xP0ywmZ2hEpvpvU5y-i7yZ8IiyLv1K7cGSkyNh";
-            var responseData = string.Empty;
-            // var apiKey = _configuration["ExternalApi:ApiKey"];
-            //string apiUrl = "http://162.229.248.26:8001/api/generate_chapter";
-            var apiHeaderName = "X-API-Key";
-
-
-            int? rawResponseId = null;
-            try
-            {
-                using var client = new HttpClient();
-                {
-                    // Set timeout(optional but recommended)
-                    client.Timeout = TimeSpan.FromMinutes(5);
-
-                    client.DefaultRequestHeaders.Add(apiKey, password);
-
-                    var json = JsonConvert.SerializeObject(model);
-                    var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                    Console.WriteLine($"📤 Sending request to API - Title: {model.Title}, Chapter: {model.ChapterNo}");
-                    // Console.WriteLine($"📤Sending request to API: {json}");
-                    //-------- Error occurs here ------
-                    var response = await client.PostAsync(apiUrl, content);
-                    responseData = await response.Content.ReadAsStringAsync();
-
-                    // Log the API response in VS Output or console
-                    Console.WriteLine($"📥API Response Status: {response.StatusCode}");
-                    Console.WriteLine($"📥API Response Data: {responseData}");
-
-                    // ✅ SAVE RAW RESPONSE FIRST
-                    rawResponseId = await _rawResponseService.SaveRawResponseAsync(
-                        model,
-                        responseData,
-                        apiUrl,
-                        response.StatusCode.ToString()
-                    );
-
-                    Console.WriteLine($"💾 Raw Response saved - ID: {rawResponseId}, Chapter: {model.ChapterNo}, Title: {model.Title}");
-                    Console.WriteLine($"📥 API Response Status: {response.StatusCode}");
-
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        return StatusCode((int)response.StatusCode,
-                            $"API error: {response.StatusCode} - {responseData}");
-                    }
-                    // Parse and save to database
-                    try
-                    {
-                        // ✅ NEW: Parse the response and save to database
-                        var apiResponse = JsonConvert.DeserializeObject<AIBookResponse>(responseData);
-                        if (apiResponse != null)
-                        {
-                            Console.WriteLine($"🔍 API Response has content, proceeding to save...");
-                            await SaveBookToDatabase(model, apiResponse, rawResponseId);
-                            Console.WriteLine("✅ Book successfully saved to database");
-                        }
-                        else
-                        {
-                            Console.WriteLine("⚠️ No chapters to save to database");
-                        }
-                    }
-                    catch (Exception dbEx)
-                    {
-                        Console.WriteLine($"⚠️ Database save failed but returning API response: {dbEx.Message}");
-                        // Continue to return the API response even if DB save fails
-                    }
-                    return Content(responseData, "application/json");
-                }
-            }
-            catch (HttpRequestException ex)
-            {
-                // Save error response
-                if (rawResponseId == null)
-                {
-                    await _rawResponseService.SaveRawResponseAsync(
-                        model,
-                        responseData,
-                        apiUrl,
-                        "500",
-                        $"Network error: {ex.Message}"
-                    );
-                }
-
-                Console.WriteLine($"❌ Network error: {ex.Message}");
-                return StatusCode(500, $"Network error: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                // Save error response
-                if (rawResponseId == null)
-                {
-                    await _rawResponseService.SaveRawResponseAsync(
-                        model,
-                        responseData,
-                        apiUrl,
-                        "500",
-                        $"Unexpected error: {ex.Message}"
-                    );
-                }
-
-                // Log database errors but still return the book data to user
-                Console.WriteLine($"Database save error: {ex.Message}");
-                // You might want to return the API response even if saving fails
-                return Content(responseData, "application/json");
-            }
-        }
         // ✅ 1️⃣ — GET: Show the Razor view page
-        [AllowAnonymous]
         [HttpGet]
         public IActionResult AIGenerateBook2()
         {
@@ -333,7 +210,251 @@ namespace EBookDashboard.Controllers
             _context.Books.Remove(book);
             return await _context.SaveChangesAsync() > 0;
         }
-        
+        //==================================
+        //     Generate Book
+        //==================================
+        // ✅ 2️⃣ — POST: Call external API and return book data as JSON
+        // Generate Book via API
+        [HttpPost]
+        [Route("Books/AIGenerateBook")]
+        public async Task<IActionResult> AIGenerateBook([FromBody] AIBookRequest model)
+        {
+            if (model == null)
+            {
+                return BadRequest("Invalid request data");
+            }
+
+            // ✅ Load from appsettings.json
+            //var apiUrl = _configuration["ExternalApi:generate_chapter"];
+            string apiUrl = "http://162.229.248.26:8001/api/generate_chapter";
+            string apiKey = "X-API-Key";
+            string password = "AK-proj-c8r15p0EYc1B0SKi5_hP58HEyL6xP0ywmZ2hEpvpvU5y-i7yZ8IiyLv1K7cGSkyNh";
+            var responseData = string.Empty;
+            // var apiKey = _configuration["ExternalApi:ApiKey"];
+            //string apiUrl = "http://162.229.248.26:8001/api/generate_chapter";
+            //var apiHeaderName = "X-API-Key";         
+            
+            
+            int? rawResponseId = null;
+            try
+            {
+                using var client = new HttpClient();
+                {
+                    // Set timeout(optional but recommended)
+                    client.Timeout = TimeSpan.FromMinutes(5);
+
+                    client.DefaultRequestHeaders.Add(apiKey, password);
+
+                    var json = JsonConvert.SerializeObject(model);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    Console.WriteLine($"📤Sending request to API: {json}");
+                    //-------- Error occurs here ------
+                    var response = await client.PostAsync(apiUrl, content);
+                    responseData = await response.Content.ReadAsStringAsync();
+
+                    // Log the API response in VS Output or console
+                    Console.WriteLine($"📥API Response Status: {response.StatusCode}");
+                    Console.WriteLine($"📥API Response Data: {responseData}");
+
+                    // ✅ SAVE RAW RESPONSE FIRST
+                    rawResponseId = await _rawResponseService.SaveRawResponseAsync(
+                        model,
+                        responseData,
+                        apiUrl,
+                        response.StatusCode.ToString()
+                    );
+
+                    Console.WriteLine($"📥 API Response Status: {response.StatusCode}");
+                    Console.WriteLine($"📥 Raw Response saved with ID: {rawResponseId}");
+
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        return StatusCode((int)response.StatusCode,
+                            $"API error: {response.StatusCode} - {responseData}");
+                    }
+                    // Parse and save to database
+                    try
+                    {
+                        // ✅ NEW: Parse the response and save to database
+                        var apiResponse = JsonConvert.DeserializeObject<AIBookResponse>(responseData);
+                        if (apiResponse != null)
+                        {
+                            Console.WriteLine($"🔍 API Response has content, proceeding to save...");
+                            await SaveBookToDatabase(model, apiResponse, rawResponseId);
+                            Console.WriteLine("✅ Book successfully saved to database");
+                        }
+                        else
+                        {
+                            Console.WriteLine("⚠️ No chapters to save to database");
+                        }
+                    }
+                    catch (Exception dbEx)
+                    {
+                        Console.WriteLine($"⚠️ Database save failed but returning API response: {dbEx.Message}");
+                        // Continue to return the API response even if DB save fails
+                    }
+                    return Content(responseData, "application/json");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                // Save error response
+                if (rawResponseId == null)
+                {
+                    await _rawResponseService.SaveRawResponseAsync(
+                        model,
+                        responseData,
+                        apiUrl,
+                        "500",
+                        $"Network error: {ex.Message}"
+                    );
+                }
+
+                Console.WriteLine($"❌ Network error: {ex.Message}");
+                return StatusCode(500, $"Network error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Save error response
+                if (rawResponseId == null)
+                {
+                    await _rawResponseService.SaveRawResponseAsync(
+                        model,
+                        responseData,
+                        apiUrl,
+                        "500",
+                        $"Unexpected error: {ex.Message}"
+                    );
+                }
+
+                // Log database errors but still return the book data to user
+                Console.WriteLine($"Database save error: {ex.Message}");
+                // You might want to return the API response even if saving fails
+                return Content(responseData, "application/json");
+            }
+        }
+        //==================================
+        //     Edit Book
+        //==================================
+        // ✅ 2️⃣ — POST: Call external API and return book data as JSON
+        // Generate Book via API
+        [HttpPost]
+        [Route("Books/AIEditBook")]
+        public async Task<IActionResult> AIEditBook([FromBody] AIBookRequest model)
+        {
+            if (model == null)
+            {
+                return BadRequest("Invalid request data");
+            }
+            // ✅ Load from appsettings.json
+            //var apiUrl = _configuration["ExternalApi:edit_chapter"];
+            string apiUrl = "http://162.229.248.26:8001/api/edit";
+            string apiKey = "X-API-Key";
+            string password = "AK-proj-c8r15p0EYc1B0SKi5_hP58HEyL6xP0ywmZ2hEpvpvU5y-i7yZ8IiyLv1K7cGSkyNh";
+            var responseData = string.Empty;       
+
+            int? rawResponseId = null;
+            try
+            {
+                using var client = new HttpClient();
+                {
+                    // Set timeout(optional but recommended)
+                    client.Timeout = TimeSpan.FromMinutes(5);
+
+                    client.DefaultRequestHeaders.Add(apiKey, password);
+
+                    var json = JsonConvert.SerializeObject(model);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    Console.WriteLine($"📤Sending request to API: {json}");
+                    //-------- Error occurs here ------
+                    var response = await client.PostAsync(apiUrl, content);
+                    responseData = await response.Content.ReadAsStringAsync();
+
+                    // Log the API response in VS Output or console
+                    Console.WriteLine($"📥API Response Status: {response.StatusCode}");
+                    Console.WriteLine($"📥API Response Data: {responseData}");
+
+                    // ✅ SAVE RAW RESPONSE FIRST
+                    rawResponseId = await _rawResponseService.SaveRawResponseAsync(
+                        model,
+                        responseData,
+                        apiUrl,
+                        response.StatusCode.ToString()
+                    );
+
+                    Console.WriteLine($"📥 API Response Status: {response.StatusCode}");
+                    Console.WriteLine($"📥 Raw Response saved with ID: {rawResponseId}");
+
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        return StatusCode((int)response.StatusCode,
+                            $"API error: {response.StatusCode} - {responseData}");
+                    }
+                    // Parse and save to database
+                    try
+                    {
+                        // ✅ NEW: Parse the response and save to database
+                        var apiResponse = JsonConvert.DeserializeObject<AIBookResponse>(responseData);
+                        if (apiResponse != null)
+                        {
+                            Console.WriteLine($"🔍 API Response has content, proceeding to save...");
+                            await SaveBookToDatabase(model, apiResponse, rawResponseId);
+                            Console.WriteLine("✅ Book successfully saved to database");
+                        }
+                        else
+                        {
+                            Console.WriteLine("⚠️ No chapters to save to database");
+                        }
+                    }
+                    catch (Exception dbEx)
+                    {
+                        Console.WriteLine($"⚠️ Database save failed but returning API response: {dbEx.Message}");
+                        // Continue to return the API response even if DB save fails
+                    }
+                    return Content(responseData, "application/json");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                // Save error response
+                if (rawResponseId == null)
+                {
+                    await _rawResponseService.SaveRawResponseAsync(
+                        model,
+                        responseData,
+                        apiUrl,
+                        "500",
+                        $"Network error: {ex.Message}"
+                    );
+                }
+
+                Console.WriteLine($"❌ Network error: {ex.Message}");
+                return StatusCode(500, $"Network error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Save error response
+                if (rawResponseId == null)
+                {
+                    await _rawResponseService.SaveRawResponseAsync(
+                        model,
+                        responseData,
+                        apiUrl,
+                        "500",
+                        $"Unexpected error: {ex.Message}"
+                    );
+                }
+
+                // Log database errors but still return the book data to user
+                Console.WriteLine($"Database save error: {ex.Message}");
+                // You might want to return the API response even if saving fails
+                return Content(responseData, "application/json");
+            }
+        }
         // Default method to get next IDs
         [HttpGet]
         public async Task<IActionResult> GetNextIds()
@@ -433,7 +554,6 @@ namespace EBookDashboard.Controllers
             }
         }
         // ✅ 3️⃣ — POST: Save book data from API response (called from frontend)
-        [AllowAnonymous]
         [HttpPost]
         [Route("Books/SaveBookFromAPI")]
         public async Task<IActionResult> SaveBookFromAPI([FromBody] APISaveBookRequest model)
@@ -581,6 +701,75 @@ namespace EBookDashboard.Controllers
 
             return Json(new { success = true, data = responses });
         }
+        //=====================================================
+        //    Load Last Book Data for a User
+        //=====================================================
+        [HttpGet]
+        public async Task<IActionResult> GetLastBookrawResponseData(int userId, int bookId, int responseId)
+        {
+            try
+            {
+                Console.WriteLine($"🔍 Loading book data for user {userId}, book {bookId}, response {responseId}");
+
+                // First try to get data from Books table
+                var bookDetails = await _bookService.GetBookDetailsAsync(userId, bookId, responseId);
+                if (bookDetails != null)
+                {
+                    Console.WriteLine($"✅ Found book in Books table: {bookDetails.Title}");
+                    return Json(new
+                    {
+                        success = true,
+                        bookId = bookDetails.BookId,
+                        title = bookDetails.Title,
+                        description = bookDetails.Description,
+                        genre = bookDetails.Genre,
+                        chapters = bookDetails.Chapters,
+                        data = bookDetails.Chapters?.FirstOrDefault()?.Content,
+                        source = "BooksTable"
+                    });
+                }
+                // // Get raw response data for the latest book
+                // var latestBookData = await _rawResponseService.GetRawResponsesByUserAndBookAsync(userId, bookId, responseId);
+
+                // If not found in Books table, try APIRawResponse
+                Console.WriteLine($"📚 Book not found in Books table, checking APIRawResponse...");
+                var rawResponses = await _rawResponseService.GetRawResponsesByUserAndBookAsync(userId, bookId, responseId);
+
+                if (rawResponses != null && rawResponses.Any())
+                {
+                    var latestResponse = rawResponses.OrderByDescending(r => r.CreatedAt).First();
+                    Console.WriteLine($"✅ Found {rawResponses.Count()} responses in APIRawResponse");
+
+                    return Json(new
+                    {
+                        success = true,
+                        bookId = bookId,
+                        responseId = latestResponse.ResponseId,
+                        title = latestResponse.Title,
+                        data = latestResponse.ResponseData,
+                        chapter = latestResponse.Chapter,
+                        endpoint = latestResponse.Endpoint,
+                        createdAt = latestResponse.CreatedAt,
+                        rawResponses = rawResponses,
+                        source = "APIRawResponse"
+                    });
+                }
+
+                Console.WriteLine($"🔍 No book data found for user {userId}, book {bookId}");
+                return Json(new
+                {
+                    success = false,
+                    message = "No book data found for the selected book."
+                });
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error fetching book data for user {userId}: {ex.Message}");
+                return Json(new { success = false, message = ex.Message });
+            }  
+            
+        }
         //==========================================================
         //============ Step 1: Load Books in DropDown ==============
         //==========================================================
@@ -591,17 +780,19 @@ namespace EBookDashboard.Controllers
                 return BadRequest("UserId is required.");
             try
             {
-                var savedBooks = await _context.Books
-                .Where(b => b.UserId == userId)
-                .OrderByDescending(b => b.CreatedAt)
-                .Select(b => new {
+                var savedBooks = await _bookService.GetSavedBooksForDropdownAsync(userId);
+
+                // Transform to the expected format with formatted date
+                var result = savedBooks.Select(b => new
+                {
+                    userId = b.UserId,
                     bookId = b.BookId,
-                    bookTitle = b.Title,
-                    createdDate = b.CreatedAt.ToString("MMM dd, yyyy")
-                })
-                .ToListAsync();
-                Console.WriteLine($"🔍 GetSavedResponses: Found {savedBooks.Count} books for user {userId}");
-                return Json(savedBooks);
+                    bookTitle = b.BookTitle,
+                    createdDate = b.CreatedDate.ToString("MMM dd, yyyy")
+                }).ToList();
+
+                Console.WriteLine($"🔍 GetSavedResponses: Found {result.Count} books for user {userId}");
+                return Json(result);
             }
             catch (Exception ex)
             {
@@ -609,28 +800,37 @@ namespace EBookDashboard.Controllers
                 return Json(new { error = ex.Message });
             }
         }
-        //==================================================
-        //       Load Book Data according to Selection
-        //=================================================
+        /// <summary>
+        /// Get book details with chapters
+        /// </summary>
         [HttpGet]
         public async Task<IActionResult> GetBookDetails(int userId, int bookId)
         {
             try
             {
-                var bookDetails = await _bookService.GetBookDetailsAsync(userId, bookId);
-                
-                if (bookDetails == null)
+                var book = await _context.Books
+                    .FirstOrDefaultAsync(b => b.UserId == userId && b.BookId == bookId);
+
+                if (book == null)
                     return Json(new { success = false, message = "Book not found" });
+
+                // If you have a Chapters table, join it here
+                var chapters = await _context.Chapters
+                    .Where(c => c.BookId == bookId)
+                    .OrderBy(c => c.ChapterNumber)
+                    .Select(c => new
+                    {
+                        number = c.ChapterNumber,
+                        title = c.Title,
+                        content = c.Content
+                    })
+                    .ToListAsync();
 
                 return Json(new
                 {
                     success = true,
-                    bookId = bookDetails.BookId,
-                    title = bookDetails.Title,
-                    description = bookDetails.Description,
-                    genre = bookDetails.Genre,
-                    totalChapters = bookDetails.TotalChapters,
-                    chapters = bookDetails.Chapters
+                    title = book.Title,
+                    chapters = chapters
                 });
             }
             catch (Exception ex)
@@ -638,35 +838,7 @@ namespace EBookDashboard.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
-        //==================================================
-        //       Load Book Data according to Selection
-        //=================================================
-        [HttpGet]
-        public async Task<IActionResult> GetBookFromRawData(int userId, int bookId)
-        {
-            try
-            {
-                var bookDetails = await _bookService.GetBookDetailsFromRawDataAsync(userId, bookId);
 
-                if (bookDetails == null)
-                    return Json(new { success = false, message = "Book not found" });
-
-                return Json(new
-                {
-                    success = true,
-                    bookId = bookDetails.BookId,
-                    title = bookDetails.Title,
-                    description = bookDetails.Description,
-                    genre = bookDetails.Genre,
-                    totalChapters = bookDetails.TotalChapters,
-                    chapters = bookDetails.Chapters
-                });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = ex.Message });
-            }
-        }
         // GET: Books
         public async Task<IActionResult> Index()
         {
@@ -921,7 +1093,7 @@ namespace EBookDashboard.Controllers
 
             var apiUrl = _configuration["ExternalApi:EditUrl"];
             var apiKey = _configuration["ExternalApi:ApiKey"];
-            var apiHeaderName = "X-API-Key";
+            //var apiHeaderName = "X-API-Key";
 
             var payload = new
             {
@@ -980,7 +1152,6 @@ namespace EBookDashboard.Controllers
         }
         
         //====================== Finalize Chapter ======================
-        [AllowAnonymous]
         [HttpPost]
         [Route("Books/FinalizeChapter")]
         public async Task<IActionResult> FinalizeChapter([FromBody] APIFinalizeChapterRequest model)
@@ -1082,7 +1253,7 @@ namespace EBookDashboard.Controllers
             {
                 if (rawResponseId == null)
                 {
-                    await _rawResponseService.SaveRawResponseAsync(
+                    _ = await _rawResponseService.SaveRawResponseAsync(
                         new AIBookRequest
                         {
                             UserId = model.UserId,
@@ -1101,6 +1272,397 @@ namespace EBookDashboard.Controllers
                 return StatusCode(500, $"Server error: {ex.Message}");
             }
         }
+
+        // ========================== MANUSCRIPT UPLOAD ===========================
+        // Accept .docx, .pdf, .txt; save file path to DB tied to logged-in user
+        [HttpPost]
+        [RequestSizeLimit(1024L * 1024L * 100L)] // 100 MB
+        public async Task<IActionResult> UploadManuscript(int bookId, IFormFile file)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            if (file == null || file.Length == 0) return BadRequest("No file uploaded.");
+
+            var allowed = new[] { ".docx", ".pdf", ".txt" };
+            var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
+            if (!allowed.Contains(ext)) return BadRequest("Only .docx, .pdf, .txt are allowed.");
+
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.BookId == bookId && b.UserId == sessionUserId.Value);
+            if (book == null) return NotFound("Book not found.");
+
+            var uploadsRoot = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", sessionUserId.Value.ToString(), "books", bookId.ToString());
+            Directory.CreateDirectory(uploadsRoot);
+            var fileName = $"manuscript_{DateTime.UtcNow:yyyyMMddHHmmss}{ext}";
+            var savePath = Path.Combine(uploadsRoot, fileName);
+            using (var stream = new FileStream(savePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            // Save relative path into DB
+            var relativePath = $"/uploads/{sessionUserId}/books/{bookId}/{fileName}";
+            book.ManuscriptPath = relativePath;
+            book.UpdatedAt = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, path = relativePath });
+        }
+
+        // ========================== ANALYZE MANUSCRIPT ===========================
+        // Extract text, split into chapters/sections, save structure into DB
+        [HttpPost]
+        public async Task<IActionResult> AnalyzeManuscript(int bookId)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.BookId == bookId && b.UserId == sessionUserId.Value);
+            if (book == null) return NotFound("Book not found.");
+            if (string.IsNullOrWhiteSpace(book.ManuscriptPath)) return BadRequest("Please upload a manuscript first.");
+
+            // Resolve physical path
+            var physicalPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", book.ManuscriptPath.TrimStart('/').Replace("/", Path.DirectorySeparatorChar.ToString()));
+            if (!System.IO.File.Exists(physicalPath)) return NotFound("Manuscript file missing.");
+
+            string text = string.Empty;
+            var ext = Path.GetExtension(physicalPath).ToLowerInvariant();
+            try
+            {
+                if (ext == ".txt")
+                {
+                    text = await System.IO.File.ReadAllTextAsync(physicalPath);
+                }
+                else
+                {
+                    // Placeholder extraction for .pdf/.docx to avoid new dependencies
+                    // In production, integrate a proper parser (e.g., iText7, DocX)
+                    text = $"[Placeholder extraction of {ext}] \n" + await System.IO.File.ReadAllTextAsync(physicalPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Failed to read manuscript: {ex.Message}");
+            }
+
+            // Naive split into chapters by headings or "Chapter"
+            var chapters = new List<(string title, string content)>();
+            var lines = text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+            var buffer = new StringBuilder();
+            string currentTitle = "Chapter 1";
+            int chapterCounter = 1;
+            foreach (var ln in lines)
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(ln.Trim(), @"^(Chapter\s+\d+|CHAPTER\s+\d+|#\s+|##\s+)", System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                {
+                    if (buffer.Length > 0)
+                    {
+                        chapters.Add((currentTitle, buffer.ToString().Trim()));
+                        buffer.Clear();
+                        chapterCounter++;
+                    }
+                    currentTitle = ln.Trim();
+                }
+                else
+                {
+                    buffer.AppendLine(ln);
+                }
+            }
+            if (buffer.Length > 0) chapters.Add((currentTitle, buffer.ToString().Trim()));
+            if (chapters.Count == 0) chapters.Add(("Chapter 1", text));
+
+            // Persist chapters (replace existing analyzed chapters)
+            using var tx = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                var existing = await _context.Chapters.Where(c => c.BookId == bookId).ToListAsync();
+                if (existing.Any())
+                {
+                    _context.Chapters.RemoveRange(existing);
+                    await _context.SaveChangesAsync();
+                }
+                int i = 1;
+                foreach (var ch in chapters)
+                {
+                    _context.Chapters.Add(new Chapters
+                    {
+                        BookId = bookId,
+                        ChapterNumber = i++,
+                        Title = ch.title,
+                        Content = ch.content,
+                        LanguageId = 1,
+                        Status = "Analyzed",
+                        CreatedAt = DateTime.UtcNow,
+                        UpdatedAt = DateTime.UtcNow
+                    });
+                }
+                await _context.SaveChangesAsync();
+
+                // Save TOC into Settings
+                var toc = chapters.Select((c, idx) => new { number = idx + 1, title = c.title }).ToList();
+                var tocJson = JsonConvert.SerializeObject(toc);
+                await UpsertSettingAsync($"book:{bookId}:toc", tocJson, "Book");
+
+                await tx.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                await tx.RollbackAsync();
+                return StatusCode(500, $"Analyze failed: {ex.Message}");
+            }
+
+            return Ok(new { success = true, chapters = chapters.Count });
+        }
+
+        // ========================== TITLE PAGE ===========================
+        // Save Title Page data to Settings to avoid schema changes
+        [HttpPost]
+        public async Task<IActionResult> SaveTitlePage([FromBody] object payload, int bookId)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+
+            // Store raw JSON under book-scoped key
+            await UpsertSettingAsync($"book:{bookId}:titlePage", payload?.ToString() ?? "{}", "Book");
+            return Ok(new { success = true });
+        }
+
+        // ========================== TABLE OF CONTENTS ===========================
+        [HttpPost]
+        public async Task<IActionResult> SaveToc([FromBody] object payload, int bookId)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+
+            await UpsertSettingAsync($"book:{bookId}:toc", payload?.ToString() ?? "[]", "Book");
+            return Ok(new { success = true });
+        }
+
+        // ========================== ADDITIONAL ELEMENTS ===========================
+        // Upsert each element into Chapters with ChapterNumber = 0 and unique Title
+        [HttpPost]
+        public async Task<IActionResult> SaveAdditionalElements([FromBody] IDictionary<string, string> elements, int bookId)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            if (elements == null || elements.Count == 0) return BadRequest("No elements supplied.");
+
+            var allowedTitles = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                "Proofreading notes","Editing notes","Copyright page content","Ghostwriting notes","Dedication","Epigraph","Preface","Foreword","Epilogue","Afterword","Other back matter"
+            };
+
+            foreach (var kv in elements)
+            {
+                var title = kv.Key?.Trim() ?? "";
+                if (!allowedTitles.Contains(title)) continue;
+                var content = kv.Value ?? "";
+
+                var chapter = await _context.Chapters.FirstOrDefaultAsync(c => c.BookId == bookId && c.ChapterNumber == 0 && c.Title == title);
+                if (chapter == null)
+                {
+                    _context.Chapters.Add(new Chapters
+                    {
+                        BookId = bookId,
+                        ChapterNumber = 0,
+                        Title = title,
+                        Content = content,
+                        Status = "Notes",
+                        LanguageId = 1,
+                        CreatedAt = DateTime.UtcNow,
+                        UpdatedAt = DateTime.UtcNow
+                    });
+                }
+                else
+                {
+                    chapter.Content = content;
+                    chapter.UpdatedAt = DateTime.UtcNow;
+                    _context.Chapters.Update(chapter);
+                }
+            }
+            await _context.SaveChangesAsync();
+            return Ok(new { success = true });
+        }
+
+        // ========================== COVER ===========================
+        [HttpPost]
+        public async Task<IActionResult> UploadCover(int bookId, IFormFile file)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            if (file == null || file.Length == 0) return BadRequest("No file uploaded.");
+
+            var allowed = new[] { ".png", ".jpg", ".jpeg", ".webp" };
+            var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
+            if (!allowed.Contains(ext)) return BadRequest("Only image files are allowed.");
+
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.BookId == bookId && b.UserId == sessionUserId.Value);
+            if (book == null) return NotFound("Book not found.");
+
+            var uploadsRoot = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", sessionUserId.Value.ToString(), "books", bookId.ToString());
+            Directory.CreateDirectory(uploadsRoot);
+            var fileName = $"cover_{DateTime.UtcNow:yyyyMMddHHmmss}{ext}";
+            var savePath = Path.Combine(uploadsRoot, fileName);
+            using (var stream = new FileStream(savePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            var relativePath = $"/uploads/{sessionUserId}/books/{bookId}/{fileName}";
+            book.CoverImagePath = relativePath;
+            book.UpdatedAt = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, path = relativePath });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GenerateAICover(int bookId, [FromBody] IDictionary<string, string> body)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            var prompt = body != null && body.TryGetValue("prompt", out var p) ? p : "";
+
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.BookId == bookId && b.UserId == sessionUserId.Value);
+            if (book == null) return NotFound("Book not found.");
+
+            // Placeholder AI cover generation: Use a stock placeholder and save the prompt in Settings
+            var placeholder = "/images/ai-cover-placeholder.png";
+            book.CoverImagePath = placeholder;
+            book.UpdatedAt = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
+            await UpsertSettingAsync($"book:{bookId}:aiCoverPrompt", prompt ?? "", "Book");
+
+            return Ok(new { success = true, path = placeholder });
+        }
+
+        // ========================== STYLING (requires purchased style feature) ===========================
+        [HttpPost]
+        public async Task<IActionResult> SaveStylePreferences(int bookId, [FromBody] object payload)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+
+            // Minimal entitlement check: ensure user has any feature containing "style"
+            var userIdString = sessionUserId.ToString();
+            var hasStyle = await _context.Set<UserFeatures>()
+                .Include(uf => uf.Feature)
+                .Where(uf => uf.UserId == userIdString)
+                .AnyAsync(uf => uf.Feature != null && 
+                                (uf.Feature.Name.ToLower().Contains("style") ||
+                                 uf.Feature.Key.ToLower().Contains("style")));
+            if (!hasStyle)
+            {
+                return StatusCode(402, "Styling is a premium feature. Please purchase to continue.");
+            }
+
+            await UpsertSettingAsync($"book:{bookId}:style", payload?.ToString() ?? "{}", "Style");
+            return Ok(new { success = true });
+        }
+
+        // ========================== PREVIEW (eBook/Print) ===========================
+        [HttpGet]
+        public async Task<IActionResult> GetPreviewHtml(int bookId, string mode = "ebook", string device = "kindle")
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.BookId == bookId && b.UserId == sessionUserId.Value);
+            if (book == null) return NotFound("Book not found.");
+
+            var chapters = await _context.Chapters
+                .Where(c => c.BookId == bookId && c.ChapterNumber >= 0)
+                .OrderBy(c => c.ChapterNumber)
+                .ToListAsync();
+
+            var sb = new StringBuilder();
+            sb.Append($"<div data-mode='{mode}' data-device='{device}'>");
+            sb.Append($"<h1>{System.Net.WebUtility.HtmlEncode(book.Title)}</h1>");
+            foreach (var ch in chapters)
+            {
+                var title = System.Net.WebUtility.HtmlEncode(ch.Title ?? $"Chapter {ch.ChapterNumber}");
+                sb.Append($"<h2>{title}</h2>");
+                sb.Append($"<div class='chapter'>{ch.Content}</div>");
+            }
+            sb.Append("</div>");
+            return Content(sb.ToString(), "text/html");
+        }
+
+        // ========================== GENERATION (EPUB/PDF - mock) ===========================
+        [HttpPost]
+        public async Task<IActionResult> GenerateFormats(int bookId, bool epub, bool pdf)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.BookId == bookId && b.UserId == sessionUserId.Value);
+            if (book == null) return NotFound("Book not found.");
+
+            // Simulate generation
+            var baseOut = $"/uploads/{sessionUserId}/books/{bookId}/output";
+            var outRoot = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", sessionUserId.Value.ToString(), "books", bookId.ToString(), "output");
+            Directory.CreateDirectory(outRoot);
+
+            string? epubPath = null;
+            string? pdfPath = null;
+
+            if (epub)
+            {
+                epubPath = $"{baseOut}/book_{DateTime.UtcNow:yyyyMMddHHmmss}.epub";
+                var physical = Path.Combine(outRoot, Path.GetFileName(epubPath));
+                await System.IO.File.WriteAllTextAsync(physical, "EPUB MOCK CONTENT");
+                await UpsertSettingAsync($"book:{bookId}:output:epub", epubPath, "Output");
+            }
+            if (pdf)
+            {
+                pdfPath = $"{baseOut}/book_{DateTime.UtcNow:yyyyMMddHHmmss}.pdf";
+                var physical = Path.Combine(outRoot, Path.GetFileName(pdfPath));
+                await System.IO.File.WriteAllTextAsync(physical, "PDF MOCK CONTENT");
+                await UpsertSettingAsync($"book:{bookId}:output:pdf", pdfPath, "Output");
+            }
+
+            return Ok(new { success = true, epubPath, pdfPath });
+        }
+
+        // ========================== LOCK SCREEN: VERIFY PASSWORD ===========================
+        [HttpPost]
+        public async Task<IActionResult> VerifyPassword([FromBody] IDictionary<string, string> body)
+        {
+            var sessionUserId = HttpContext.Session.GetInt32("UserId");
+            if (sessionUserId == null) return Unauthorized();
+            var pwd = body != null && body.TryGetValue("password", out var p) ? p : "";
+            if (string.IsNullOrWhiteSpace(pwd)) return BadRequest("Password required.");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == sessionUserId.Value);
+            if (user == null) return Unauthorized();
+
+            // NOTE: Passwords are stored as plain text in this project.
+            var ok = string.Equals(user.Password, pwd);
+            return ok ? Ok(new { success = true }) : Unauthorized(new { success = false, message = "Invalid password." });
+        }
+
+        // ========================== HELPERS ===========================
+        private async Task UpsertSettingAsync(string key, string value, string category)
+        {
+            var setting = await _context.Settings.FirstOrDefaultAsync(s => s.Key == key);
+            if (setting == null)
+            {
+                _context.Settings.Add(new Settings
+                {
+                    Key = key,
+                    Value = value,
+                    Category = category,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
+                });
+            }
+            else
+            {
+                setting.Value = value;
+                setting.Category = category;
+                setting.UpdatedAt = DateTime.UtcNow;
+                _context.Settings.Update(setting);
+            }
+            await _context.SaveChangesAsync();
+        }
+
+
 
     }
 }

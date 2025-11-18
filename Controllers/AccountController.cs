@@ -1,14 +1,23 @@
-﻿﻿﻿using EBookDashboard.Interfaces;
+﻿using EBookDashboard.Interfaces;
 using EBookDashboard.Models;
+using EBookDashboard.Models.DTO;
+using EBookDashboard.Models.ViewModels;
+using Humanizer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
-
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 namespace EBookDashboard.Controllers
 {
@@ -19,43 +28,288 @@ namespace EBookDashboard.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IEmailService _emailService;
         private readonly ILogger<AccountController> _logger;
+        private readonly IConfiguration _configuration;
 
         public AccountController(
             ApplicationDbContext context,
             IEmailService emailService,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
             _emailService = emailService;
             _logger = logger;
         }
-        //--------------------------------------------------------------------------
-        //-----------------  User Login -------------------------------------
-        //--------------------------------------------------------------------------           
-         // GET: /Account/Login
+        //---------------------------------------------------
+        //------   Action Method to Display User Login  ----
+        //---------------------------------------------------           
+        // GET: /Account/Login
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
-        
+        //================================================
+        //---- Action Method to Display User OTP Page ----
+        //================================================
+        [HttpGet]
+        public IActionResult LoginOtp()
+        {
+            if (TempData["UserEmail"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            ViewBag.UserEmail = TempData["UserEmail"];
+            TempData.Keep("UserEmail"); // Keep for subsequent requests
+            return View();
+        }
+        //---------------------------------------------------
+        //--------------- Check User Login OTP --------------
+        //---------------------------------------------------  
+        // POST: /Account/Login
+        [HttpPost]
+        public async Task<IActionResult> Login1(string UserEmail, string Password, bool RememberMe)
+        {
+            int? userId = 0;
+            // check Users table in MySQL & verify user credentials
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.UserEmail == UserEmail && u.Password == Password);
+            try
+            {
+                if (user == null)
+                {
+                    ViewBag.Error = "Invalid email or password";
+                    return View();
+                }
+                HttpContext.Session.SetInt32("UserId", user.UserId);
+                HttpContext.Session.SetString("FullName", user.FullName ?? "");
+                userId = user.UserId;
+
+                // Generate and send OTP
+                var otp = GenerateOtp();
+                await SaveOtp(UserEmail, otp);
+
+                // Send OTP via email
+                await SendOtpEmail(UserEmail, otp);
+
+                // Store email in TempData for OTP verification
+                TempData["UserEmail"] = UserEmail;
+                TempData["RememberMe"] = RememberMe;
+
+                return RedirectToAction("LoginOtp");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "An error occurred during login. Please try again."; ex.Message.ToString();
+                return View();
+            }
+        }
+        // OTP Verification
+        [HttpPost]
+        public async Task<IActionResult> VerifyOtp(string UserEmail, string OtpCode)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(UserEmail) || string.IsNullOrEmpty(OtpCode))
+                {
+                    ViewBag.Error = "Please enter the OTP code";
+                    ViewBag.UserEmail = UserEmail;
+                    return View("LoginOtp");
+                }
+
+                // Verify OTP
+                var isValid = await VerifyOtpAsync(UserEmail, OtpCode);
+
+                if (!isValid)
+                {
+                    ViewBag.Error = "Invalid or expired OTP code";
+                    ViewBag.UserEmail = UserEmail;
+                    return View("LoginOtp");
+                }
+
+                // Get user and create session
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.UserEmail == UserEmail);
+                if (user != null)
+                {
+                    // Set session variables
+                    HttpContext.Session.SetInt32("UserId", user.UserId);
+                    HttpContext.Session.SetString("FullName", user.FullName ?? "");
+
+                    // ✅ fetch role name from Roles table
+                    var role = await _context.Roles
+                        .Where(r => r.RoleId == user.RoleId)
+                        .Select(r => r.RoleName)
+                        .FirstOrDefaultAsync();
+
+                    // ✅ build claims
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, user.FullName),
+                        new Claim(ClaimTypes.Email, user.UserEmail),
+                        new Claim(ClaimTypes.Role, role ?? "Reader") // default role if null
+                    };
+
+                    var claimsIdentity = new ClaimsIdentity(
+                        claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = TempData["RememberMe"] != null ? (bool)TempData["RememberMe"] : false,
+                        ExpiresUtc = DateTime.UtcNow.AddMinutes(30) // session timeout
+                    };
+
+                    // ✅ Sign in the user with cookie
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity),
+                        authProperties);
+
+                    // Mark OTP as used
+                    await MarkOtpAsUsed(UserEmail, OtpCode);
+
+                    // ✅ redirect Role-based redirection in future, use this:
+                    if (role == "Admin")
+                        return RedirectToAction("Dashboard", "Admin");
+                    else if (role == "User" || role == "Author" || role == "Reader")
+                        return RedirectToAction("AIGenerateBook", "Books");
+                    else
+                        return RedirectToAction("AIGenerateBook", "Books"); // Default to AIGenerateBook               
+                }
+                else
+                {
+                    ViewBag.Error = "User not found";
+                    ViewBag.UserEmail = UserEmail;
+                    return View("LoginOtp");
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "An error occurred during verification. Please try again."; ex.Message.ToString(); ;
+                ViewBag.UserEmail = UserEmail;
+                return View("LoginOtp");
+            }
+        }
+        // Resend OTP
+        [HttpGet]
+        public async Task<IActionResult> ResendOtp(string userEmail)
+        {
+            try
+            {
+                var otp = GenerateOtp();
+                await SaveOtp(userEmail, otp);
+                await SendOtpEmail(userEmail, otp);
+
+                TempData["UserEmail"] = userEmail;
+                ViewBag.Success = "A new OTP has been sent to your email";
+                return View("LoginOtp");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Failed to resend OTP. Please try again."; ex.Message.ToString();
+                ViewBag.UserEmail = userEmail;
+                return View("LoginOtp");
+            }
+        }
+
+        //--------------------------------------------------------------------------
+        //-----------------  Private Helper Methods  -------------------------------
+        //--------------------------------------------------------------------------
+        private string GenerateOtp()
+        {
+            var random = new Random();
+            return random.Next(100000, 999999).ToString();
+        }
+
+        private async Task SaveOtp(string email, string otp)
+        {
+            // Remove existing OTPs for this email
+            var existingOtps = await _context.OtpVerifications
+                .Where(o => o.Email == email && !o.IsUsed)
+                .ToListAsync();
+
+            _context.OtpVerifications.RemoveRange(existingOtps);
+
+            // Save new OTP
+            var otpVerification = new OtpVerification
+            {
+                Email = email,
+                OtpCode = otp,
+                CreatedAt = DateTime.UtcNow,
+                ExpiresAt = DateTime.UtcNow.AddMinutes(5), // 5 minutes expiry
+                IsUsed = false,
+                Purpose = "Login"
+            };
+
+            _context.OtpVerifications.Add(otpVerification);
+            await _context.SaveChangesAsync();
+        }
+
+        private async Task<bool> VerifyOtpAsync(string email, string otp)
+        {
+            var otpRecord = await _context.OtpVerifications
+                .FirstOrDefaultAsync(o => o.Email == email &&
+                                         o.OtpCode == otp &&
+                                         !o.IsUsed &&
+                                         o.ExpiresAt > DateTime.UtcNow);
+
+            return otpRecord != null;
+        }
+
+        private async Task MarkOtpAsUsed(string email, string otp)
+        {
+            var otpRecord = await _context.OtpVerifications
+                .FirstOrDefaultAsync(o => o.Email == email && o.OtpCode == otp);
+
+            if (otpRecord != null)
+            {
+                otpRecord.IsUsed = true;
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task SendOtpEmail(string email, string otp)
+        {
+            var subject = "Your eBook Publisher Login OTP";
+            var body = $@"
+            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+                <h2 style='color: #667eea;'>eBook Publisher - OTP Verification</h2>
+                <p>Dear User,</p>
+                <p>Your One-Time Password (OTP) for login is:</p>
+                <div style='text-align: center; margin: 30px 0;'>
+                    <span style='font-size: 32px; font-weight: bold; color: #667eea; letter-spacing: 10px;'>{otp}</span>
+                </div>
+                <p>This OTP is valid for 5 minutes. Please do not share this code with anyone.</p>
+                <p>If you didn't request this OTP, please ignore this email.</p>
+                <br>
+                <p>Best regards,<br>eBook Publisher Team</p>
+            </div>";
+
+            await _emailService.SendEmailAsync(email, subject, body);
+        }
+
+        //---------------------------------------------------
+        //--------------- Check User Login Simple -----------
+        //---------------------------------------------------  
         // POST: /Account/Login
         [HttpPost]
         public async Task<IActionResult> Login(string UserEmail, string Password, bool RememberMe)
         {
             int? userId = 0;
-            // check against Users table in MySQL
+            // check Users table in MySQL & verify user credentials
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.UserEmail == UserEmail && u.Password == Password);
 
             if (user != null)
             {
                 HttpContext.Session.SetInt32("UserId", user.UserId);
+                HttpContext.Session.SetString("FullName", user.FullName ?? "");
                 userId = user.UserId;
-               // ✅ Login success → redirect to main layout (Dashboard, Home, etc.)
+
+                // ✅ Login success → redirect to main layout (Dashboard, Home, etc.)
 
                 // ✅ fetch role name from Roles table
-               var role = await _context.Roles
+                var role = await _context.Roles
                     .Where(r => r.RoleId == user.RoleId)
                     .Select(r => r.RoleName)
                     .FirstOrDefaultAsync();
@@ -84,8 +338,26 @@ namespace EBookDashboard.Controllers
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
 
-				// ✅ redirect to AI Writer after successful login
-				return RedirectToAction("AIGenerateBook", "Books");
+                // ✅ redirect to AI Writer after successful login
+                //return RedirectToAction("AIGenerateBook", "Books");
+
+                // ✅ redirect based on role
+                if (role == "Admin")
+                    return RedirectToAction("Dashboard", "Admin");
+                else if (role == "User")
+                    // ✅ redirect to AI Writer after successful login
+                    return RedirectToAction("AIGenerateBook", "Books");
+                //return RedirectToAction("Dashboard", "Author"); // Redirect Authors to Author Dashboard
+                else if (role == "Author")
+                    // ✅ redirect to AI Writer after successful login
+                    return RedirectToAction("AIGenerateBook", "Books");
+                //return RedirectToAction("Dashboard", "Editor");
+                else if (role == "Reader")
+                    // ✅ redirect to AI Writer after successful login
+                    return RedirectToAction("AIGenerateBook", "Books");
+                //return RedirectToAction("Index", "Dashboard"); // Redirect Readers to Reader Dashboard
+
+                return RedirectToAction("Index", "Dashboard"); // Default redirect to Dashboard
             }
             else
             {
@@ -109,7 +381,7 @@ namespace EBookDashboard.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(Users model, string ConfirmPassword)
         {
-            
+
             // Check ConfirmPassword
             if (model.Password != ConfirmPassword)
             {
@@ -145,7 +417,7 @@ namespace EBookDashboard.Controllers
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword()
-       {
+        {
             return View();
         }
         // POST: ForgotPassword Action --> It will generate email and return Views\Account\ForgotPassword.cshtml page
@@ -155,51 +427,77 @@ namespace EBookDashboard.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _context.Users
+                try
+                {
+                    var user = await _context.Users
                     .FirstOrDefaultAsync(u => u.UserEmail == model.UserEmail);
 
-                if (user != null)
-                {
-                    // Generate a random reset token (you can store it in DB with expiry)
-                    var token = Guid.NewGuid().ToString();
+                    if (user != null)
+                    {
+                        // Generate OTP for password reset
+                        var otp = GenerateOtp();
+                        // Generate a random reset token (you can store it in DB with expiry)
+                        var token = Guid.NewGuid().ToString();
 
-                    // Save token in DB (create a PasswordResetTokens table or add field in Users)
-                    var resetLink = Url.Action(
-                        "ResetPassword",
-                        "Account",
-                        new { email = model.UserEmail, token = token },
-                        Request.Scheme
-                    );
+                        // Save OTP & token to database
+                        await SavePasswordResetOtp(model.UserEmail, otp, token);
+                        // Send OTP via email
+                        await SendPasswordResetOtpEmail(model.UserEmail, otp);
 
-                        var emailBody = $@"
-                        <h2>Password Reset</h2>
-                        <p>Click the link below to reset your password:</p>
-                        <p><a href='{resetLink}'>Reset Password</a></p>
-                    ";
+                        // Store email in TempData for OTP verification
+                        TempData["ResetEmail"] = model.UserEmail;
+                        TempData["ResetToken"] = token;
 
-                    await _emailService.SendEmailAsync(model.UserEmail, "Password Reset Request", emailBody);
-                    _logger.LogWarning(resetLink);
+                        return RedirectToAction("ResetPasswordOtp");
+
+                        //// Save token in DB (create a PasswordResetTokens table or add field in Users)
+                        //var resetLink = Url.Action(
+                        //    "ResetPassword",
+                        //    "Account",
+                        //    new { email = model.UserEmail, token = token },
+                        //    Request.Scheme
+                        //);
+
+                        //var emailBody = $@"
+                        //    <h2>Password Reset</h2>
+                        //    <p>Click the link below to reset your password:</p>
+                        //    <p><a href='{resetLink}'>Reset Password</a></p>
+                        //";
+
+                        //await _emailService.SendEmailAsync(model.UserEmail, "Password Reset Request", emailBody);
+                        //_logger.LogWarning(resetLink);
+                        //return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                    }
+
+                    // Don’t reveal if email doesn’t exist (security best practice)
                     return RedirectToAction("ForgotPasswordConfirmation", "Account");
                 }
-
-                // Don’t reveal if email doesn’t exist
-                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error in ForgotPassword for email: {Email}", model.UserEmail);
+                    ViewBag.Error = "An error occurred while processing your request. Please try again.";
+                    return View(model);
+                }
+                //return View(model);
             }
-
             return View(model);
         }
+        //--------------------------------------------------------------------------
+        //-----------------  Confirmation Actions  ---------------------------------
+        //--------------------------------------------------------------------------
+
         [AllowAnonymous]
         public IActionResult ForgotPasswordConfirmation()
         {
             return View();
         }
         //--------------------------------------------------------------------------
-        //-----------------  Reset Password   --------------------------------------
+        //-----------------  Reset Password  2 --------------------------------------
         //--------------------------------------------------------------------------
         // POST: ForgotPassword Action --> It will generate email and return Views\Account\ForgotPassword.cshtml page
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> ResetPassword(ResetPassword model)
+        public async Task<IActionResult> ResetPasswordOld(ResetPassword model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -226,191 +524,281 @@ namespace EBookDashboard.Controllers
         }
 
         // GET: Reset Password Action --> It will Check toke and email and return Message page
+        //--------------------------------------------------------------------------
+        //-----------------  Reset Password OTP Verification  ----------------------
+        //--------------------------------------------------------------------------
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult ResetPassword(string token, string email)
+        public IActionResult ResetPasswordOtp()
         {
-            if (token == null || email == null)
+            if (TempData["ResetEmail"] == null)
             {
-                ModelState.AddModelError("", "Invalid Password reset token");
-                
+                return RedirectToAction("ForgotPassword");
             }
+
+            ViewBag.ResetEmail = TempData["ResetEmail"];
+            TempData.Keep("ResetEmail"); // Keep for subsequent requests
             return View();
         }
+
+
         // Logout
         public async Task<IActionResult> Logout()
         {
             // Clear session
             HttpContext.Session.Clear();
-            
+
             // Sign out from cookie authentication
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            
+
             return RedirectToAction("Login");
         }
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> VerifyResetPasswordOtp(string UserEmail, string OtpCode)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(UserEmail) || string.IsNullOrEmpty(OtpCode))
+                {
+                    ViewBag.Error = "Please enter the OTP code";
+                    ViewBag.ResetEmail = UserEmail;
+                    return View("ResetPasswordOtp");
+                }
 
-        //public IActionResult Login(string? returnUrl = null, bool sessionExpired = false)
-        //{
-        //    if (User.Identity?.IsAuthenticated == true)
-        //    {
-        //        return RedirectToAction("Index", "Dashboard");
-        //    }
+                // Verify OTP
+                var isValid = await VerifyPasswordResetOtpAsync(UserEmail, OtpCode);
 
-        //    ViewBag.ReturnUrl = returnUrl;
+                if (!isValid)
+                {
+                    ViewBag.Error = "Invalid or expired OTP code";
+                    ViewBag.ResetEmail = UserEmail;
+                    return View("ResetPasswordOtp");
+                }
 
-        //    if (sessionExpired)
-        //    {
-        //        ViewBag.Message = "Your session has expired. Please log in again.";
-        //    }
+                // Get the reset record to pass token
+                var resetRecord = await _context.PasswordResets
+                    .FirstOrDefaultAsync(r => r.Email == UserEmail &&
+                                             r.OTP == OtpCode &&
+                                             !r.IsUsed &&
+                                             r.ExpiresAt > DateTime.UtcNow);
 
-        //    return View();
-        //}
+                if (resetRecord != null)
+                {
+                    // Mark OTP as used
+                    resetRecord.IsUsed = true;
+                    await _context.SaveChangesAsync();
 
-        //// API endpoint for checking authentication status
-        //[HttpGet]
-        //public IActionResult CheckAuth()
-        //{
-        //    if (User.Identity?.IsAuthenticated == true)
-        //    {
-        //        return Ok(new { isAuthenticated = true, userName = User.Identity.Name });
-        //    }
-        //    return Unauthorized();
-        //}
+                    // Redirect to reset password page with token
+                    return RedirectToAction("ResetPassword", new
+                    {
+                        email = UserEmail,
+                        token = resetRecord.Token
+                    });
+                }
 
-        // API endpoint for checking session status
-        //[HttpGet]
-        //[Authorize]
-        //public IActionResult CheckSession()
-        //{
-        //    var lastActivity = HttpContext.Session.GetString("LastActivity");
-        //    if (lastActivity != null)
-        //    {
-        //        var lastActivityTime = DateTime.Parse(lastActivity);
-        //        var timeRemaining = TimeSpan.FromMinutes(30) - (DateTime.UtcNow - lastActivityTime);
+                ViewBag.Error = "Invalid OTP verification";
+                ViewBag.ResetEmail = UserEmail;
+                return View("ResetPasswordOtp");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in VerifyResetPasswordOtp for email: {Email}", UserEmail);
+                ViewBag.Error = "An error occurred during verification. Please try again.";
+                ViewBag.ResetEmail = UserEmail;
+                return View("ResetPasswordOtp");
+            }
+        }
+        //=================================================================
+        //--------- HttpGet  -->  Reset Password New  
+        //===============================================================
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string email, string token)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(token))
+            {
+                ViewBag.Error = "Invalid reset link";
+                return View();
+            }
 
-        //        return Ok(new { 
-        //            isActive = true, 
-        //            timeRemaining = timeRemaining.TotalMinutes,
-        //            lastActivity = lastActivityTime
-        //        });
-        //    }
-        //    return Unauthorized();
-        //}
+            var model = new ResetPassword
+            {
+                UserEmail = email,
+                Token = token
+            };
 
-        //[HttpPost]
-        //public async Task<IActionResult> Login(LoginViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        var errors = ModelState.SelectMany(x => x.Value.Errors).Select(x => x.ErrorMessage).ToList();
-        //        var errorMessage = string.Join(", ", errors);
-        //        if (Request.Headers["Content-Type"].ToString().Contains("application/json"))
-        //            return Json(new { success = false, message = errorMessage });
-        //        ViewBag.Error = errorMessage;
-        //        return View();
-        //    }
+            return View(model);
+        }
+        //===========================================================
+        //---- HttpPost --> Action Method to Reset User Password ----
+        //=========================================================== 
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPassword model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-        //    // Simple authentication - in production, use proper password hashing and database
-        //    var users = HttpContext.Session.GetString("RegisteredUsers");
-        //    if (!string.IsNullOrEmpty(users))
-        //    {
-        //        var userList = System.Text.Json.JsonSerializer.Deserialize<List<UserRegistrationModel>>(users);
-        //        var user = userList?.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
+            try
+            {
+                // Validate token
+                var isValidToken = await ValidateResetTokenAsync(model.UserEmail, model.Token);
 
-        //        if (user != null)
-        //        {
-        //            var claims = new List<Claim>
-        //            {
-        //                new Claim(ClaimTypes.Name, user.FullName),
-        //                new Claim(ClaimTypes.Email, user.Email),
-        //                new Claim("AuthorName", user.AuthorName ?? ""),
-        //                new Claim("Genre", user.Genre ?? "")
-        //            };
+                if (!isValidToken)
+                {
+                    ViewBag.Error = "Invalid or expired reset token";
+                    return View(model);
+                }
 
-        //            var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
-        //            var authProperties = new AuthenticationProperties
-        //            {
-        //                IsPersistent = model.RememberMe,
-        //                ExpiresUtc = DateTimeOffset.UtcNow.AddDays(model.RememberMe ? 30 : 1)
-        //            };
+                var user = await _context.Users
+                    .FirstOrDefaultAsync(u => u.UserEmail == model.UserEmail);
 
-        //            await HttpContext.SignInAsync("Cookies", new ClaimsPrincipal(claimsIdentity), authProperties);
+                if (user == null)
+                {
+                    // Don't reveal user existence
+                    return RedirectToAction("ResetPasswordConfirmation");
+                }
 
-        //            if (Request.Headers["Content-Type"].ToString().Contains("application/json"))
-        //                return Json(new { success = true, message = "Login successful!", redirectUrl = "/Dashboard" });
-        //            return RedirectToAction("Index", "Dashboard");
-        //        }
-        //    }
+                // Update password (in production, hash the password!)
+                user.Password = model.Password;
+                _context.Users.Update(user);
 
-        //    var loginErrorMessage = "Invalid email or password.";
-        //    if (Request.Headers["Content-Type"].ToString().Contains("application/json"))
-        //        return Json(new { success = false, message = loginErrorMessage });
-        //    ViewBag.Error = loginErrorMessage;
-        //    return View();
-        //}
+                // Mark all reset tokens for this email as used
+                var resetRecords = await _context.PasswordResets
+                    .Where(r => r.Email == model.UserEmail && !r.IsUsed)
+                    .ToListAsync();
 
-        //[HttpPost]  
-        //public async Task<IActionResult> Register(UserRegistrationModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        var errors = ModelState.SelectMany(x => x.Value.Errors).Select(x => x.ErrorMessage).ToList();
-        //        var errorMessage = string.Join(", ", errors);
-        //        if (Request.Headers["Content-Type"].ToString().Contains("application/json"))
-        //            return Json(new { success = false, message = errorMessage });
-        //        ViewBag.Error = errorMessage;
-        //        return View("Login");
-        //    }
+                foreach (var record in resetRecords)
+                {
+                    record.IsUsed = true;
+                }
 
-        //    if (model.Password != model.ConfirmPassword)
-        //    {
-        //        var passwordMismatchError = "Passwords do not match!";
-        //        if (Request.Headers["Content-Type"].ToString().Contains("application/json"))
-        //            return Json(new { success = false, message = passwordMismatchError });
-        //        ViewBag.Error = passwordMismatchError;
-        //        return View("Login");
-        //    }
+                await _context.SaveChangesAsync();
 
-        //    // Get existing users from session
-        //    var existingUsers = new List<UserRegistrationModel>();
-        //    var usersJson = HttpContext.Session.GetString("RegisteredUsers");
-        //    if (!string.IsNullOrEmpty(usersJson))
-        //    {
-        //        existingUsers = System.Text.Json.JsonSerializer.Deserialize<List<UserRegistrationModel>>(usersJson) ?? new List<UserRegistrationModel>();
-        //    }
+                _logger.LogInformation("Password reset successfully for {Email}", model.UserEmail);
 
-        //    // Check if user already exists
-        //    if (existingUsers.Any(u => u.Email == model.Email))
-        //    {
-        //        var duplicateEmailError = "An account with this email already exists.";
-        //        if (Request.Headers["Content-Type"].ToString().Contains("application/json"))
-        //            return Json(new { success = false, message = duplicateEmailError });
-        //        ViewBag.Error = duplicateEmailError;
-        //        return View("Login");
-        //    }
+                return RedirectToAction("ResetPasswordConfirmation");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in ResetPassword for email: {Email}", model.UserEmail);
+                ViewBag.Error = "An error occurred while resetting your password. Please try again.";
+                return View(model);
+            }
+        }
 
-        //    // Add new user
-        //    existingUsers.Add(model);
+        //--------------------------------------------------------------------------
+        //-----------------  Resend Reset Password OTP  ----------------------------
+        //--------------------------------------------------------------------------
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResendResetPasswordOtp(string userEmail)
+        {
+            try
+            {
+                var otp = GenerateOtp();
+                var token = Guid.NewGuid().ToString();
 
-        //    // Save back to session
-        //    var updatedUsersJson = System.Text.Json.JsonSerializer.Serialize(existingUsers);
-        //    HttpContext.Session.SetString("RegisteredUsers", updatedUsersJson);
+                await SavePasswordResetOtp(userEmail, otp, token);
+                await SendPasswordResetOtpEmail(userEmail, otp);
 
-        //    if (Request.Headers["Content-Type"].ToString().Contains("application/json"))
-        //        return Json(new { success = true, message = "Account created successfully!" });
-        //    ViewBag.Success = "Account created successfully! Please login.";
-        //    return View("Login");
-        //}
+                TempData["ResetEmail"] = userEmail;
+                TempData["ResetToken"] = token;
 
-        //public async Task<IActionResult> Logout()
-        //{
-        //    await HttpContext.SignOutAsync("Cookies");
-        //    return RedirectToAction("Login");
-        //}
+                ViewBag.Success = "A new OTP has been sent to your email";
+                ViewBag.ResetEmail = userEmail;
+                return View("ResetPasswordOtp");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in ResendResetPasswordOtp for email: {Email}", userEmail);
+                ViewBag.Error = "Failed to resend OTP. Please try again.";
+                ViewBag.ResetEmail = userEmail;
+                return View("ResetPasswordOtp");
+            }
+        }
+        [AllowAnonymous]
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
+        private async Task SavePasswordResetOtp(string email, string otp, string token)
+        {
+            if (string.IsNullOrEmpty(email))
+                throw new ArgumentException("Email cannot be null or empty", nameof(email));
+            // Remove existing unused OTPs for this email
+            var existingResets = await _context.PasswordResets
+                .Where(r => r.Email == email && !r.IsUsed)
+                .ToListAsync();
 
-        //public IActionResult AccessDenied()
-        //{
-        //    return View();
-        //}
+            if (existingResets.Any())
+            {
+                _context.PasswordResets.RemoveRange(existingResets);
+            }
+
+            // Save new OTP
+            var passwordReset = new PasswordReset
+            {
+                Email = email,
+                OTP = otp,
+                Token = token,
+                CreatedAt = DateTime.UtcNow,
+                ExpiresAt = DateTime.UtcNow.AddMinutes(10), // 10 minutes expiry
+                IsUsed = false
+            };
+
+            _context.PasswordResets.Add(passwordReset);
+            await _context.SaveChangesAsync();
+        }
+
+        private async Task<bool> VerifyPasswordResetOtpAsync(string email, string otp)
+        {
+            var resetRecord = await _context.PasswordResets
+                .FirstOrDefaultAsync(r => r.Email == email &&
+                                         r.OTP == otp &&
+                                         !r.IsUsed &&
+                                         r.ExpiresAt > DateTime.UtcNow);
+
+            return resetRecord != null;
+        }
+
+        private async Task<bool> ValidateResetTokenAsync(string email, string token)
+        {
+            var resetRecord = await _context.PasswordResets
+                .FirstOrDefaultAsync(r => r.Email == email &&
+                                         r.Token == token &&
+                                         !r.IsUsed &&
+                                         r.ExpiresAt > DateTime.UtcNow);
+
+            return resetRecord != null;
+        }
+
+        private async Task SendPasswordResetOtpEmail(string email, string otp)
+        {
+            var subject = "eBook Publisher - Password Reset OTP";
+            var body = $@"
+            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+                <h2 style='color: #667eea;'>eBook Publisher - Password Reset</h2>
+                <p>Dear User,</p>
+                <p>You have requested to reset your password. Use the OTP below to verify your identity:</p>
+                <div style='text-align: center; margin: 30px 0;'>
+                    <span style='font-size: 32px; font-weight: bold; color: #667eea; letter-spacing: 10px;'>{otp}</span>
+                </div>
+                <p>This OTP is valid for 10 minutes. Please do not share this code with anyone.</p>
+                <p>If you didn't request a password reset, please ignore this email.</p>
+                <br>
+                <p>Best regards,<br>eBook Publisher Team</p>
+            </div>";
+
+            await _emailService.SendEmailAsync(email, subject, body);
+        }
+
+        // ... [Your existing other methods] ...
+        private async Task CreateUserSession(Users user)
+        {
+        }
     }
 }

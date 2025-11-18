@@ -20,14 +20,16 @@ namespace EBookDashboard.Controllers
     public class PaymentsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IPlanFeaturesService _planFeaturesService;
+       // private readonly IPlanFeaturesService _planFeaturesService;
         private readonly IPlansService _plansService;
         private readonly IAuthorPlansService _authorPlansService;
         private readonly IAuthorBillsService _authorBillsService;
-        public PaymentsController(ApplicationDbContext context, IAuthorBillsService authorBillsService)
+        private readonly ICheckoutService _checkoutService;
+        public PaymentsController(ApplicationDbContext context, IAuthorBillsService authorBillsService, ICheckoutService checkoutService)
         {
             _context = context;
             _authorBillsService = authorBillsService;
+            _checkoutService = checkoutService;
         }
         // Confirm Payment
         [HttpPost]
@@ -48,7 +50,7 @@ namespace EBookDashboard.Controllers
         //       Checkout Payment via AuthorBills
         //============================================
         [HttpGet]
-        public async Task<IActionResult> CheckoutPayment(int? billId = null, string featureIds = null)
+        public async Task<IActionResult> CheckoutPayment(int? billId = null, string? featureIds = null)
         {
             if (!billId.HasValue || billId.Value <= 0)
             {
@@ -82,6 +84,167 @@ namespace EBookDashboard.Controllers
             // Return the view with the bill
             return View("CheckoutPayment", authorBill);
          }
+
+        // =============================
+        // Payment Summary (features)
+        // =============================
+        [HttpGet]
+        public async Task<IActionResult> PaymentSummary(int? billId = null)
+        {
+            var username = User.Identity?.Name;
+            if (string.IsNullOrEmpty(username)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FullName == username);
+            if (user == null) return Unauthorized();
+
+            // Resolve bill
+            AuthorBills? bill = null;
+            if (billId.HasValue && billId.Value > 0)
+            {
+                bill = await _authorBillsService.GetBillByIdAsync(billId.Value);
+            }
+            else
+            {
+                bill = await _authorBillsService.GetRecentBillByUserAsync(user.UserId, user.UserEmail);
+            }
+            if (bill == null) return BadRequest("No bill found. Please select features first.");
+            if (bill.UserId != user.UserId) return Unauthorized("This bill does not belong to you");
+
+            // Build summary
+            var vm = new PaymentSummaryViewModel();
+            decimal subtotal = 0m;
+            if (bill.AuthorPlanFeatures != null)
+            {
+                foreach (var apf in bill.AuthorPlanFeatures)
+                {
+                    var feature = apf.PlanFeature;
+                    if (feature == null) continue;
+                    vm.CartItems.Add(new CartItemViewModel
+                    {
+                        FeatureId = feature.FeatureId,
+                        FeatureName = feature.FeatureName ?? "Feature",
+                        Description = feature.Description ?? string.Empty,
+                        FeatureRate = feature.FeatureRate
+                    });
+                    subtotal += feature.FeatureRate;
+                }
+            }
+            vm.Subtotal = subtotal;
+            vm.Tax = Math.Round(subtotal * 0.10m, 2); // 10% tax example
+            vm.Discount = 0m;
+            vm.Total = vm.Subtotal + vm.Tax - vm.Discount;
+
+            return View("PaymentSummary", vm);
+        }
+
+        // =============================
+        // Stripe: Create Checkout Session
+        // =============================
+        [HttpPost]
+        public async Task<IActionResult> CreateCheckoutSession()
+        {
+            try
+            {
+                var username = User.Identity?.Name;
+                if (string.IsNullOrEmpty(username)) return Unauthorized(new { success = false, message = "Unauthorized" });
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.FullName == username);
+                if (user == null) return Unauthorized(new { success = false, message = "Unauthorized" });
+
+                // Fetch recent bill WITHOUT including AuthorPlanFeatures to avoid DBs lacking BillId in that table
+                var recentBill = await _context.AuthorBills
+                    .Where(b => b.UserId == user.UserId && b.UserEmail == user.UserEmail && b.IsActive == 1)
+                    .OrderByDescending(b => b.CreatedAt)
+                    .FirstOrDefaultAsync();
+                if (recentBill == null) return BadRequest(new { success = false, message = "No bill found" });
+
+                // Amount in cents for Stripe (use bill totals)
+                var baseTotal = recentBill.TotalAmount > 0 ? recentBill.TotalAmount : 0m;
+                var totalAmount = (baseTotal + (recentBill.TaxAmount > 0 ? recentBill.TaxAmount : 0m)) * 100m;
+                var amountCents = (long)Math.Round(totalAmount, 0, MidpointRounding.AwayFromZero);
+
+                var session = await _checkoutService.CreateCheckoutSessionAsync("EBook Features", amountCents, recentBill.Currency ?? "usd");
+                return Json(new { success = true, url = session.Url });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
+
+        // =============================
+        // Fallback: Create bill from featureIds and show summary
+        // =============================
+        [HttpGet]
+        public async Task<IActionResult> PaymentSummaryFromFeatures(string featureIds)
+        {
+            var username = User.Identity?.Name;
+            if (string.IsNullOrEmpty(username)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.FullName == username);
+            if (user == null) return Unauthorized();
+
+            var ids = (featureIds ?? "")
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(s => { int v; return int.TryParse(s, out v) ? v : 0; })
+                .Where(v => v > 0)
+                .Distinct()
+                .ToList();
+            if (ids.Count == 0) return BadRequest("No features selected");
+
+            using var tx = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                // Create bill shell (totals only)
+                var bill = new AuthorBills
+                {
+                    AuthorId = user.UserId,
+                    UserId = user.UserId,
+                    UserEmail = user.UserEmail,
+                    Currency = "usd",
+                    CreatedAt = DateTime.UtcNow,
+                    IsActive = 1,
+                    Status = "Pending"
+                };
+                _context.AuthorBills.Add(bill);
+                await _context.SaveChangesAsync();
+
+                // Build summary items and subtotal
+                var items = new List<CartItemViewModel>();
+                decimal subtotal = 0m;
+                foreach (var fid in ids)
+                {
+                    var feat = await _context.PlanFeatures.FirstOrDefaultAsync(f => f.FeatureId == fid);
+                    if (feat == null) continue;
+                    items.Add(new CartItemViewModel
+                    {
+                        FeatureId = feat.FeatureId,
+                        FeatureName = feat.FeatureName ?? "Feature",
+                        Description = feat.Description ?? string.Empty,
+                        FeatureRate = feat.FeatureRate
+                    });
+                    subtotal += feat.FeatureRate;
+                }
+
+                bill.TotalAmount = subtotal;
+                bill.TaxAmount = Math.Round(subtotal * 0.10m, 2);
+                await _context.SaveChangesAsync();
+
+                await tx.CommitAsync();
+
+                var vm = new PaymentSummaryViewModel
+                {
+                    CartItems = items,
+                    Subtotal = subtotal,
+                    Tax = bill.TaxAmount,
+                    Discount = 0m,
+                    Total = subtotal + bill.TaxAmount
+                };
+                return View("PaymentSummary", vm);
+            }
+            catch (Exception ex)
+            {
+                await tx.RollbackAsync();
+                return BadRequest($"Failed to create bill: {ex.GetBaseException().Message}");
+            }
+        }
         //=======================================
         //           Start Checkout
         //=======================================
@@ -269,7 +432,7 @@ namespace EBookDashboard.Controllers
                 // Log error
                 //_logger.LogError(ex, "Error generating invoice");
 
-                TempData["Error"] = "Error generating invoice. Please try again.";
+                TempData["Error"] = "Error generating invoice. Please try again."; ex.Message.ToString();
                 return RedirectToAction("LoadFeatureLocks");
             }
         }

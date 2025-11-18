@@ -55,6 +55,19 @@ namespace EBookDashboard.Controllers
             await _context.SaveChangesAsync();
             return Ok(new { message = "Feature deleted successfully" });
         }
+
+        // API route variant for SPA usage
+        [HttpDelete("/api/planfeatures/{id}")]
+        public async Task<ActionResult> ApiDeleteFeature(int id)
+        {
+            var feature = await _context.PlanFeatures.FindAsync(id);
+            if (feature == null)
+                return NotFound(new { message = "Feature not found" });
+
+            _context.PlanFeatures.Remove(feature);
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Feature deleted successfully" });
+        }
     }
 
 }

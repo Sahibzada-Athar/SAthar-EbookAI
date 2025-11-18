@@ -167,15 +167,15 @@ namespace EBookDashboard.Controllers
 
     public class DocumentModel
     {
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public string DocumentId { get; set; }
+        public string? Title { get; set; } = string.Empty;
+        public string? Content { get; set; } = string.Empty;
+        public string? DocumentId { get; set; } = string.Empty;
     }
 
     public class AISuggestionRequest
     {
-        public string Text { get; set; }
-        public string SuggestionType { get; set; }
+        public string? Text { get; set; } = string.Empty;
+        public string? SuggestionType { get; set; } = string.Empty;
     }
 }
 

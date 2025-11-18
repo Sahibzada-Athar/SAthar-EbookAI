@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using EBookDashboard.Models;
+﻿using EBookDashboard.Models;
+using EBookDashboard.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace EBookDashboard.Models
 {
@@ -17,7 +18,7 @@ namespace EBookDashboard.Models
 
         // Add this new DbSet for raw responses
         public DbSet<APIRawResponse> APIRawResponse { get; set; }
-       
+
         // ✍️ Author-related
         public DbSet<Authors> Authors { get; set; }
         public DbSet<AuthorPlans> AuthorPlans { get; set; }
@@ -27,6 +28,12 @@ namespace EBookDashboard.Models
         // 👥 User-related
         public DbSet<Users> Users { get; set; }
         public DbSet<Roles> Roles { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserPreference> UserPreferences { get; set; }
+        public DbSet<UserFeatures> UserFeatures { get; set; }
+        public DbSet<Features> Features { get; set; }
+        public DbSet<OtpVerification> OtpVerifications { get; set; }
+        public DbSet<PasswordReset> PasswordResets { get; set; }
 
         // 🏷 Misc / others
         public DbSet<Categories> Categories { get; set; }
@@ -35,10 +42,23 @@ namespace EBookDashboard.Models
         public DbSet<PlanFeatures> PlanFeatures { get; set; }
         public DbSet<PubCost> PubCosts { get; set; }
         public DbSet<RecordStatus> RecordStatus { get; set; }
-        
+        public DbSet<Settings> Settings { get; set; }
+        public DbSet<AuditLog> AuditLogs { get; set; }
+        public object AuthorPlanFeatures { get; internal set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            // Configure PasswordReset entity
+            modelBuilder.Entity<PasswordReset>(entity =>
+            {
+                entity.HasKey(e => e.ResetId);
+                entity.Property(e => e.Email).IsRequired().HasMaxLength(255);
+                entity.Property(e => e.OTP).IsRequired().HasMaxLength(6);
+                entity.Property(e => e.Token).HasMaxLength(255);
+                entity.HasIndex(e => new { e.Email, e.OTP, e.IsUsed });
+            });
+
             modelBuilder.Entity<Plans>().HasData(
                 new Plans { PlanId = 1, PlanName = "Free Trial", PlanRate = 0, PlanDays = 30, PlanDescription = "Free 1-month trial" },
                 new Plans { PlanId = 2, PlanName = "Basic Plan", PlanRate = 9.99m, PlanDays = 30, PlanDescription = "Basic monthly subscription" },
@@ -62,15 +82,15 @@ namespace EBookDashboard.Models
             modelBuilder.Entity<PubCost>()
                 .Property(p => p.Amount)
                 .HasPrecision(10, 2);
-                
+
             modelBuilder.Entity<PlanFeatures>()
                 .Property(p => p.FeatureRate)
                 .HasPrecision(10, 2);
-                
+
             modelBuilder.Entity<AuthorPlanFeatures>()
                 .Property(p => p.FeatureRate)
                 .HasPrecision(10, 2);
-                
+
             modelBuilder.Entity<AuthorPlanFeatures>()
                 .Property(p => p.TotalAmount)
                 .HasPrecision(10, 2);
@@ -99,13 +119,53 @@ namespace EBookDashboard.Models
                 .WithMany(r => r.Users)
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
-                
+
             // Configure relationships for feature tables
             modelBuilder.Entity<AuthorPlanFeatures>()
                 .HasOne(apf => apf.PlanFeature)
                 .WithMany()
                 .HasForeignKey(apf => apf.FeatureId)
                 .OnDelete(DeleteBehavior.Cascade);
+            // Configure UserFeatures to Features relationship
+            modelBuilder.Entity<UserFeatures>()
+                .HasOne(uf => uf.Feature)
+                .WithMany(f => f.UserFeatures)
+                .HasForeignKey(uf => uf.FeatureId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Ensure relationship between AuthorPlanFeatures and AuthorBills via BillId
+            modelBuilder.Entity<AuthorPlanFeatures>()
+                .HasOne(apf => apf.AuthorBill)
+                .WithMany(b => b.AuthorPlanFeatures)
+                .HasForeignKey(apf => apf.BillId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Configure Notification relationships
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.User)
+                .WithMany()
+                .HasForeignKey(n => n.UserId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Configure UserPreference relationships
+            modelBuilder.Entity<UserPreference>()
+                .HasOne(up => up.User)
+                .WithMany()
+                .HasForeignKey(up => up.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Configure AuditLog relationships
+            modelBuilder.Entity<AuditLog>()
+                .HasOne(al => al.User)
+                .WithMany()
+                .HasForeignKey(al => al.UserId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Unique constraint on Settings Key
+            modelBuilder.Entity<Settings>()
+                .HasIndex(s => s.Key)
+                .IsUnique();
+
         }
     }
 }

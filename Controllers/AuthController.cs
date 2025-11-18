@@ -33,7 +33,7 @@ namespace EBookDashboard.Controllers
                 return Unauthorized(new { message = "Invalid credentials" });
 
             // find role name (if you have Roles table)
-            string roleName = null;
+            string? roleName = null;
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.RoleId == user.RoleId); // adjust to your Roles DbSet
             if (role != null) roleName = role.RoleName;
 

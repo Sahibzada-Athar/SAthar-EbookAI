@@ -14,29 +14,20 @@ namespace EBookDashboard.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Features",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Key = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    Type = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    IsActive = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Features", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
+            // Only create Features table if it doesn't exist (using MySQL IF NOT EXISTS)
+            migrationBuilder.Sql(@"
+                CREATE TABLE IF NOT EXISTS `Features` (
+                    `Id` int NOT NULL AUTO_INCREMENT,
+                    `Key` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+                    `Name` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+                    `Description` varchar(500) CHARACTER SET utf8mb4 NOT NULL,
+                    `Price` decimal(10,2) NOT NULL,
+                    `Type` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+                    `IsActive` tinyint(1) NOT NULL,
+                    `CreatedAt` datetime(6) NOT NULL,
+                    CONSTRAINT `PK_Features` PRIMARY KEY (`Id`)
+                ) CHARACTER SET=utf8mb4;
+            ");
 
             migrationBuilder.CreateTable(
                 name: "TemporaryFeatures",
@@ -93,18 +84,17 @@ namespace EBookDashboard.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.InsertData(
-                table: "Features",
-                columns: new[] { "Id", "CreatedAt", "Description", "IsActive", "Key", "Name", "Price", "Type" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2025, 10, 15, 18, 29, 18, 466, DateTimeKind.Utc).AddTicks(470), "Create and format professional eBooks with our easy-to-use editor.", true, "ebook_creation", "EBook Creation", 0.00m, "Basic" },
-                    { 2, new DateTime(2025, 10, 15, 18, 29, 18, 466, DateTimeKind.Utc).AddTicks(3004), "Design stunning book covers with our AI-powered tool.", true, "cover_design", "Cover Design", 19.99m, "Premium" },
-                    { 3, new DateTime(2025, 10, 15, 18, 29, 18, 466, DateTimeKind.Utc).AddTicks(3011), "Convert your book into a professional audiobook.", true, "audio_book", "Audio Book", 49.99m, "Premium" },
-                    { 4, new DateTime(2025, 10, 15, 18, 29, 18, 466, DateTimeKind.Utc).AddTicks(3012), "Professional proofreading and editing services.", true, "proofreading", "Proofreading", 29.99m, "Premium" },
-                    { 5, new DateTime(2025, 10, 15, 18, 29, 18, 466, DateTimeKind.Utc).AddTicks(3013), "Track your sales and reader engagement with detailed analytics.", true, "analytics", "Analytics", 14.99m, "Premium" },
-                    { 6, new DateTime(2025, 10, 15, 18, 29, 18, 466, DateTimeKind.Utc).AddTicks(3017), "Promote your book with our integrated marketing suite.", true, "marketing_tools", "Marketing Tools", 24.99m, "Marketing" }
-                });
+            // Insert Features data only if records don't exist (using INSERT IGNORE)
+            migrationBuilder.Sql(@"
+                INSERT IGNORE INTO `Features` (`Id`, `CreatedAt`, `Description`, `IsActive`, `Key`, `Name`, `Price`, `Type`)
+                VALUES 
+                    (1, '2025-10-15 18:29:18.466470', 'Create and format professional eBooks with our easy-to-use editor.', 1, 'ebook_creation', 'EBook Creation', 0.00, 'Basic'),
+                    (2, '2025-10-15 18:29:18.4663004', 'Design stunning book covers with our AI-powered tool.', 1, 'cover_design', 'Cover Design', 19.99, 'Premium'),
+                    (3, '2025-10-15 18:29:18.4663011', 'Convert your book into a professional audiobook.', 1, 'audio_book', 'Audio Book', 49.99, 'Premium'),
+                    (4, '2025-10-15 18:29:18.4663012', 'Professional proofreading and editing services.', 1, 'proofreading', 'Proofreading', 29.99, 'Premium'),
+                    (5, '2025-10-15 18:29:18.4663013', 'Track your sales and reader engagement with detailed analytics.', 1, 'analytics', 'Analytics', 14.99, 'Premium'),
+                    (6, '2025-10-15 18:29:18.4663017', 'Promote your book with our integrated marketing suite.', 1, 'marketing_tools', 'Marketing Tools', 24.99, 'Marketing');
+            ");
 
             migrationBuilder.UpdateData(
                 table: "Plans",
